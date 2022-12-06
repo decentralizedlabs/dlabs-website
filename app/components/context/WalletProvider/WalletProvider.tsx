@@ -3,11 +3,11 @@
 import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit"
 import { alchemyProvider } from "wagmi/providers/alchemy"
 import { publicProvider } from "wagmi/providers/public"
-import { chain, createClient, configureChains, WagmiConfig, Chain } from "wagmi"
+import { chain, createClient, configureChains, WagmiConfig } from "wagmi"
 import "@rainbow-me/rainbowkit/styles.css"
 import { appName } from "app/components/layout/DefaultHead/DefaultHead"
 
-const env = String(process.env.NEXT_PUBLIC_ENV) as "mainnet" | "goerli"
+const env = String(process.env.NEXT_PUBLIC_ENV)
 const alchemyId = String(process.env.NEXT_PUBLIC_ALCHEMY_ID)
 
 const customChains = [chain[env]]

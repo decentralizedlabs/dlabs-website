@@ -1,5 +1,3 @@
-"use client"
-
 import { Container } from "./layout"
 
 export default function Homepage() {
