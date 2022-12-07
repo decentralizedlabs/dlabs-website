@@ -39,9 +39,9 @@ export default function CreditsCounter() {
   useEffect(() => {
     if (account) {
       const getUsedUnits = async (account: string) => {
-        setUsedUnits(
-          Number(await fetcher(`/api/credits?account=${account}`)) || 0
-        )
+        const data = await fetcher(`/api/credits?account=${account}`)
+        const usedUnits = data?.usedUnits
+        setUsedUnits(Number(usedUnits) || 0)
       }
 
       getUsedUnits(account)

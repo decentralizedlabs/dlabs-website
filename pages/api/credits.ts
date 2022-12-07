@@ -11,12 +11,13 @@ export default async function handler(
     if (req.method === "GET") {
       const { account } = req.query
 
-      const data = await prisma.credits.findFirst({
+      const data = await prisma.accounts.findFirst({
         where: { account: String(account) },
         select: { usedUnits: true }
       })
 
-      res.status(200).json(data?.usedUnits)
+      res.status(200).json(data)
+      res.status(200).json(data)
     }
   } catch (error) {
     res.status(500).json(error)
