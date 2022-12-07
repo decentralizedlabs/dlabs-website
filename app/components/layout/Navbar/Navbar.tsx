@@ -1,20 +1,10 @@
-"use client"
-
-import { useState } from "react"
 import Link from "next/link"
-import { Container, CreditsCounter, DropdownMenu } from "../"
-import { CustomConnectButton } from "@components/ui"
+import { Container } from "../"
 import Logo from "@components/icons/Logo"
-import UserIcon from "@components/icons/UserIcon"
-import saEvent from "@utils/saEvent"
 import { appName } from "../DefaultHead/DefaultHead"
-import { useAppContext } from "app/components/context"
-// import Nightwind from "@components/icons/Nightwind"
+import NavbarSide from "./Navbar.Side"
 
 export default function Navbar() {
-  const { isConnected } = useAppContext()
-  const [showDropdown, setShowDropdown] = useState(false)
-
   return (
     <header className="shadow-sm">
       <Container>
@@ -27,27 +17,7 @@ export default function Navbar() {
               Explore
             </Link>
           </div>
-          <div className="relative z-10 flex items-center space-x-5 sm:space-x-7 xs:space-x-6">
-            {/* <div className="hidden xs:block xs:mr-2">
-              <Nightwind size="h-[24px]" />
-            </div> */}
-            <div onClick={() => saEvent("connect_wallet_attempt")}>
-              <CustomConnectButton />
-            </div>
-
-            {isConnected && (
-              <>
-                <CreditsCounter />
-                <a
-                  className="cursor-pointer"
-                  onMouseDown={() => !showDropdown && setShowDropdown(true)}
-                >
-                  <UserIcon />
-                </a>
-              </>
-            )}
-          </div>
-          {showDropdown && <DropdownMenu setShowDropdown={setShowDropdown} />}
+          <NavbarSide />
         </nav>
       </Container>
       <hr className="w-full border-gray-200" />

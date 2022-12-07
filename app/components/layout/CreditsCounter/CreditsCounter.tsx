@@ -5,9 +5,13 @@ import { BigNumber } from "ethers"
 import Spinner from "@components/icons/Spinner"
 import { addresses } from "@utils/constants"
 import ProductsModule from "abi/ProductsModule.json"
+import { useEffect, useState } from "react"
+import fetcher from "@utils/fetcher"
 
 export default function CreditsCounter() {
   const { address: account } = useAccount()
+  const [usedUnits, setUsedUnits] = useState<number>(null)
+
   const slicerId = 3
   const products = [
     { productId: 1, value: 10 },
@@ -32,9 +36,21 @@ export default function CreditsCounter() {
     0
   )
 
-  return isLoading ? (
-    <Spinner />
+  useEffect(() => {
+    if (account) {
+      const getUsedUnits = async (account: string) => {
+        setUsedUnits(
+          Number(await fetcher(`/api/credits?account=${account}`)) || 0
+        )
+      }
+
+      getUsedUnits(account)
+    }
+  }, [])
+
+  return !isLoading && usedUnits != undefined ? (
+    <p className="text-sm font-semibold">{purchasedUnits - usedUnits} lD</p>
   ) : (
-    <p className="text-sm font-semibold">{purchasedUnits} lD</p>
+    <Spinner />
   )
 }
