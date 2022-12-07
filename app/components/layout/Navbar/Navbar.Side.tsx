@@ -6,6 +6,7 @@ import UserIcon from "@components/icons/UserIcon"
 import saEvent from "@utils/saEvent"
 import { useAppContext } from "app/components/context"
 import { CreditsCounter, DropdownMenu } from "../"
+import Link from "next/link"
 // import Nightwind from "@components/icons/Nightwind"
 
 export default function NavbarSide() {
@@ -25,12 +26,14 @@ export default function NavbarSide() {
         {isConnected && (
           <>
             <CreditsCounter />
-            <a
+            <Link href="/profile">
+              {/* <a
               className="cursor-pointer"
               onMouseDown={() => !showDropdown && setShowDropdown(true)}
-            >
+            > */}
               <UserIcon />
-            </a>
+              {/* </a> */}
+            </Link>
           </>
         )}
       </div>

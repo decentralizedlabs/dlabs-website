@@ -17,6 +17,19 @@ export default async function handler(
       })
 
       res.status(200).json(data)
+    }
+    if (req.method === "POST") {
+      const { account, name, country, fiscalCode } = JSON.parse(req.body)
+
+      const data = await prisma.accounts.upsert({
+        where: { account: String(account) },
+        create: {
+          account: String(account),
+          accountInfo: { name, country, fiscalCode }
+        },
+        update: { accountInfo: { name, country, fiscalCode } }
+      })
+
       res.status(200).json(data)
     }
   } catch (error) {
