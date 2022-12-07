@@ -10,7 +10,10 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model TestModel {
+model Credits {
   id            Int      @id @default(autoincrement())
   createdAt     DateTime @default(now())
+  account       String
+  usedUnits     Int      @default(0)
+  accountInfo   Json     @default("{}")
 }
