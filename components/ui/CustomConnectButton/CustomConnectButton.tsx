@@ -50,8 +50,9 @@ export default function CustomConnectButton() {
 
               return (
                 <ConnectButton
-                  accountStatus={{ smallScreen: "avatar" }}
+                  accountStatus={{ smallScreen: "avatar", largeScreen: "full" }}
                   chainStatus={{ smallScreen: "none", largeScreen: "full" }}
+                  showBalance={false}
                 />
               )
             })()}
