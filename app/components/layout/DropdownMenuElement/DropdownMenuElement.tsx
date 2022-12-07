@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link"
 
 type Props = {
@@ -7,7 +9,12 @@ type Props = {
   href?: string
 }
 
-export default function DropdownMenu({ href, image, label, onClick }: Props) {
+export default function DropdownMenuElement({
+  href,
+  image,
+  label,
+  onClick
+}: Props) {
   const className =
     "flex items-center py-3.5 group rounded-sm hover:bg-blue-600 hover:text-white"
 
