@@ -1,6 +1,6 @@
 "use client"
 
-import { DropdownMenuElement } from ".."
+import { DropdownMenuElement } from "../"
 import { Dispatch, SetStateAction, useEffect, useRef } from "react"
 // import { useTheme } from "next-themes"
 // import nightwind from "nightwind/helper"

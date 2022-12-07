@@ -2,8 +2,8 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { Container } from "../"
-import { CustomConnectButton, DropdownMenu } from "@components/ui"
+import { Container, CreditsCounter, DropdownMenu } from "../"
+import { CustomConnectButton } from "@components/ui"
 import Logo from "@components/icons/Logo"
 import UserIcon from "@components/icons/UserIcon"
 import saEvent from "@utils/saEvent"
