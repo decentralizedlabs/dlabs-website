@@ -11,7 +11,7 @@ export default async function handler(
     if (req.method === "GET") {
       const { account } = req.query
 
-      const data = await prisma.accounts.findFirst({
+      const data = await prisma.account.findFirst({
         where: { account: String(account) }
       })
 
@@ -21,7 +21,7 @@ export default async function handler(
     if (req.method === "POST") {
       const { account, name, address, fiscalCode } = JSON.parse(req.body)
 
-      const data = await prisma.accounts.upsert({
+      const data = await prisma.account.upsert({
         where: { account: String(account) },
         create: {
           account: String(account),

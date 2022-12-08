@@ -1,7 +1,7 @@
 "use client"
 
 import { Button, Input } from "@components/ui"
-import { Accounts } from "@prisma/client"
+import { Account } from "@prisma/client"
 import fetcher from "@utils/fetcher"
 import handleSetObject from "@utils/handleSetObject"
 import { useAppContext } from "app/components/context"
@@ -41,7 +41,7 @@ export default function ProfileForm() {
         body: JSON.stringify({ account, ...formData }),
         method: "POST"
       }
-      const newData: Accounts = await fetcher("/api/accounts", body)
+      const newData: Account = await fetcher("/api/accounts", body)
       setAccountData(newData)
       setLoading(false)
       setSuccess(true)

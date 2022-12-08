@@ -11,12 +11,12 @@ import {
 import { View } from "@lib/content/modals"
 import { useAccount, useNetwork } from "wagmi"
 import fetcher from "@utils/fetcher"
-import { Accounts } from "@prisma/client"
+import { Account } from "@prisma/client"
 
 type Context = {
   isConnected: boolean
-  accountData: Accounts
-  setAccountData: Dispatch<SetStateAction<Accounts>>
+  accountData: Account
+  setAccountData: Dispatch<SetStateAction<Account>>
   modalView: View
   setModalView: Dispatch<SetStateAction<View>>
 }
@@ -38,14 +38,14 @@ export default function AppWrapper({
   const { chain } = useNetwork()
   const [modalView, setModalView] = useState<View>({ name: "" })
   const [isConnected, setIsConnected] = useState(false)
-  const [accountData, setAccountData] = useState<Accounts>()
+  const [accountData, setAccountData] = useState<Account>()
 
   useEffect(() => {
     setIsConnected(account && true)
 
     if (account) {
       const getAccountData = async (account: string) => {
-        const data: Accounts = await fetcher(`/api/accounts?account=${account}`)
+        const data: Account = await fetcher(`/api/accounts?account=${account}`)
         setAccountData(data)
       }
 

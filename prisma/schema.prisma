@@ -10,10 +10,22 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model Accounts {
+model Account {
   id            Int      @id @default(autoincrement())
   createdAt     DateTime @default(now())
   account       String   @unique
   usedUnits     Int      @default(0)
   accountInfo   Json     @default("{}")
+  jobs          Job[]
+}
+
+model Job {
+  id            Int      @id @default(autoincrement())
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  jobInfo       Json     @default("{}")
+  account       Account  @relation(fields: [accountId], references: [id])
+  accountId     Int
+ 
+  @@index([accountId], name:"accountId")
 }
