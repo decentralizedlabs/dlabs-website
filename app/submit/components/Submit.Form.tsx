@@ -1,10 +1,11 @@
 "use client"
 
-import { Button, ConnectBlock, Input } from "@components/ui"
+import { Button, Input } from "@components/ui"
 import handleSetObject from "@utils/handleSetObject"
 import { Container } from "app/components/layout"
 import { useState } from "react"
 import { useAccount } from "wagmi"
+import { MissingInfoBlock } from "./layout"
 
 export const runtime = "nodejs"
 
@@ -33,7 +34,7 @@ export default function ProfileForm() {
   }
 
   return (
-    <ConnectBlock>
+    <MissingInfoBlock>
       <Container page={true}>
         <form className="max-w-screen-sm mx-auto space-y-4" onSubmit={submit}>
           <h1 className="text-3xl">Work info</h1>
@@ -47,6 +48,6 @@ export default function ProfileForm() {
           <Button type="submit" label="Submit" loading={loading} />
         </form>
       </Container>
-    </ConnectBlock>
+    </MissingInfoBlock>
   )
 }
