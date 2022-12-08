@@ -1,8 +1,8 @@
 import Script from "next/script"
 import { accounts } from "app/components/layout/Social/Social"
 
-export const appName = "MyApp"
-export const appTitle = "MyApp – The best website ever"
+export const appName = "DLabs"
+export const appTitle = "DLabs – The best website ever"
 export const appDescription =
   "You have stumbled upon the best website ever. Well done!"
 export const appUrl = process.env.NEXT_PUBLIC_APP_URL

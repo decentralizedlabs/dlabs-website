@@ -6,7 +6,7 @@ export default function Homepage() {
     <Container page={true}>
       <main className="max-w-screen-lg mx-auto space-y-12 text-center">
         <div>
-          <h1>MyApp</h1>
+          <h1>Decentralized Labs</h1>
           <p className="pt-6 text-xl font-bold text-gray-500 xs:text-lg">
             A nice subtitle
           </p>
