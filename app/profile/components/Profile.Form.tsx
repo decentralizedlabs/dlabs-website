@@ -20,6 +20,7 @@ export default function ProfileForm() {
   const [formData, setFormData] = useState({
     name: accountData?.accountInfo["name"] || "",
     address: accountData?.accountInfo["address"] || "",
+    discord: accountData?.accountInfo["discord"] || "",
     fiscalCode: accountData?.accountInfo["fiscalCode"] || ""
   })
 
@@ -28,6 +29,9 @@ export default function ProfileForm() {
   }
   const handleSetAddress = (value: string) => {
     handleSetObject("address", value, formData, setFormData, setSuccess)
+  }
+  const handleSetDiscord = (value: string) => {
+    handleSetObject("discord", value, formData, setFormData, setSuccess)
   }
   const handleSetFiscalCode = (value: string) => {
     handleSetObject("fiscalCode", value, formData, setFormData, setSuccess)
@@ -51,9 +55,10 @@ export default function ProfileForm() {
   useEffect(() => {
     if (accountData) {
       setFormData({
-        name: accountData?.accountInfo["name"],
-        address: accountData?.accountInfo["address"],
-        fiscalCode: accountData?.accountInfo["fiscalCode"]
+        name: accountData?.accountInfo["name"] || "",
+        address: accountData?.accountInfo["address"] || "",
+        discord: accountData?.accountInfo["discord"] || "",
+        fiscalCode: accountData?.accountInfo["fiscalCode"] || ""
       })
     }
   }, [accountData])
@@ -64,9 +69,10 @@ export default function ProfileForm() {
       <form className="space-y-6" onSubmit={submit}>
         <div>
           <Input
-            label="Name*"
+            label="Full Name*"
             value={formData.name}
             onChange={handleSetName}
+            placeholder="Decentralized Labs LTD"
             required
           />
         </div>
@@ -75,12 +81,22 @@ export default function ProfileForm() {
             label="Full address*"
             value={formData.address}
             onChange={handleSetAddress}
+            placeholder="1234 Main St, Anytown, USA"
             required
           />
         </div>
         <div>
           <Input
-            label="VAT number / Fiscal code"
+            label="Discord username"
+            helpText="Used to contact you about your job requests"
+            value={formData.discord}
+            onChange={handleSetDiscord}
+            placeholder="DLabs#1234"
+          />
+        </div>
+        <div>
+          <Input
+            label="VAT number"
             value={formData.fiscalCode}
             onChange={handleSetFiscalCode}
           />

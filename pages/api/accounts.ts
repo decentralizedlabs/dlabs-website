@@ -19,15 +19,17 @@ export default async function handler(
     }
 
     if (req.method === "POST") {
-      const { account, name, address, fiscalCode } = JSON.parse(req.body)
+      const { account, name, address, discord, fiscalCode } = JSON.parse(
+        req.body
+      )
 
       const data = await prisma.account.upsert({
         where: { account: String(account) },
         create: {
           account: String(account),
-          accountInfo: { name, address, fiscalCode }
+          accountInfo: { name, address, discord, fiscalCode }
         },
-        update: { accountInfo: { name, address, fiscalCode } }
+        update: { accountInfo: { name, address, discord, fiscalCode } }
       })
 
       res.status(200).json(data)
