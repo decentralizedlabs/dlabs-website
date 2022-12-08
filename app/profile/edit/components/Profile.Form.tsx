@@ -10,8 +10,6 @@ import Link from "next/link"
 import { useEffect, useState } from "react"
 import { useAccount } from "wagmi"
 
-export const runtime = "nodejs"
-
 export default function ProfileForm() {
   const { address: account } = useAccount()
   const { accountData, setAccountData } = useAppContext()
@@ -65,56 +63,75 @@ export default function ProfileForm() {
 
   return (
     <Container page={true} size="max-w-screen-sm">
-      <h1 className="pb-12">Billing info</h1>
-      <form className="space-y-6" onSubmit={submit}>
-        <div>
-          <Input
-            label="Full Name*"
-            value={formData.name}
-            onChange={handleSetName}
-            placeholder="Decentralized Labs LTD"
-            required
-          />
+      <form className="space-y-12 text-left" onSubmit={submit}>
+        <div className="space-y-6">
+          <h2>Billing info</h2>
+          <div>
+            <Input
+              label="Full Name*"
+              value={formData.name}
+              onChange={handleSetName}
+              placeholder="Decentralized Labs LTD"
+              required
+            />
+          </div>
+          <div>
+            <Input
+              label="Full address*"
+              value={formData.address}
+              onChange={handleSetAddress}
+              placeholder="1234 Main St, New York, USA"
+              required
+            />
+          </div>
+          <div>
+            <Input
+              label="VAT number"
+              value={formData.fiscalCode}
+              onChange={handleSetFiscalCode}
+            />
+          </div>
         </div>
-        <div>
-          <Input
-            label="Full address*"
-            value={formData.address}
-            onChange={handleSetAddress}
-            placeholder="1234 Main St, Anytown, USA"
-            required
-          />
+        <div className="space-y-6">
+          <h2>Profile info</h2>
+          <div>
+            <Input
+              label="Discord username"
+              helpText={
+                <>
+                  We&apos;ll use this to contact you about job requests, on the{" "}
+                  <a
+                    className="highlight"
+                    href="/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Dlabs discord
+                  </a>
+                </>
+              }
+              value={formData.discord}
+              onChange={handleSetDiscord}
+              placeholder="Dlabs#1234"
+            />
+          </div>
         </div>
-        <div>
-          <Input
-            label="Discord username"
-            helpText="Used to contact you about your job requests"
-            value={formData.discord}
-            onChange={handleSetDiscord}
-            placeholder="DLabs#1234"
-          />
+        <div className="text-center">
+          <div className="pb-4">
+            <Button
+              type="submit"
+              label="Submit"
+              loading={loading}
+              success={success}
+            />
+          </div>
+          {accountData?.accountInfo["name"] &&
+            accountData?.accountInfo["address"] && (
+              <Link href="/submit" className="highlight">
+                Submit work
+              </Link>
+            )}
         </div>
-        <div>
-          <Input
-            label="VAT number"
-            value={formData.fiscalCode}
-            onChange={handleSetFiscalCode}
-          />
-        </div>
-        <div className="pb-4">
-          <Button
-            type="submit"
-            label="Submit"
-            loading={loading}
-            success={success}
-          />
-        </div>
-        {accountData?.accountInfo["name"] &&
-          accountData?.accountInfo["address"] && (
-            <Link href="/submit" className="highlight">
-              Submit work
-            </Link>
-          )}
       </form>
     </Container>
   )

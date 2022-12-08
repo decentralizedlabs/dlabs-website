@@ -5,9 +5,6 @@ import handleSetObject from "@utils/handleSetObject"
 import { Container } from "app/components/layout"
 import { useState } from "react"
 import { useAccount } from "wagmi"
-import { MissingInfoBlock } from "./layout"
-
-export const runtime = "nodejs"
 
 export default function ProfileForm() {
   const { address: account } = useAccount()
@@ -34,20 +31,18 @@ export default function ProfileForm() {
   }
 
   return (
-    <MissingInfoBlock>
-      <Container page={true}>
-        <form className="max-w-screen-sm mx-auto space-y-4" onSubmit={submit}>
-          <h1 className="text-3xl">Work info</h1>
-          <div>
-            <Input
-              label="Work details"
-              value={formData.name}
-              onChange={handleSetName}
-            />
-          </div>
-          <Button type="submit" label="Submit" loading={loading} />
-        </form>
-      </Container>
-    </MissingInfoBlock>
+    <Container page={true}>
+      <form className="max-w-screen-sm mx-auto space-y-4" onSubmit={submit}>
+        <h1 className="text-3xl">Work info</h1>
+        <div>
+          <Input
+            label="Work details"
+            value={formData.name}
+            onChange={handleSetName}
+          />
+        </div>
+        <Button type="submit" label="Submit" loading={loading} />
+      </form>
+    </Container>
   )
 }

@@ -8,7 +8,7 @@ import Question from "../Question"
 export interface Props extends InputHTMLAttributes<HTMLInputElement> {
   className?: string
   label?: string
-  helpText?: string
+  helpText?: string | JSX.Element
   prefix?: string
   after?: string
   error?: boolean
@@ -74,7 +74,9 @@ export default function Input({
               )}
             </div>
             {helpText && (
-              <p className="pb-2 text-sm text-gray-600">{helpText}</p>
+              <p className={`${question ? "pb-2" : ""} text-sm text-gray-600`}>
+                {helpText}
+              </p>
             )}
           </div>
         </>
