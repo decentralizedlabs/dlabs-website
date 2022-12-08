@@ -1,17 +1,32 @@
 "use client"
 
-import { createContext, useContext, useEffect, useState } from "react"
+import {
+  createContext,
+  Dispatch,
+  SetStateAction,
+  useContext,
+  useEffect,
+  useState
+} from "react"
 import { View } from "@lib/content/modals"
 import { useAccount, useNetwork } from "wagmi"
 import fetcher from "@utils/fetcher"
 import { Accounts } from "@prisma/client"
-import timeout from "@utils/timeout"
 
-const AppContext = createContext<any>({
+type Context = {
+  isConnected: boolean
+  accountData: Accounts
+  setAccountData: Dispatch<SetStateAction<Accounts>>
+  modalView: View
+  setModalView: Dispatch<SetStateAction<View>>
+}
+
+const AppContext = createContext<Context>({
   isConnected: false,
-  accountData: {},
+  accountData: null,
+  setAccountData: null,
   modalView: { name: "" },
-  setModalView: () => null
+  setModalView: null
 })
 
 export default function AppWrapper({
@@ -57,6 +72,7 @@ export default function AppWrapper({
       value={{
         isConnected,
         accountData,
+        setAccountData,
         modalView,
         setModalView
       }}

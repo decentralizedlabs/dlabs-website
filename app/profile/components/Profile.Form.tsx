@@ -1,59 +1,81 @@
 "use client"
 
 import { Button, Input } from "@components/ui"
+import { Accounts } from "@prisma/client"
+import fetcher from "@utils/fetcher"
 import handleSetObject from "@utils/handleSetObject"
+import { useAppContext } from "app/components/context"
 import { Container } from "app/components/layout"
-import { useState } from "react"
+import Link from "next/link"
+import { useEffect, useState } from "react"
 import { useAccount } from "wagmi"
 
 export const runtime = "nodejs"
 
 export default function ProfileForm() {
   const { address: account } = useAccount()
+  const { accountData, setAccountData } = useAppContext()
   const [loading, setLoading] = useState(false)
+  const [success, setSuccess] = useState(false)
   const [formData, setFormData] = useState({
-    name: "",
-    country: "",
-    fiscalCode: ""
+    name: accountData?.accountInfo["name"] || "",
+    address: accountData?.accountInfo["address"] || "",
+    fiscalCode: accountData?.accountInfo["fiscalCode"] || ""
   })
 
   const handleSetName = (value: string) => {
-    handleSetObject("name", value, formData, setFormData)
+    handleSetObject("name", value, formData, setFormData, setSuccess)
   }
-  const handleSetCountry = (value: string) => {
-    handleSetObject("country", value, formData, setFormData)
+  const handleSetAddress = (value: string) => {
+    handleSetObject("address", value, formData, setFormData, setSuccess)
   }
   const handleSetFiscalCode = (value: string) => {
-    handleSetObject("fiscalCode", value, formData, setFormData)
+    handleSetObject("fiscalCode", value, formData, setFormData, setSuccess)
   }
 
   const submit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setLoading(true)
-    const body = {
-      body: JSON.stringify({ account, ...formData }),
-      method: "POST"
+    if (!success) {
+      setLoading(true)
+      const body = {
+        body: JSON.stringify({ account, ...formData }),
+        method: "POST"
+      }
+      const newData: Accounts = await fetcher("/api/accounts", body)
+      setAccountData(newData)
+      setLoading(false)
+      setSuccess(true)
     }
-    await fetch("/api/accounts", body)
-    setLoading(false)
   }
 
+  useEffect(() => {
+    if (accountData) {
+      setFormData({
+        name: accountData?.accountInfo["name"],
+        address: accountData?.accountInfo["address"],
+        fiscalCode: accountData?.accountInfo["fiscalCode"]
+      })
+    }
+  }, [accountData])
+
   return (
-    <Container page={true}>
-      <form className="max-w-screen-sm mx-auto space-y-4" onSubmit={submit}>
-        <h1 className="text-3xl">Billing info</h1>
+    <Container page={true} size="max-w-screen-sm">
+      <h1 className="pb-12">Billing info</h1>
+      <form className="space-y-6" onSubmit={submit}>
         <div>
           <Input
-            label="Full name*"
+            label="Name*"
             value={formData.name}
             onChange={handleSetName}
+            required
           />
         </div>
         <div>
           <Input
-            label="Country*"
-            value={formData.country}
-            onChange={handleSetCountry}
+            label="Full address*"
+            value={formData.address}
+            onChange={handleSetAddress}
+            required
           />
         </div>
         <div>
@@ -63,7 +85,20 @@ export default function ProfileForm() {
             onChange={handleSetFiscalCode}
           />
         </div>
-        <Button type="submit" label="Submit" loading={loading} />
+        <div className="pb-4">
+          <Button
+            type="submit"
+            label="Submit"
+            loading={loading}
+            success={success}
+          />
+        </div>
+        {accountData?.accountInfo["name"] &&
+          accountData?.accountInfo["address"] && (
+            <Link href="/submit" className="highlight">
+              Submit work
+            </Link>
+          )}
       </form>
     </Container>
   )

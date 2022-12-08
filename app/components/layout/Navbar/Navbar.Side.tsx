@@ -15,7 +15,7 @@ export default function NavbarSide() {
 
   return (
     <>
-      <div className="relative z-10 flex items-center space-x-5 sm:space-x-7 xs:space-x-6">
+      <div className="relative z-10 flex items-center space-x-6 sm:space-x-8 xs:space-x-6">
         {/* <div className="hidden xs:block xs:mr-2">
               <Nightwind size="h-[24px]" />
             </div> */}

@@ -1,3 +1,4 @@
+import { Button } from "@components/ui"
 import { Container } from "./layout"
 
 export default function Homepage() {
@@ -10,6 +11,7 @@ export default function Homepage() {
             A nice subtitle
           </p>
         </div>
+        <Button label="Submit work" href="/submit" />
       </main>
     </Container>
   )

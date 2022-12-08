@@ -1,5 +1,6 @@
 "use client"
 
+import Check from "@components/icons/Check"
 import Spinner from "@components/icons/Spinner"
 import saEvent from "@utils/saEvent"
 import Link from "next/link"
@@ -13,6 +14,7 @@ interface Props {
   href?: string
   onClick?: any
   loading?: boolean
+  success?: boolean
   external?: boolean
   targetBlank?: boolean
   secondary?: boolean
@@ -29,6 +31,7 @@ export default function Button({
   href,
   onClick,
   loading,
+  success,
   external,
   targetBlank = true,
   secondary,
@@ -39,12 +42,11 @@ export default function Button({
     customClassName ||
     "nightwind-prevent overflow-hidden text-sm sm:text-base font-bold tracking-wide px-7 rounded-sm h-[40px] min-w-[150px]"
   const color = !disabled
-    ? customColor ||
-      `hover:bg-blue-700 focus:bg-blue-700 ${
-        secondary
-          ? "text-blue-600 border-blue-600 border-2 hover:text-white"
-          : "text-white bg-blue-600"
-      }`
+    ? customColor || secondary
+      ? "text-blue-600 border-blue-600 border-2 hover:text-white focus:bg-blue-700"
+      : success
+      ? "text-white bg-green-500"
+      : "text-white bg-blue-600 hover:bg-blue-700 focus:bg-blue-700"
     : "bg-gray-400 dark:!bg-gray-500 cursor-not-allowed"
 
   const rootClassName = `focus:outline-none ${color} ${className}`
@@ -73,10 +75,10 @@ export default function Button({
           className={rootClassName}
           type={type}
           disabled={disabled}
-          onClick={!disabled && !loading ? onClick : null}
+          onClick={!disabled && !loading && !success ? onClick : null}
         >
           <div className="flex items-center justify-center w-full">
-            {loading ? <Spinner /> : <p>{label}</p>}
+            {success ? <Check /> : loading ? <Spinner /> : <p>{label}</p>}
           </div>
         </button>
       )}

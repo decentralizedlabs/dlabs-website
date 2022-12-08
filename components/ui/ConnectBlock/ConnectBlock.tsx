@@ -4,11 +4,7 @@ import { CustomConnectButton } from "@components/ui"
 import saEvent from "@utils/saEvent"
 import { useAppContext } from "app/components/context"
 
-export default function ConnectBlock({
-  children
-}: {
-  children: React.ReactNode
-}) {
+export default function ConnectBlock({ children }: { children: JSX.Element }) {
   const { isConnected } = useAppContext()
 
   return isConnected ? (

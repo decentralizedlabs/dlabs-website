@@ -13,9 +13,6 @@ export default function Navbar() {
             <Link href="/" className="w-7 h-7" aria-label={`${appName} logo`}>
               <Logo />
             </Link>
-            <Link href="/" className="text-sm">
-              Explore
-            </Link>
           </div>
           <NavbarSide />
         </nav>
