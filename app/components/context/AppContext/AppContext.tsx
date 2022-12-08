@@ -3,9 +3,13 @@
 import { createContext, useContext, useEffect, useState } from "react"
 import { View } from "@lib/content/modals"
 import { useAccount, useNetwork } from "wagmi"
+import fetcher from "@utils/fetcher"
+import { Accounts } from "@prisma/client"
+import timeout from "@utils/timeout"
 
 const AppContext = createContext<any>({
   isConnected: false,
+  accountData: {},
   modalView: { name: "" },
   setModalView: () => null
 })
@@ -15,13 +19,23 @@ export default function AppWrapper({
 }: {
   children: React.ReactNode
 }) {
-  const [modalView, setModalView] = useState<View>({ name: "" })
-  const [isConnected, setIsConnected] = useState(false)
   const { address: account } = useAccount()
   const { chain } = useNetwork()
+  const [modalView, setModalView] = useState<View>({ name: "" })
+  const [isConnected, setIsConnected] = useState(false)
+  const [accountData, setAccountData] = useState<Accounts>()
 
   useEffect(() => {
     setIsConnected(account && true)
+
+    if (account) {
+      const getAccountData = async (account: string) => {
+        const data: Accounts = await fetcher(`/api/accounts?account=${account}`)
+        setAccountData(data)
+      }
+
+      getAccountData(account)
+    }
   }, [account])
 
   useEffect(() => {
@@ -42,6 +56,7 @@ export default function AppWrapper({
     <AppContext.Provider
       value={{
         isConnected,
+        accountData,
         modalView,
         setModalView
       }}
