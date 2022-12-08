@@ -12,12 +12,12 @@ export default async function handler(
       const { account } = req.query
 
       const data = await prisma.accounts.findFirst({
-        where: { account: String(account) },
-        select: { usedUnits: true }
+        where: { account: String(account) }
       })
 
       res.status(200).json(data)
     }
+
     if (req.method === "POST") {
       const { account, name, country, fiscalCode } = JSON.parse(req.body)
 

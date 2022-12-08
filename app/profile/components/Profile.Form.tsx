@@ -34,7 +34,7 @@ export default function ProfileForm() {
       body: JSON.stringify({ account, ...formData }),
       method: "POST"
     }
-    await fetch("/api/credits", body)
+    await fetch("/api/accounts", body)
     setLoading(false)
   }
 
