@@ -4,6 +4,8 @@ import ProductsModule from "abi/ProductsModule.json"
 import { NotionData } from "app/components/context/AppContext/AppContext"
 import { BigNumber } from "ethers"
 
+// ONCHAIN
+
 export const slicerId = 3
 export const products = [
   { productId: 1, value: 10 },
@@ -32,10 +34,17 @@ export const getAvailableUnits = (
   return purchasedUnits - usedUnits
 }
 
-export const getNotionData = async (userId: number) => {
-  const dbUrl =
-    "https://api.notion.com/v1/databases/12fca9a29d8841a99b35e4136978455c/query"
+// NOTION
 
+export const dbId = "12fca9a29d8841a99b35e4136978455c"
+export const dbUrl = `https://api.notion.com/v1/databases/${dbId}/query`
+export const notionHeaders = {
+  Authorization: `Bearer ${process.env.NOTION_API_KEY}`,
+  "Notion-Version": "2022-06-28",
+  "Content-Type": "application/json"
+}
+
+export const getNotionData = async (userId: number) => {
   const body = {
     body: JSON.stringify({
       filter: {
@@ -45,11 +54,7 @@ export const getNotionData = async (userId: number) => {
         }
       }
     }),
-    headers: {
-      Authorization: `Bearer ${process.env.NOTION_API_KEY}`,
-      "Notion-Version": "2022-06-28",
-      "Content-Type": "application/json"
-    },
+    headers: notionHeaders,
     method: "POST"
   }
   return (await fetcher(dbUrl, body)).results as NotionData

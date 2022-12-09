@@ -19,7 +19,7 @@ export default function ProfileForm() {
     name: accountData?.accountInfo["name"] || "",
     address: accountData?.accountInfo["address"] || "",
     discord: accountData?.accountInfo["discord"] || "",
-    fiscalCode: accountData?.accountInfo["fiscalCode"] || ""
+    vat: accountData?.accountInfo["vat"] || ""
   })
 
   const handleSetName = (value: string) => {
@@ -31,8 +31,8 @@ export default function ProfileForm() {
   const handleSetDiscord = (value: string) => {
     handleSetObject("discord", value, formData, setFormData, setSuccess)
   }
-  const handleSetFiscalCode = (value: string) => {
-    handleSetObject("fiscalCode", value, formData, setFormData, setSuccess)
+  const handleSetVat = (value: string) => {
+    handleSetObject("vat", value, formData, setFormData, setSuccess)
   }
 
   const submit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -56,7 +56,7 @@ export default function ProfileForm() {
         name: accountData?.accountInfo["name"] || "",
         address: accountData?.accountInfo["address"] || "",
         discord: accountData?.accountInfo["discord"] || "",
-        fiscalCode: accountData?.accountInfo["fiscalCode"] || ""
+        vat: accountData?.accountInfo["vat"] || ""
       })
     }
   }, [accountData])
@@ -87,8 +87,8 @@ export default function ProfileForm() {
           <div>
             <Input
               label="VAT number"
-              value={formData.fiscalCode}
-              onChange={handleSetFiscalCode}
+              value={formData.vat}
+              onChange={handleSetVat}
             />
           </div>
         </div>
