@@ -6,15 +6,16 @@ import { useAppContext } from "app/components/context"
 
 export default function Layout({ children }: { children: JSX.Element }) {
   const { accountData } = useAppContext()
+  const isRequiredDataFilled =
+    accountData?.accountInfo["name"] && accountData?.accountInfo["address"]
 
   return (
-    <ConnectBlock>
+    <ConnectBlock isSignable>
       {accountData === undefined ? (
         <div className="flex justify-center">
           <Spinner size="h-12 w-12" />
         </div>
-      ) : accountData?.accountInfo["name"] &&
-        accountData?.accountInfo["address"] ? (
+      ) : isRequiredDataFilled ? (
         children
       ) : (
         <ActionScreen

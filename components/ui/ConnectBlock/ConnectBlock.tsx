@@ -1,24 +1,25 @@
 "use client"
 
 import { CustomConnectButton } from "@components/ui"
-import saEvent from "@utils/saEvent"
 import { useAppContext } from "app/components/context"
 
-export default function ConnectBlock({ children }: { children: JSX.Element }) {
-  const { isConnected } = useAppContext()
+type Props = { children: JSX.Element; isSignable?: boolean }
 
-  return isConnected ? (
+export default function ConnectBlock({ children, isSignable = false }: Props) {
+  const { isConnected, isSigned } = useAppContext()
+
+  return isConnected && (!isSignable || isSigned) ? (
     children
   ) : (
     <>
       <div className="flex flex-col items-center py-6 mx-auto max-w-screen-xs">
-        <h1>Connect your wallet</h1>
+        <h1>{!isConnected ? "Connect your wallet" : "Sign in"}</h1>
         <p className="py-10 sm:text-lg">
-          Connect your wallet to view this page
+          {!isConnected
+            ? "Connect your wallet to view this page"
+            : "Sign in to view this page"}
         </p>
-        <div onClick={() => saEvent("connect_wallet_attempt")}>
-          <CustomConnectButton />
-        </div>
+        <CustomConnectButton isSignable={isSignable} />
       </div>
     </>
   )
