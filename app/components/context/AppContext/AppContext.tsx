@@ -15,11 +15,16 @@ import { Account } from "@prisma/client"
 
 type Context = {
   isConnected: boolean
-  accountData: Account
+  accountData: AccountData
   setAccountData: Dispatch<SetStateAction<Account>>
   modalView: View
   setModalView: Dispatch<SetStateAction<View>>
 }
+
+export type NotionData = any[]
+// TODO: Define any
+
+type AccountData = Account & { notionData: NotionData }
 
 const AppContext = createContext<Context>({
   isConnected: false,
@@ -38,18 +43,22 @@ export default function AppWrapper({
   const { chain } = useNetwork()
   const [modalView, setModalView] = useState<View>({ name: "" })
   const [isConnected, setIsConnected] = useState(false)
-  const [accountData, setAccountData] = useState<Account>()
+  const [accountData, setAccountData] = useState<AccountData>()
 
   useEffect(() => {
     setIsConnected(account && true)
 
     if (account) {
       const getAccountData = async (account: string) => {
-        const data: Account = await fetcher(`/api/accounts?account=${account}`)
-        setAccountData(data)
+        const { data, notionData }: { data: Account; notionData: object[] } =
+          await fetcher(`/api/accounts?account=${account}`)
+
+        setAccountData({ ...data, notionData })
       }
 
       getAccountData(account)
+    } else {
+      setAccountData(undefined)
     }
   }, [account])
 

@@ -1,6 +1,8 @@
 export const runtime = "nodejs"
 
 import { prisma } from "@lib/prisma"
+import { getNotionData } from "@lib/storeInfo"
+import { NotionData } from "app/components/context/AppContext/AppContext"
 import { NextApiRequest, NextApiResponse } from "next"
 
 export default async function handler(
@@ -10,12 +12,19 @@ export default async function handler(
   try {
     if (req.method === "GET") {
       const { account } = req.query
+      let notionData: NotionData
 
       const data = await prisma.account.findFirst({
         where: { account: String(account) }
       })
 
-      res.status(200).json(data)
+      if (data) {
+        // Fetch jobs data fron Notion DB
+        const userId = data.id
+        notionData = await getNotionData(userId)
+      }
+
+      res.status(200).json({ data, notionData })
     }
 
     if (req.method === "POST") {
