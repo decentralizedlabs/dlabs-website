@@ -14,6 +14,7 @@ import fetcher from "@utils/fetcher"
 import { Account } from "@prisma/client"
 
 type Context = {
+  isSigned: boolean
   isConnected: boolean
   accountData: AccountData
   setAccountData: Dispatch<SetStateAction<Account>>
@@ -27,6 +28,7 @@ export type NotionData = any[]
 type AccountData = Account & { notionData: NotionData }
 
 const AppContext = createContext<Context>({
+  isSigned: false,
   isConnected: false,
   accountData: null,
   setAccountData: null,
@@ -43,10 +45,12 @@ export default function AppWrapper({
   const { chain } = useNetwork()
   const [modalView, setModalView] = useState<View>({ name: "" })
   const [isConnected, setIsConnected] = useState(false)
+  const [isSigned, setIsSigned] = useState(false)
   const [accountData, setAccountData] = useState<AccountData>()
 
   useEffect(() => {
     setIsConnected(account && true)
+    setIsSigned(false)
 
     if (account) {
       setAccountData(undefined)
@@ -80,6 +84,7 @@ export default function AppWrapper({
   return (
     <AppContext.Provider
       value={{
+        isSigned,
         isConnected,
         accountData,
         setAccountData,

@@ -6,10 +6,11 @@ import { CreditsCounter } from ".."
 import Link from "next/link"
 
 export default function NavbarConnected() {
-  const { isConnected } = useAppContext()
+  const { isConnected, isSigned } = useAppContext()
 
   return (
-    isConnected && (
+    isConnected &&
+    isSigned && (
       <>
         <CreditsCounter />
         <Link href="/profile">

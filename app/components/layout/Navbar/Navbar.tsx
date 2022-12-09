@@ -23,7 +23,7 @@ export default function Navbar() {
             {/* <div className="hidden xs:block xs:mr-2">
               <Nightwind size="h-[24px]" />
             </div> */}
-            <CustomConnectButton />
+            <CustomConnectButton isSignable={true} />
             <NavbarConnected />
           </div>
           {/* {showDropdown && <DropdownMenu setShowDropdown={setShowDropdown} />} */}

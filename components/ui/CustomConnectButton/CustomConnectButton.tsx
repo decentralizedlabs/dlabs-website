@@ -2,9 +2,12 @@
 
 import { ConnectButton } from "@rainbow-me/rainbowkit"
 import saEvent from "@utils/saEvent"
+import { useAppContext } from "app/components/context"
 import Button from "../Button"
 
-export default function CustomConnectButton() {
+export default function CustomConnectButton({ isSignable = false }) {
+  const { isSigned } = useAppContext()
+
   return (
     <div onClick={() => saEvent("connect_wallet_attempt")}>
       <ConnectButton.Custom>
@@ -43,6 +46,17 @@ export default function CustomConnectButton() {
                   return (
                     <Button
                       label="Wrong network"
+                      onClick={openChainModal}
+                      type="button"
+                      secondary
+                    />
+                  )
+                }
+
+                if (isSignable && !isSigned) {
+                  return (
+                    <Button
+                      label="Sign message"
                       onClick={openChainModal}
                       type="button"
                       secondary
