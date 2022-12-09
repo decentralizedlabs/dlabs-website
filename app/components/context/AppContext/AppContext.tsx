@@ -49,6 +49,7 @@ export default function AppWrapper({
     setIsConnected(account && true)
 
     if (account) {
+      setAccountData(undefined)
       const getAccountData = async (account: string) => {
         const { data, notionData }: { data: Account; notionData: object[] } =
           await fetcher(`/api/accounts?account=${account}`)
