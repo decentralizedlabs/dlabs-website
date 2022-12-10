@@ -3,9 +3,9 @@
 import Logout from "@components/icons/Logout"
 import { ConnectButton } from "@rainbow-me/rainbowkit"
 import saEvent from "@utils/saEvent"
-import { messageToSign, signMessage } from "@utils/signMessage"
+import { signMessage } from "@utils/signMessage"
 import { useAppContext } from "app/components/context"
-import { useDisconnect, useSignMessage } from "wagmi"
+import { useDisconnect } from "wagmi"
 import Button from "../Button"
 
 export default function CustomConnectButton({

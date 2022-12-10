@@ -48,23 +48,25 @@ export default function AppWrapper({
 }: {
   children: React.ReactNode
 }) {
+  // Hooks
   const { address: account } = useAccount()
   const { data: signer } = useSigner()
   const { chain } = useNetwork()
+
+  // States
   const [modalView, setModalView] = useState<View>({ name: "" })
   const [isConnected, setIsConnected] = useState(false)
   const [isSigned, setIsSigned] = useState(false)
   const [accountData, setAccountData] = useState<AccountData>()
-  const getAccountData = async (account: string) => {
-    const { data, notionData }: { data: Account; notionData: object[] } =
-      await fetcher(`/api/accounts?account=${account}`)
 
-    setAccountData({ ...data, notionData })
-  }
-
+  // Signature authentication
   const { signMessageAsync, isLoading: isSignatureLoading } = useSignMessage({
     message: messageToSign
   })
+
+  useEffect(() => {
+    setIsSigned(localStorage.getItem("isSigned") && true)
+  }, [])
 
   useEffect(() => {
     if (!isSigned && account && signer && !isSignatureLoading) {
@@ -72,9 +74,13 @@ export default function AppWrapper({
     }
   }, [account, signer])
 
-  useEffect(() => {
-    setIsSigned(localStorage.getItem("isSigned") && true)
-  }, [])
+  // Account data
+  async function getAccountData(account: string) {
+    const { data, notionData }: { data: Account; notionData: object[] } =
+      await fetcher(`/api/accounts?account=${account}`)
+
+    setAccountData({ ...data, notionData })
+  }
 
   useEffect(() => {
     setIsConnected(account && true)
@@ -88,6 +94,7 @@ export default function AppWrapper({
     }
   }, [account])
 
+  // Network modal
   useEffect(() => {
     if (
       isConnected &&
