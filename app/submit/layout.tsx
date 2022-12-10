@@ -10,7 +10,7 @@ export default function Layout({ children }: { children: JSX.Element }) {
     accountData?.accountInfo["name"] && accountData?.accountInfo["address"]
 
   return (
-    <ConnectBlock isSignable>
+    <ConnectBlock signable>
       {accountData === undefined ? (
         <div className="flex justify-center">
           <Spinner size="h-12 w-12" />

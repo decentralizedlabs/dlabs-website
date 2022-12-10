@@ -3,12 +3,12 @@
 import { CustomConnectButton } from "@components/ui"
 import { useAppContext } from "app/components/context"
 
-type Props = { children: JSX.Element; isSignable?: boolean }
+type Props = { children: JSX.Element; signable?: boolean }
 
-export default function ConnectBlock({ children, isSignable = false }: Props) {
+export default function ConnectBlock({ children, signable = false }: Props) {
   const { isConnected, isSigned } = useAppContext()
 
-  return isConnected && (!isSignable || isSigned) ? (
+  return isConnected && (!signable || isSigned) ? (
     children
   ) : (
     <>
@@ -19,7 +19,7 @@ export default function ConnectBlock({ children, isSignable = false }: Props) {
             ? "Connect your wallet to view this page"
             : "Sign in to view this page"}
         </p>
-        <CustomConnectButton isSignable={isSignable} />
+        <CustomConnectButton signable={signable} disconnectLabel />
       </div>
     </>
   )

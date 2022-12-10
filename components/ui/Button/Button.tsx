@@ -26,7 +26,7 @@ export default function Button({
   customClassName,
   customColor,
   wrapperClassName,
-  type,
+  type = "button",
   label,
   href,
   onClick,

@@ -1,12 +1,21 @@
 "use client"
 
+import Logout from "@components/icons/Logout"
 import { ConnectButton } from "@rainbow-me/rainbowkit"
 import saEvent from "@utils/saEvent"
+import { messageToSign, signMessage } from "@utils/signMessage"
 import { useAppContext } from "app/components/context"
+import { useDisconnect, useSignMessage } from "wagmi"
 import Button from "../Button"
 
-export default function CustomConnectButton({ isSignable = false }) {
-  const { isSigned } = useAppContext()
+export default function CustomConnectButton({
+  signable = false,
+  disconnectLabel = false
+}) {
+  const { isSigned, setIsSigned, signMessageAction, isSignatureLoading } =
+    useAppContext()
+
+  const { disconnect } = useDisconnect()
 
   return (
     <div onClick={() => saEvent("connect_wallet_attempt")}>
@@ -36,7 +45,6 @@ export default function CustomConnectButton({ isSignable = false }) {
                     <Button
                       label="Connect Wallet"
                       onClick={openConnectModal}
-                      type="button"
                       secondary
                     />
                   )
@@ -47,20 +55,45 @@ export default function CustomConnectButton({ isSignable = false }) {
                     <Button
                       label="Wrong network"
                       onClick={openChainModal}
-                      type="button"
                       secondary
                     />
                   )
                 }
 
-                if (isSignable && !isSigned) {
+                if (signable && !isSigned) {
                   return (
-                    <Button
-                      label="Sign message"
-                      onClick={openChainModal}
-                      type="button"
-                      secondary
-                    />
+                    <div
+                      className={`${
+                        !disconnectLabel
+                          ? "flex items-center space-x-4"
+                          : "space-y-4 text-center"
+                      }`}
+                    >
+                      <Button
+                        label="Sign message"
+                        onClick={() =>
+                          signMessage(
+                            account.address,
+                            signMessageAction,
+                            setIsSigned
+                          )
+                        }
+                        loading={isSignatureLoading}
+                        secondary
+                      />
+                      {!isSignatureLoading && (
+                        <span
+                          className="block text-red-500 underline cursor-pointer hover:text-red-700"
+                          onClick={() => disconnect()}
+                        >
+                          {disconnectLabel ? (
+                            "Disconnect wallet"
+                          ) : (
+                            <Logout className="w-6 h-6 rotate-180" />
+                          )}
+                        </span>
+                      )}
+                    </div>
                   )
                 }
 
@@ -82,5 +115,3 @@ export default function CustomConnectButton({ isSignable = false }) {
     </div>
   )
 }
-
-// TODO: Add signature version
