@@ -1,9 +1,14 @@
 "use client"
 
+import {
+  getCsrfToken,
+  signIn as signInNextAuth,
+  useSession
+} from "next-auth/react"
 import Logout from "@components/icons/Logout"
 import { ConnectButton } from "@rainbow-me/rainbowkit"
 import saEvent from "@utils/saEvent"
-import { signMessage } from "@utils/signMessage"
+import { messageToSign, signMessage } from "@utils/signMessage"
 import { useAppContext } from "app/components/context"
 import { useDisconnect } from "wagmi"
 import Button from "../Button"
@@ -14,6 +19,21 @@ export default function CustomConnectButton({
 }) {
   const { isSigned, setIsSigned, signMessageAction, isSignatureLoading } =
     useAppContext()
+
+  const signIn = async (address: string) => {
+    const callbackUrl = "/protected"
+    const { message, signature } = await signMessage(
+      address,
+      signMessageAction,
+      setIsSigned
+    )
+    signInNextAuth("credentials", {
+      message: JSON.stringify(message),
+      redirect: false,
+      signature,
+      callbackUrl
+    })
+  }
 
   const { disconnect } = useDisconnect()
 
@@ -71,13 +91,7 @@ export default function CustomConnectButton({
                     >
                       <Button
                         label="Sign message"
-                        onClick={() =>
-                          signMessage(
-                            account.address,
-                            signMessageAction,
-                            setIsSigned
-                          )
-                        }
+                        onClick={async () => await signIn(account.address)}
                         loading={isSignatureLoading}
                         secondary
                       />

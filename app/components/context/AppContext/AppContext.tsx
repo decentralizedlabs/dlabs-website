@@ -12,7 +12,7 @@ import { View } from "@lib/content/modals"
 import { useAccount, useNetwork, useSigner, useSignMessage } from "wagmi"
 import fetcher from "@utils/fetcher"
 import { User } from "@prisma/client"
-import { messageToSign, signMessage } from "@utils/signMessage"
+import { setMessageToSign, signMessage } from "@utils/signMessage"
 
 type Context = {
   isConnected: boolean
@@ -58,10 +58,11 @@ export default function AppWrapper({
   const [isConnected, setIsConnected] = useState(false)
   const [isSigned, setIsSigned] = useState(false)
   const [userData, setUserData] = useState<UserData>()
+  const [message, setMessage] = useState<string>("")
 
   // Signature authentication
   const { signMessageAsync, isLoading: isSignatureLoading } = useSignMessage({
-    message: messageToSign
+    message
   })
 
   useEffect(() => {
@@ -85,8 +86,10 @@ export default function AppWrapper({
   useEffect(() => {
     setIsConnected(account && true)
     setUserData(undefined)
+    setMessage("")
 
     if (account) {
+      setMessageToSign(account, setMessage)
       getUserData(account)
     } else {
       setIsSigned(false)

@@ -5,13 +5,15 @@ import "../styles/global/styles.css"
 import { Inter } from "@next/font/google"
 import Script from "next/script"
 
+import { unstable_getServerSession } from "next-auth/next"
+import { authOptions } from "pages/api/auth/[...nextauth]"
+
 const font = Inter({ subsets: ["latin"] })
 
-export default function RootLayout({
-  children
-}: {
-  children: React.ReactNode
-}) {
+export default async function RootLayout({ children }) {
+  const session = await unstable_getServerSession(authOptions)
+  console.log(session)
+
   return (
     <html lang="en" className={font.className}>
       <head />
