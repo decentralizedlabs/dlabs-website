@@ -5,7 +5,6 @@ import { NotionData } from "app/components/context/AppContext/AppContext"
 import { BigNumber } from "ethers"
 
 // ONCHAIN
-
 export const slicerId = 3
 export const products = [
   { productId: 1, value: 10 },
@@ -33,7 +32,6 @@ export const getAvailableUnits = (
 }
 
 // NOTION
-
 export const dbId = "12fca9a29d8841a99b35e4136978455c"
 export const dbUrl = `https://api.notion.com/v1/databases/${dbId}/query`
 export const notionHeaders = {
