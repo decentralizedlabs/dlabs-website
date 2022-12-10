@@ -13,7 +13,7 @@ import {
 
 export default function CreditsCounter() {
   const { address: account } = useAccount()
-  const { accountData } = useAppContext()
+  const { userData } = useAppContext()
 
   const {
     data: purchasedData,
@@ -25,12 +25,9 @@ export default function CreditsCounter() {
     }))
   })
 
-  const availableUnits = getAvailableUnits(
-    purchasedData,
-    accountData?.notionData
-  )
+  const availableUnits = getAvailableUnits(purchasedData, userData?.notionData)
 
-  return !isLoading && accountData !== undefined ? (
+  return !isLoading && userData !== undefined ? (
     <p className="text-sm font-semibold">{availableUnits} lD</p>
   ) : (
     <Spinner />

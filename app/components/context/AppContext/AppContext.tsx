@@ -11,7 +11,7 @@ import {
 import { View } from "@lib/content/modals"
 import { useAccount, useNetwork, useSigner, useSignMessage } from "wagmi"
 import fetcher from "@utils/fetcher"
-import { Account } from "@prisma/client"
+import { User } from "@prisma/client"
 import { messageToSign, signMessage } from "@utils/signMessage"
 
 type Context = {
@@ -20,8 +20,8 @@ type Context = {
   setIsSigned: Dispatch<SetStateAction<boolean>>
   signMessageAction: (args?: any) => Promise<`0x${string}`>
   isSignatureLoading: boolean
-  accountData: AccountData
-  setAccountData: Dispatch<SetStateAction<Account>>
+  userData: UserData
+  setUserData: Dispatch<SetStateAction<User>>
   modalView: View
   setModalView: Dispatch<SetStateAction<View>>
 }
@@ -29,7 +29,7 @@ type Context = {
 export type NotionData = any[]
 // TODO: Define any
 
-export type AccountData = Account & { notionData: NotionData }
+export type UserData = User & { notionData: NotionData }
 
 const AppContext = createContext<Context>({
   isConnected: false,
@@ -37,8 +37,8 @@ const AppContext = createContext<Context>({
   setIsSigned: null,
   signMessageAction: null,
   isSignatureLoading: false,
-  accountData: null,
-  setAccountData: null,
+  userData: null,
+  setUserData: null,
   modalView: { name: "" },
   setModalView: null
 })
@@ -57,7 +57,7 @@ export default function AppWrapper({
   const [modalView, setModalView] = useState<View>({ name: "" })
   const [isConnected, setIsConnected] = useState(false)
   const [isSigned, setIsSigned] = useState(false)
-  const [accountData, setAccountData] = useState<AccountData>()
+  const [userData, setUserData] = useState<UserData>()
 
   // Signature authentication
   const { signMessageAsync, isLoading: isSignatureLoading } = useSignMessage({
@@ -75,19 +75,19 @@ export default function AppWrapper({
   }, [account, signer])
 
   // Account data
-  async function getAccountData(account: string) {
-    const { data, notionData }: { data: Account; notionData: object[] } =
-      await fetcher(`/api/accounts?account=${account}`)
+  async function getUserData(account: string) {
+    const { data, notionData }: { data: User; notionData: object[] } =
+      await fetcher(`/api/accounts?address=${account}`)
 
-    setAccountData({ ...data, notionData })
+    setUserData({ ...data, notionData })
   }
 
   useEffect(() => {
     setIsConnected(account && true)
-    setAccountData(undefined)
+    setUserData(undefined)
 
     if (account) {
-      getAccountData(account)
+      getUserData(account)
     } else {
       setIsSigned(false)
       localStorage.removeItem("isSigned")
@@ -117,8 +117,8 @@ export default function AppWrapper({
         setIsSigned,
         signMessageAction: signMessageAsync,
         isSignatureLoading,
-        accountData,
-        setAccountData,
+        userData,
+        setUserData,
         modalView,
         setModalView
       }}

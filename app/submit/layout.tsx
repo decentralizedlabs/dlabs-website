@@ -5,13 +5,12 @@ import { ActionScreen, ConnectBlock } from "@components/ui"
 import { useAppContext } from "app/components/context"
 
 export default function Layout({ children }: { children: JSX.Element }) {
-  const { accountData } = useAppContext()
-  const isRequiredDataFilled =
-    accountData?.accountInfo["name"] && accountData?.accountInfo["address"]
+  const { userData } = useAppContext()
+  const isRequiredDataFilled = userData?.name && userData?.address
 
   return (
     <ConnectBlock signable>
-      {accountData === undefined ? (
+      {userData === undefined ? (
         <div className="flex justify-center">
           <Spinner size="h-12 w-12" />
         </div>

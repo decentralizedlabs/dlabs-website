@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.4",
+    "@next-auth/prisma-adapter": "^1.0.5",
     "@next/font": "^13.0.6",
     "@prisma/client": "^4.7.1",
     "@rainbow-me/rainbowkit": "^0.8.0",
@@ -21,6 +22,7 @@
     "click-to-react-component": "^1.0.8",
     "ethers": "^5.7.2",
     "next": "^13.0.6",
+    "next-auth": "^4.18.4",
     "next-themes": "^0.2.1",
     "postcss-import": "^15.0.1",
     "prisma": "^4.7.1",

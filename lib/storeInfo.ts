@@ -26,10 +26,8 @@ export const getAvailableUnits = (
     0
   )
 
-  const usedUnits = notionData?.reduce(
-    (a, b) => a + b.properties.Credits.number,
-    0
-  )
+  const usedUnits =
+    notionData?.reduce((a, b) => a + b.properties.Credits.number, 0) || 0
 
   return purchasedUnits - usedUnits
 }

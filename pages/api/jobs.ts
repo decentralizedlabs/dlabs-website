@@ -11,17 +11,16 @@ import {
 import { alchemyProvider } from "@wagmi/core/providers/alchemy"
 import { publicProvider } from "@wagmi/core/providers/public"
 import {
-  dbId,
   getAvailableUnits,
   getNotionData,
-  notionHeaders,
   products,
   slicerId,
   validateUnits
 } from "@lib/storeInfo"
 import { BigNumber } from "ethers"
-import { Account } from "@prisma/client"
+import { User } from "@prisma/client"
 import fetcher from "@utils/fetcher"
+import { formatNotionBody } from "@utils/formatNotionBody"
 
 export default async function handler(
   req: NextApiRequest,
@@ -29,7 +28,7 @@ export default async function handler(
 ) {
   try {
     if (req.method === "POST") {
-      const { account, link } = JSON.parse(req.body)
+      const { address, link } = JSON.parse(req.body)
 
       const env = String(process.env.NEXT_PUBLIC_ENV)
       const alchemyId = String(process.env.NEXT_PUBLIC_ALCHEMY_ID)
@@ -46,24 +45,24 @@ export default async function handler(
       })
 
       const promises = [
-        prisma.account.findFirst({
-          where: { account: String(account) }
+        prisma.user.findFirst({
+          where: { address: String(address) }
         }),
         readContracts({
           contracts: products.map(({ productId }) => ({
             ...validateUnits,
-            args: [account, slicerId, productId]
+            args: [address, slicerId, productId]
           }))
         })
       ]
 
-      const [accountData, purchasedData] = (await Promise.all(promises)) as [
-        Account,
+      const [userData, purchasedData] = (await Promise.all(promises)) as [
+        User,
         BigNumber[]
       ]
 
       // Retrieve user ID from Account data in db
-      const userId = accountData.id
+      const userId = userData.id
 
       // Fetch jobs data fron Notion DB
       const notionData = await getNotionData(userId)
@@ -72,62 +71,10 @@ export default async function handler(
 
       if (availableUnits > 0) {
         // Handle notion update
-        const body = {
-          body: JSON.stringify({
-            parent: {
-              database_id: dbId
-            },
-            properties: {
-              Name: {
-                title: [
-                  {
-                    text: {
-                      content: "New job"
-                    }
-                  }
-                ]
-              },
-              Client: {
-                rich_text: [
-                  {
-                    text: {
-                      content: accountData.accountInfo["name"]
-                    }
-                  }
-                ]
-              },
-              "Billing info": {
-                rich_text: [
-                  {
-                    text: {
-                      content: `Name: ${accountData.accountInfo["name"]}; Billing address: ${accountData.accountInfo["address"]};`
-                    }
-                  },
-                  accountData.accountInfo["vat"] && {
-                    text: {
-                      content: ` VAT: ${accountData.accountInfo["vat"]};`
-                    }
-                  }
-                ]
-              },
-              Credits: {
-                number: 1
-              },
-              Status: {
-                select: {
-                  name: "To estimate"
-                }
-              },
-              "Client ID": { number: accountData.id },
-              Link: {
-                url: link
-              }
-            }
-          }),
-          headers: notionHeaders,
-          method: "POST"
-        }
-        const data = await fetcher("https://api.notion.com/v1/pages", body)
+        const data = await fetcher(
+          "https://api.notion.com/v1/pages",
+          formatNotionBody(userData, link)
+        )
 
         res.status(200).json(data)
       } else {

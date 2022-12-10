@@ -8,8 +8,8 @@ import { useState } from "react"
 import { useAccount } from "wagmi"
 
 export default function ProfileForm() {
-  const { address: account } = useAccount()
-  const { accountData, setAccountData } = useAppContext()
+  const { address } = useAccount()
+  const { userData, setUserData } = useAppContext()
   const [loading, setLoading] = useState(false)
   const [link, setLink] = useState("")
 
@@ -17,13 +17,13 @@ export default function ProfileForm() {
     e.preventDefault()
     setLoading(true)
     const body = {
-      body: JSON.stringify({ account, link }),
+      body: JSON.stringify({ address, link }),
       method: "POST"
     }
     const newJob = await fetcher("/api/jobs", body)
-    const newAccountData = accountData
-    newAccountData.notionData.push(newJob)
-    setAccountData({ ...newAccountData })
+    const newUserData = userData
+    newUserData.notionData.push(newJob)
+    setUserData({ ...newUserData })
 
     setLoading(false)
   }

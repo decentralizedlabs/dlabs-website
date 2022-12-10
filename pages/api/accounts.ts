@@ -11,11 +11,11 @@ export default async function handler(
 ) {
   try {
     if (req.method === "GET") {
-      const { account } = req.query
+      const { address } = req.query
       let notionData: NotionData
 
-      const data = await prisma.account.findFirst({
-        where: { account: String(account) }
+      const data = await prisma.user.findFirst({
+        where: { address: String(address) }
       })
 
       if (data) {
@@ -28,15 +28,20 @@ export default async function handler(
     }
 
     if (req.method === "POST") {
-      const { account, name, address, discord, vat } = JSON.parse(req.body)
+      const { address, name, physicalAddress, email, discord, taxId } =
+        JSON.parse(req.body)
 
-      const data = await prisma.account.upsert({
-        where: { account: String(account) },
+      const data = await prisma.user.upsert({
+        where: { address: String(address) },
         create: {
-          account: String(account),
-          accountInfo: { name, address, discord, vat }
+          address: String(address),
+          name,
+          physicalAddress,
+          email,
+          discord,
+          taxId
         },
-        update: { accountInfo: { name, address, discord, vat } }
+        update: { name, physicalAddress, email, discord, taxId }
       })
 
       res.status(200).json(data)

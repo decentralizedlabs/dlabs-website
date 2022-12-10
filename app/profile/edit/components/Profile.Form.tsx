@@ -1,7 +1,7 @@
 "use client"
 
 import { Button, Input } from "@components/ui"
-import { Account } from "@prisma/client"
+import { User } from "@prisma/client"
 import fetcher from "@utils/fetcher"
 import handleSetObject from "@utils/handleSetObject"
 import { useAppContext } from "app/components/context"
@@ -11,28 +11,32 @@ import { useEffect, useState } from "react"
 import { useAccount } from "wagmi"
 
 export default function ProfileForm() {
-  const { address: account } = useAccount()
-  const { accountData, setAccountData } = useAppContext()
+  const { address } = useAccount()
+  const { userData, setUserData } = useAppContext()
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
   const [formData, setFormData] = useState({
-    name: accountData?.accountInfo["name"] || "",
-    address: accountData?.accountInfo["address"] || "",
-    discord: accountData?.accountInfo["discord"] || "",
-    vat: accountData?.accountInfo["vat"] || ""
+    name: userData?.name || "",
+    physicalAddress: userData?.physicalAddress || "",
+    email: userData?.email || "",
+    discord: userData?.discord || "",
+    taxId: userData?.taxId || ""
   })
 
   const handleSetName = (value: string) => {
     handleSetObject("name", value, formData, setFormData, setSuccess)
   }
-  const handleSetAddress = (value: string) => {
-    handleSetObject("address", value, formData, setFormData, setSuccess)
+  const handleSetPhysicalAddress = (value: string) => {
+    handleSetObject("physicalAddress", value, formData, setFormData, setSuccess)
+  }
+  const handleSetEmail = (value: string) => {
+    handleSetObject("email", value, formData, setFormData, setSuccess)
   }
   const handleSetDiscord = (value: string) => {
     handleSetObject("discord", value, formData, setFormData, setSuccess)
   }
-  const handleSetVat = (value: string) => {
-    handleSetObject("vat", value, formData, setFormData, setSuccess)
+  const handleSetTaxId = (value: string) => {
+    handleSetObject("taxId", value, formData, setFormData, setSuccess)
   }
 
   const submit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -40,26 +44,27 @@ export default function ProfileForm() {
     if (!success) {
       setLoading(true)
       const body = {
-        body: JSON.stringify({ account, ...formData }),
+        body: JSON.stringify({ address, ...formData }),
         method: "POST"
       }
-      const newData: Account = await fetcher("/api/accounts", body)
-      setAccountData(newData)
+      const newData: User = await fetcher("/api/accounts", body)
+      setUserData(newData)
       setLoading(false)
       setSuccess(true)
     }
   }
 
   useEffect(() => {
-    if (accountData) {
+    if (userData) {
       setFormData({
-        name: accountData?.accountInfo["name"] || "",
-        address: accountData?.accountInfo["address"] || "",
-        discord: accountData?.accountInfo["discord"] || "",
-        vat: accountData?.accountInfo["vat"] || ""
+        name: userData?.name || "",
+        physicalAddress: userData?.physicalAddress || "",
+        email: userData?.email || "",
+        discord: userData?.discord || "",
+        taxId: userData?.taxId || ""
       })
     }
-  }, [accountData])
+  }, [userData])
 
   return (
     <Container page={true} size="max-w-screen-sm">
@@ -78,8 +83,8 @@ export default function ProfileForm() {
           <div>
             <Input
               label="Full address*"
-              value={formData.address}
-              onChange={handleSetAddress}
+              value={formData.physicalAddress}
+              onChange={handleSetPhysicalAddress}
               placeholder="1234 Main St, New York, USA"
               required
             />
@@ -87,8 +92,8 @@ export default function ProfileForm() {
           <div>
             <Input
               label="VAT number"
-              value={formData.vat}
-              onChange={handleSetVat}
+              value={formData.taxId}
+              onChange={handleSetTaxId}
             />
           </div>
         </div>
@@ -115,6 +120,15 @@ export default function ProfileForm() {
               placeholder="Dlabs#1234"
             />
           </div>
+          <div>
+            <Input
+              label="Email"
+              helpText="Used as alternative contact method"
+              value={formData.email}
+              onChange={handleSetEmail}
+              placeholder="gm@dlabs.app"
+            />
+          </div>
         </div>
         <div className="text-center">
           <div className="pb-4">
@@ -125,12 +139,11 @@ export default function ProfileForm() {
               success={success}
             />
           </div>
-          {accountData?.accountInfo["name"] &&
-            accountData?.accountInfo["address"] && (
-              <Link href="/submit" className="highlight">
-                Submit work
-              </Link>
-            )}
+          {userData?.name && userData?.address && (
+            <Link href="/submit" className="highlight">
+              Submit work
+            </Link>
+          )}
         </div>
       </form>
     </Container>
