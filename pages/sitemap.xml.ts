@@ -1,4 +1,4 @@
-import { appUrl } from "app/components/layout/DefaultHead/DefaultHead"
+import { appUrl } from "app/layout/components/DefaultHead/DefaultHead"
 // import fetcher from "@utils/fetcher"
 import { GetServerSideProps } from "next"
 
