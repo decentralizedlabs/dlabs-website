@@ -1,5 +1,5 @@
 import Script from "next/script"
-import { accounts } from "app/components/layout/Social/Social"
+import { accounts } from "app/layout/components/Social/Social"
 
 export const appName = "Dlabs"
 export const appTitle = "Dlabs – The best website ever"

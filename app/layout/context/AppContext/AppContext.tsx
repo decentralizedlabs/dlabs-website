@@ -18,7 +18,7 @@ type Context = {
   isConnected: boolean
   isSigned: boolean
   setIsSigned: Dispatch<SetStateAction<boolean>>
-  signMessageAction: (args?: any) => Promise<`0x${string}`>
+  signMessageAsync: (args?: any) => Promise<`0x${string}`>
   isSignatureLoading: boolean
   userData: UserData
   setUserData: Dispatch<SetStateAction<User>>
@@ -35,7 +35,7 @@ const AppContext = createContext<Context>({
   isConnected: false,
   isSigned: false,
   setIsSigned: null,
-  signMessageAction: null,
+  signMessageAsync: null,
   isSignatureLoading: false,
   userData: null,
   setUserData: null,
@@ -64,15 +64,13 @@ export default function AppWrapper({
     message: messageToSign
   })
 
-  useEffect(() => {}, [])
-
   useEffect(() => {
     if (!isSigned && account && signer && !isSignatureLoading) {
       signMessage(account, signMessageAsync, setIsSigned)
     }
   }, [account, signer])
 
-  // Account data
+  // User data
   async function getUserData(account: string) {
     const { data, notionData }: { data: User; notionData: object[] } =
       await fetcher(`/api/accounts?address=${account}`)
@@ -85,13 +83,13 @@ export default function AppWrapper({
     setUserData(undefined)
 
     if (account) {
+      getUserData(account)
       if (account && localStorage.getItem("isSigned") == account) {
         setIsSigned(true)
       } else {
         setIsSigned(false)
         localStorage.removeItem("isSigned")
       }
-      getUserData(account)
     } else {
       localStorage.removeItem("isSigned")
     }
@@ -118,7 +116,7 @@ export default function AppWrapper({
         isConnected,
         isSigned,
         setIsSigned,
-        signMessageAction: signMessageAsync,
+        signMessageAsync,
         isSignatureLoading,
         userData,
         setUserData,

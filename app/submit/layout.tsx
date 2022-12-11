@@ -2,7 +2,7 @@
 
 import Spinner from "@components/icons/Spinner"
 import { ActionScreen, ConnectBlock } from "@components/ui"
-import { useAppContext } from "app/components/context"
+import { useAppContext } from "app/layout/context"
 
 export default function Layout({ children }: { children: JSX.Element }) {
   const { userData } = useAppContext()

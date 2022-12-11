@@ -2,7 +2,7 @@ export const runtime = "nodejs"
 
 import { prisma } from "@lib/prisma"
 import { getNotionData } from "@lib/storeInfo"
-import { NotionData } from "app/components/context/AppContext/AppContext"
+import { NotionData } from "app/layout/context/AppContext/AppContext"
 import { NextApiRequest, NextApiResponse } from "next"
 
 export default async function handler(

@@ -1,7 +1,7 @@
 import { addresses } from "@utils/constants"
 import fetcher from "@utils/fetcher"
 import ProductsModule from "abi/ProductsModule.json"
-import { NotionData } from "app/components/context/AppContext/AppContext"
+import { NotionData } from "app/layout/context/AppContext/AppContext"
 import { BigNumber } from "ethers"
 
 // ONCHAIN

@@ -2,8 +2,8 @@
 
 import { Button, Input } from "@components/ui"
 import fetcher from "@utils/fetcher"
-import { useAppContext } from "app/components/context"
-import { Container } from "app/components/layout"
+import { useAppContext } from "app/layout/context"
+import { Container } from "app/layout/components"
 import { useState } from "react"
 import { useAccount } from "wagmi"
 

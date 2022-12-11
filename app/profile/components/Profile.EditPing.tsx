@@ -1,6 +1,6 @@
 "use client"
 
-import { useAppContext } from "app/components/context"
+import { useAppContext } from "app/layout/context"
 
 export default function ProfileEditPing() {
   const { userData } = useAppContext()

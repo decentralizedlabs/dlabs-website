@@ -1,10 +1,10 @@
-import { DefaultHead } from "app/components/layout"
+import { DefaultHead } from "app/layout/components"
 import {
   appDescription,
   appName,
   appTitle,
   appUrl
-} from "./components/layout/DefaultHead/DefaultHead"
+} from "./layout/components/DefaultHead/DefaultHead"
 
 export default async function Head() {
   return (

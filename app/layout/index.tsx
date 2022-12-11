@@ -1,6 +1,6 @@
-import { AppWrapper, WalletProvider } from "./components/context"
-import { AppLayout } from "./components/layout"
-import "../styles/global/styles.css"
+import { AppWrapper, WalletProvider } from "./context"
+import { AppLayout } from "./components"
+import "../../styles/global/styles.css"
 
 import { Inter } from "@next/font/google"
 import Script from "next/script"

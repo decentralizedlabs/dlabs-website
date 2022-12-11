@@ -29,9 +29,9 @@ export default function Navbar() {
                 <CreditsCounter />
                 <Link href="/profile">
                   {/* <a
-              className="cursor-pointer"
-              onMouseDown={() => !showDropdown && setShowDropdown(true)}
-            > */}
+                        className="cursor-pointer"
+                        onMouseDown={() => !showDropdown && setShowDropdown(true)}
+                      > */}
                   <UserIcon />
                   {/* </a> */}
                 </Link>

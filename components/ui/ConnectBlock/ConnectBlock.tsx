@@ -1,7 +1,7 @@
 "use client"
 
 import { CustomConnectButton } from "@components/ui"
-import { useAppContext } from "app/components/context"
+import { useAppContext } from "app/layout/context"
 
 type Props = { children: JSX.Element; signable?: boolean }
 

@@ -3,7 +3,7 @@
 import { useAccount, useContractReads } from "wagmi"
 import { BigNumber } from "ethers"
 import Spinner from "@components/icons/Spinner"
-import { useAppContext } from "app/components/context"
+import { useAppContext } from "app/layout/context"
 import {
   getAvailableUnits,
   products,

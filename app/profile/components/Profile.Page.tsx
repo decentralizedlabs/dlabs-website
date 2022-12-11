@@ -1,5 +1,5 @@
 import Chevron from "@components/icons/Chevron"
-import { Container } from "app/components/layout"
+import { Container } from "app/layout/components"
 import Link from "next/link"
 import ProfileEditPing from "./Profile.EditPing"
 

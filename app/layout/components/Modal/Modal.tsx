@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react"
 import { View, NETWORK_VIEW } from "@lib/content/modals"
 import Cross from "@components/icons/Cross"
-import { useAppContext } from "app/components/context"
+import { useAppContext } from "app/layout/context"
 
 const Modal = () => {
   const { modalView, setModalView } = useAppContext()

@@ -1,5 +1,5 @@
 import { Button } from "@components/ui"
-import { Container } from "./layout"
+import { Container } from "../layout/components"
 
 export default function Homepage() {
   return (

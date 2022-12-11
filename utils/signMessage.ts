@@ -1,9 +1,7 @@
 import { verifyMessage } from "ethers/lib/utils.js"
 import { Dispatch, SetStateAction } from "react"
 
-export const messageToSign = `Sign this message to prove you have access to the connected wallet.
-
-This won't cost you any Ether.
+export const messageToSign = `Sign this message to prove you have access to the connected wallet. This won't cost you any Ether.
 
 Timestamp: ${Date.now()}`
 

@@ -4,7 +4,7 @@ import Logout from "@components/icons/Logout"
 import { ConnectButton } from "@rainbow-me/rainbowkit"
 import saEvent from "@utils/saEvent"
 import { signMessage } from "@utils/signMessage"
-import { useAppContext } from "app/components/context"
+import { useAppContext } from "app/layout/context"
 import { useDisconnect } from "wagmi"
 import Button from "../Button"
 
@@ -12,7 +12,7 @@ export default function CustomConnectButton({
   signable = false,
   disconnectLabel = false
 }) {
-  const { isSigned, setIsSigned, signMessageAction, isSignatureLoading } =
+  const { isSigned, setIsSigned, signMessageAsync, isSignatureLoading } =
     useAppContext()
 
   const { disconnect } = useDisconnect()
@@ -74,7 +74,7 @@ export default function CustomConnectButton({
                         onClick={() =>
                           signMessage(
                             account.address,
-                            signMessageAction,
+                            signMessageAsync,
                             setIsSigned
                           )
                         }
