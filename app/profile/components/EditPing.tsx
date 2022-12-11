@@ -2,7 +2,7 @@
 
 import { useAppContext } from "app/layout/context"
 
-export default function ProfileEditPing() {
+export default function EditPing() {
   const { userData } = useAppContext()
 
   return (

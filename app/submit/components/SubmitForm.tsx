@@ -7,7 +7,7 @@ import { Container } from "app/layout/components"
 import { useState } from "react"
 import { useAccount } from "wagmi"
 
-export default function ProfileForm() {
+export default function SubmitForm() {
   const { address } = useAccount()
   const { userData, setUserData } = useAppContext()
   const [loading, setLoading] = useState(false)

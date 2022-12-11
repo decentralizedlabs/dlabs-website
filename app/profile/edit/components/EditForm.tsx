@@ -10,7 +10,7 @@ import Link from "next/link"
 import { useEffect, useState } from "react"
 import { useAccount } from "wagmi"
 
-export default function ProfileForm() {
+export default function EditForm() {
   const { address } = useAccount()
   const { userData, setUserData } = useAppContext()
   const [loading, setLoading] = useState(false)

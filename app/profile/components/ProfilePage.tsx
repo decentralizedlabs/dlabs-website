@@ -1,7 +1,7 @@
 import Chevron from "@components/icons/Chevron"
 import { Container } from "app/layout/components"
 import Link from "next/link"
-import ProfileEditPing from "./Profile.EditPing"
+import ProfileEditPing from "./EditPing"
 
 export default function ProfilePage() {
   return (
