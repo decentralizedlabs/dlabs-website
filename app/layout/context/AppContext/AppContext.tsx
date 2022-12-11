@@ -22,7 +22,7 @@ type Context = {
   signMessageAsync: (args?: any) => Promise<`0x${string}`>
   isSignatureLoading: boolean
   userData: UserData
-  setUserData: Dispatch<SetStateAction<User>>
+  setUserData: Dispatch<SetStateAction<UserData>>
   modalView: View
   setModalView: Dispatch<SetStateAction<View>>
 }

@@ -48,7 +48,8 @@ export default function ProfileForm() {
         method: "POST"
       }
       const newData: User = await fetcher("/api/accounts", body)
-      setUserData(newData)
+
+      setUserData({ ...newData, notionData: userData.notionData })
       setLoading(false)
       setSuccess(true)
     }
