@@ -11,31 +11,52 @@ export default function SubmitForm() {
   const { address } = useAccount()
   const { userData, setUserData } = useAppContext()
   const [loading, setLoading] = useState(false)
+  const [success, setSuccess] = useState(false)
   const [link, setLink] = useState("")
+
+  const handleSetLink = (value: string) => {
+    setSuccess(false)
+    setLink(value)
+  }
 
   const submit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setLoading(true)
-    const body = {
-      body: JSON.stringify({ address, link }),
-      method: "POST"
-    }
-    const newJob = await fetcher("/api/jobs", body)
-    const newUserData = userData
-    newUserData.notionData.push(newJob)
-    setUserData({ ...newUserData })
+    if (!success) {
+      setLoading(true)
+      try {
+        const body = {
+          body: JSON.stringify({ address, link }),
+          method: "POST"
+        }
+        const newJob = await fetcher("/api/jobs", body)
+        const newUserData = userData
+        newUserData.notionData.push(newJob)
+        setUserData({ ...newUserData })
+        setSuccess(true)
+      } catch (error) {
+        console.log(error)
+      }
 
-    setLoading(false)
+      setLoading(false)
+    }
   }
 
   return (
     <Container page={true}>
       <form className="max-w-screen-sm mx-auto space-y-4" onSubmit={submit}>
-        <h1 className="text-3xl">Work info</h1>
-        <div>
-          <Input label="Job link" value={link} onChange={setLink} />
-        </div>
-        <Button type="submit" label="Submit" loading={loading} />
+        <h1 className="text-3xl">Submit job</h1>
+        <Input
+          label="Job link"
+          value={link}
+          onChange={handleSetLink}
+          required
+        />
+        <Button
+          type="submit"
+          label="Submit"
+          loading={loading}
+          success={success}
+        />
       </form>
     </Container>
   )

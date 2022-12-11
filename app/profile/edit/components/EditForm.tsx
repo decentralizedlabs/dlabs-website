@@ -43,15 +43,19 @@ export default function EditForm() {
     e.preventDefault()
     if (!success) {
       setLoading(true)
-      const body = {
-        body: JSON.stringify({ address, ...formData }),
-        method: "POST"
-      }
-      const newData: User = await fetcher("/api/accounts", body)
+      try {
+        const body = {
+          body: JSON.stringify({ address, ...formData }),
+          method: "POST"
+        }
+        const newData: User = await fetcher("/api/accounts", body)
 
-      setUserData({ ...newData, notionData: userData.notionData })
+        setUserData({ ...newData, notionData: userData.notionData })
+        setSuccess(true)
+      } catch (error) {
+        console.log(error)
+      }
       setLoading(false)
-      setSuccess(true)
     }
   }
 
@@ -72,64 +76,54 @@ export default function EditForm() {
       <form className="space-y-12 text-left" onSubmit={submit}>
         <div className="space-y-6">
           <h2>Billing info</h2>
-          <div>
-            <Input
-              label="Full Name*"
-              value={formData.name}
-              onChange={handleSetName}
-              placeholder="Decentralized Labs LTD"
-              required
-            />
-          </div>
-          <div>
-            <Input
-              label="Full address*"
-              value={formData.physicalAddress}
-              onChange={handleSetPhysicalAddress}
-              placeholder="1234 Main St, New York, USA"
-              required
-            />
-          </div>
-          <div>
-            <Input
-              label="VAT number"
-              value={formData.taxId}
-              onChange={handleSetTaxId}
-            />
-          </div>
+          <Input
+            label="Full Name*"
+            value={formData.name}
+            onChange={handleSetName}
+            placeholder="Decentralized Labs LTD"
+            required
+          />
+          <Input
+            label="Full address*"
+            value={formData.physicalAddress}
+            onChange={handleSetPhysicalAddress}
+            placeholder="1234 Main St, New York, USA"
+            required
+          />
+          <Input
+            label="VAT number"
+            value={formData.taxId}
+            onChange={handleSetTaxId}
+          />
         </div>
         <div className="space-y-6">
           <h2>Profile info</h2>
-          <div>
-            <Input
-              label="Discord username"
-              helpText={
-                <>
-                  We&apos;ll use this to contact you about job requests, on the{" "}
-                  <a
-                    className="highlight"
-                    href="/"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Dlabs discord
-                  </a>
-                </>
-              }
-              value={formData.discord}
-              onChange={handleSetDiscord}
-              placeholder="Dlabs#1234"
-            />
-          </div>
-          <div>
-            <Input
-              label="Email"
-              helpText="Used as alternative contact method"
-              value={formData.email}
-              onChange={handleSetEmail}
-              placeholder="gm@dlabs.app"
-            />
-          </div>
+          <Input
+            label="Discord username"
+            helpText={
+              <>
+                We&apos;ll use this to contact you about job requests, on the{" "}
+                <a
+                  className="highlight"
+                  href="/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Dlabs discord
+                </a>
+              </>
+            }
+            value={formData.discord}
+            onChange={handleSetDiscord}
+            placeholder="Dlabs#1234"
+          />
+          <Input
+            label="Email"
+            helpText="Used as alternative contact method"
+            value={formData.email}
+            onChange={handleSetEmail}
+            placeholder="gm@dlabs.app"
+          />
         </div>
         <div className="text-center">
           <div className="pb-4">

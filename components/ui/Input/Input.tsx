@@ -61,7 +61,7 @@ export default function Input({
   }
 
   return (
-    <label className="text-left">
+    <label className="block text-left">
       {label && (
         <>
           <div className={!question ? "pb-2" : ""}>
