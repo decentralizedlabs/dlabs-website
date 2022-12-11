@@ -64,9 +64,7 @@ export default function AppWrapper({
     message: messageToSign
   })
 
-  useEffect(() => {
-    setIsSigned(localStorage.getItem("isSigned") && true)
-  }, [])
+  useEffect(() => {}, [])
 
   useEffect(() => {
     if (!isSigned && account && signer && !isSignatureLoading) {
@@ -87,9 +85,14 @@ export default function AppWrapper({
     setUserData(undefined)
 
     if (account) {
+      if (account && localStorage.getItem("isSigned") == account) {
+        setIsSigned(true)
+      } else {
+        setIsSigned(false)
+        localStorage.removeItem("isSigned")
+      }
       getUserData(account)
     } else {
-      setIsSigned(false)
       localStorage.removeItem("isSigned")
     }
   }, [account])

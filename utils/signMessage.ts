@@ -16,6 +16,6 @@ export async function signMessage(
 
   if (verifyMessage(messageToSign, signature) == accountAddress) {
     setIsSigned(true)
-    localStorage.setItem("isSigned", "true")
+    localStorage.setItem("isSigned", accountAddress)
   }
 }
