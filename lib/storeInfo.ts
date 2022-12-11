@@ -1,8 +1,8 @@
 import { addresses } from "@utils/constants"
-import fetcher from "@utils/fetcher"
 import ProductsModule from "abi/ProductsModule.json"
-import { NotionData } from "app/layout/context/AppContext/AppContext"
+import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
 import { BigNumber } from "ethers"
+import { notion } from "./notionClient"
 
 // ONCHAIN
 export const slicerId = 3
@@ -18,7 +18,7 @@ export const validateUnits = {
 
 export const getAvailableUnits = (
   purchasedData: BigNumber[],
-  notionData: NotionData
+  notionData: PageObjectResponse[]
 ) => {
   const purchasedUnits = purchasedData?.reduce(
     (a, b, i) => Number(a) + Number(b) * products[i].value,
@@ -26,32 +26,22 @@ export const getAvailableUnits = (
   )
 
   const usedUnits =
-    notionData?.reduce((a, b) => a + b.properties.Credits.number, 0) || 0
+    notionData?.reduce((a, b) => a + b.properties.Credits["number"], 0) || 0
 
   return purchasedUnits - usedUnits
 }
 
 // NOTION
 export const dbId = "12fca9a29d8841a99b35e4136978455c"
-export const dbUrl = `https://api.notion.com/v1/databases/${dbId}/query`
-export const notionHeaders = {
-  Authorization: `Bearer ${process.env.NOTION_API_KEY}`,
-  "Notion-Version": "2022-06-28",
-  "Content-Type": "application/json"
-}
-
 export const getNotionData = async (userId: number) => {
-  const body = {
-    body: JSON.stringify({
-      filter: {
-        property: "Client ID",
-        number: {
-          equals: userId
-        }
+  const data = await notion.databases.query({
+    database_id: dbId,
+    filter: {
+      property: "Client ID",
+      number: {
+        equals: userId
       }
-    }),
-    headers: notionHeaders,
-    method: "POST"
-  }
-  return (await fetcher(dbUrl, body)).results as NotionData
+    }
+  })
+  return data?.results as PageObjectResponse[]
 }

@@ -19,8 +19,8 @@ import {
 } from "@lib/storeInfo"
 import { BigNumber } from "ethers"
 import { User } from "@prisma/client"
-import fetcher from "@utils/fetcher"
 import { formatNotionBody } from "@utils/formatNotionBody"
+import { notion } from "@lib/notionClient"
 
 export default async function handler(
   req: NextApiRequest,
@@ -71,10 +71,7 @@ export default async function handler(
 
       if (availableUnits > 0) {
         // Handle notion update
-        const data = await fetcher(
-          "https://api.notion.com/v1/pages",
-          formatNotionBody(userData, link)
-        )
+        const data = await notion.pages.create(formatNotionBody(userData, link))
 
         res.status(200).json(data)
       } else {

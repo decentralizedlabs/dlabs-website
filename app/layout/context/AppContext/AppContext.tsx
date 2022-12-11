@@ -13,6 +13,7 @@ import { useAccount, useNetwork, useSigner, useSignMessage } from "wagmi"
 import fetcher from "@utils/fetcher"
 import { User } from "@prisma/client"
 import { messageToSign, signMessage } from "@utils/signMessage"
+import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
 
 type Context = {
   isConnected: boolean
@@ -26,10 +27,9 @@ type Context = {
   setModalView: Dispatch<SetStateAction<View>>
 }
 
-export type NotionData = any[]
-// TODO: Define any
-
-export type UserData = User & { notionData: NotionData }
+export type UserData = User & {
+  notionData: PageObjectResponse[]
+}
 
 const AppContext = createContext<Context>({
   isConnected: false,
@@ -72,8 +72,13 @@ export default function AppWrapper({
 
   // User data
   async function getUserData(account: string) {
-    const { data, notionData }: { data: User; notionData: object[] } =
-      await fetcher(`/api/accounts?address=${account}`)
+    const {
+      data,
+      notionData
+    }: {
+      data: User
+      notionData: PageObjectResponse[]
+    } = await fetcher(`/api/accounts?address=${account}`)
 
     setUserData({ ...data, notionData })
   }

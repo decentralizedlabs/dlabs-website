@@ -2,7 +2,10 @@ export const runtime = "nodejs"
 
 import { prisma } from "@lib/prisma"
 import { getNotionData } from "@lib/storeInfo"
-import { NotionData } from "app/layout/context/AppContext/AppContext"
+import {
+  PageObjectResponse,
+  PartialPageObjectResponse
+} from "@notionhq/client/build/src/api-endpoints"
 import { NextApiRequest, NextApiResponse } from "next"
 
 export default async function handler(
@@ -12,7 +15,7 @@ export default async function handler(
   try {
     if (req.method === "GET") {
       const { address } = req.query
-      let notionData: NotionData
+      let notionData: (PageObjectResponse | PartialPageObjectResponse)[]
 
       const data = await prisma.user.findFirst({
         where: { address: String(address) }

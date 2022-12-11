@@ -42,14 +42,15 @@ export default function DropdownMenu({
       <div
         className={`z-20 absolute text-sm top-0 right-0 w-56 mt-20 border border-gray-200 space-y-1 bg-white rounded-sm shadow-base`}
       >
-        <DropdownMenuElement
-          href="/"
-          image={
-            <div className="w-5 h-5 border-2 border-blue-600 rounded-full group-hover:border-white" />
-          }
-          label="My profile"
-          onClick={() => setShowDropdown(false)}
-        />
+        <div onClick={() => setShowDropdown(false)}>
+          <DropdownMenuElement
+            href="/"
+            image={
+              <div className="w-5 h-5 border-2 border-blue-600 rounded-full group-hover:border-white" />
+            }
+            label="My profile"
+          />
+        </div>
         {/* <div className="xs:hidden">
         <DropdownMenuElement
           image={<Nightwind size="h-5" onClick={null} />}
