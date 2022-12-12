@@ -112,14 +112,14 @@ export default function EditForm() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  Dlabs discord
+                  dlabs discord
                 </a>
               </>
             }
             value={formData.discord}
             onChange={handleSetDiscord}
             disabled={loading}
-            placeholder="Dlabs#1234"
+            placeholder="dlabs#1234"
           />
           <Input
             label="Email"

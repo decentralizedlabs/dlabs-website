@@ -1,26 +1,22 @@
 const Logo = ({ ...props }) => {
   return (
     <svg
-      viewBox="0 0 241 241"
+      viewBox="0 0 80 80"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <rect x="110" y="9" width="20" height="224" fill="currentColor" />
-      <rect
-        x="232"
-        y="111"
-        width="20"
-        height="113"
-        transform="rotate(90 232 111)"
+      <path
+        d="M46.3158 2.036L46.3158 77.964C46.3158 79.0686 45.4204 79.9661 44.3159 79.9772C40.496 80.0159 35.6664 80.0862 32.5614 79.4011C12.5495 74.9858 1.31606e-05 58.6434 1.13289e-05 40C9.49723e-06 21.3566 12.5495 5.01419 32.5614 0.598855C35.6664 -0.0862266 40.496 -0.0159068 44.3158 0.0227663C45.4204 0.0339432 46.3158 0.931427 46.3158 2.036Z"
         fill="currentColor"
       />
-      <circle
-        cx="120.5"
-        cy="120.5"
-        r="110.5"
-        stroke="currentColor"
-        strokeWidth="20"
+      <rect
+        x="63.1579"
+        y="0.0359955"
+        width="16.8421"
+        height="79.928"
+        rx="2"
+        fill="currentColor"
       />
     </svg>
   )

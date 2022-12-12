@@ -2,10 +2,10 @@ import { AppWrapper, WalletProvider } from "./context"
 import { AppLayout } from "./components"
 import "../../styles/global/styles.css"
 
-import { Inter } from "@next/font/google"
+import { Space_Mono } from "@next/font/google"
 import Script from "next/script"
 
-const font = Inter({ subsets: ["latin"] })
+const font = Space_Mono({ weight: ["400", "700"], subsets: ["latin"] })
 
 export default function RootLayout({
   children
