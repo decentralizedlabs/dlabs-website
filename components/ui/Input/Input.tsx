@@ -47,10 +47,10 @@ export default function Input({
       : prefix
       ? "rounded-r-sm"
       : "rounded-l-sm"
-  const rootClassName = `peer bg-white py-2 pl-6 w-full appearance-none pr-4 border focus:outline-none placeholder-gray-400 disabled:text-gray-400 disabled:border-gray-200 disabled:bg-gray-200 disabled:cursor-not-allowed ${
+  const rootClassName = `peer bg-black py-2 pl-6 w-full appearance-none pr-4 border focus:outline-none placeholder-gray-500 disabled:text-gray-500 disabled:border-gray-700 disabled:bg-gray-700 disabled:cursor-not-allowed ${
     error
       ? "border-red-500 text-red-500 focus:border-red-500"
-      : "border-gray-300 text-black focus:border-blue-600"
+      : "border-gray-600 text-white focus:border-blue-600"
   } ${rounded} ${className}`
 
   const handleOnChange = (e: any) => {
@@ -66,7 +66,7 @@ export default function Input({
         <>
           <div className={!question ? "pb-2" : ""}>
             <div className="relative flex items-center">
-              <p className="pr-1 text-sm font-semibold text-gray-700">
+              <p className="pr-1 text-sm font-semibold text-gray-300">
                 {label}
               </p>
               {question && (
@@ -74,7 +74,7 @@ export default function Input({
               )}
             </div>
             {helpText && (
-              <p className={`${question ? "pb-2" : ""} text-sm text-gray-600`}>
+              <p className={`${question ? "pb-2" : ""} text-sm text-gray-400`}>
                 {helpText}
               </p>
             )}
@@ -129,13 +129,13 @@ export default function Input({
 
         {prefix && (
           <div
-            className={`flex items-center rounded-l-sm justify-center px-5 text-gray-600 bg-gray-200 ${
-              error ? "shadow-error" : !disabled && !loading ? "text-black" : ""
+            className={`flex items-center rounded-l-sm justify-center px-5 text-gray-300 bg-gray-700 ${
+              error ? "shadow-error" : !disabled && !loading ? "text-white" : ""
             } ${
               prefixAction && !disabled && !loading
-                ? "cursor-pointer hover:bg-gray-100"
+                ? "cursor-pointer hover:bg-gray-800"
                 : ""
-            } ${disabled || loading ? "text-gray-400 bg-gray-100 " : ""}`}
+            } ${disabled || loading ? "text-gray-500 bg-gray-800 " : ""}`}
             onClick={
               prefixAction && !disabled && !loading
                 ? () => prefixAction()

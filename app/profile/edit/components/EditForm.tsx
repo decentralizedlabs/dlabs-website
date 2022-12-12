@@ -75,7 +75,7 @@ export default function EditForm() {
     <Container page={true} size="max-w-screen-sm">
       <form className="space-y-12 text-left" onSubmit={submit}>
         <div className="space-y-6">
-          <h2>Billing info</h2>
+          <h2>Billing</h2>
           <Input
             label="Full Name*"
             value={formData.name}
@@ -100,12 +100,12 @@ export default function EditForm() {
           />
         </div>
         <div className="space-y-6">
-          <h2>Profile info</h2>
+          <h2>Contact</h2>
           <Input
             label="Discord username"
             helpText={
               <>
-                We&apos;ll use this to contact you about job requests, on the{" "}
+                Used to contact you about job requests, on the{" "}
                 <a
                   className="highlight"
                   href="/"
@@ -130,8 +130,8 @@ export default function EditForm() {
             placeholder="gm@dlabs.app"
           />
         </div>
-        <div className="text-center">
-          <div className="pb-4">
+        <div className="space-y-6 text-center">
+          <div>
             <Button
               type="submit"
               label="Update profile"
@@ -140,7 +140,7 @@ export default function EditForm() {
             />
           </div>
           {userData?.name && userData?.address && (
-            <Link href="/submit" className="highlight">
+            <Link href="/submit" className="block font-bold highlight">
               Submit job
             </Link>
           )}

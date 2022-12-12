@@ -12,7 +12,7 @@ h3 {
 }
 
 a {
-  @apply font-medium text-black cursor-pointer hover:text-blue-600;
+  @apply font-medium text-white cursor-pointer hover:text-blue-600;
   text-decoration: none;
 }
 

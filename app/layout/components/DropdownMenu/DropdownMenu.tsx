@@ -40,7 +40,7 @@ export default function DropdownMenu({
   return (
     <div className="absolute top-0 right-0" ref={dropdownRef}>
       <div
-        className={`z-20 absolute text-sm top-0 right-0 w-56 mt-20 border border-gray-200 space-y-1 bg-white rounded-sm shadow-base`}
+        className={`z-20 absolute text-sm top-0 right-0 w-56 mt-20 border border-gray-200 space-y-1 bg-black rounded-sm shadow-base`}
       >
         <div onClick={() => setShowDropdown(false)}>
           <DropdownMenuElement

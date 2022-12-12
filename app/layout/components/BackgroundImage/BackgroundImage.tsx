@@ -5,7 +5,7 @@ export interface Props {
 }
 
 export default function BackgroundImage({ className }: Props) {
-  const rootClassName = `${className} absolute w-full h-full -z-10 bg-white`
+  const rootClassName = `${className} absolute w-full h-full -z-10 bg-black`
 
   return (
     <div className={rootClassName}>

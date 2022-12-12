@@ -60,7 +60,10 @@ export default function SubmitForm() {
         <div className="space-y-6">
           <p>Job submitted!</p>
           <p>List of things that will happen now...</p>
-          <a className="block highlight" onClick={() => setSuccess(false)}>
+          <a
+            className="block font-bold highlight"
+            onClick={() => setSuccess(false)}
+          >
             Submit a new job
           </a>
         </div>

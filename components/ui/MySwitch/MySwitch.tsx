@@ -20,7 +20,7 @@ const MySwitch = ({ enabled, setEnabled }: Props) => {
       <span
         aria-hidden="true"
         className={`${enabled ? "translate-x-[22px]" : "translate-x-0"}
-            pointer-events-none inline-block h-[22px] w-[26px] rounded-full bg-white shadow-lg transform ring-0 transition ease-in-out duration-200`}
+            pointer-events-none inline-block h-[22px] w-[26px] rounded-full bg-black shadow-lg transform ring-0 transition ease-in-out duration-200`}
       />
     </Switch>
   )

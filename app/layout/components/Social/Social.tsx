@@ -34,14 +34,14 @@ export default function Social({ wrapperClassName, altAccounts }: Props) {
     twitter: { color: "hover:text-blue-500", element: Twitter },
     discord: { color: "hover:text-indigo-500", element: Discord },
     github: { color: "hover:text-purple-500", element: Github },
-    notion: { color: "hover:text-gray-500", element: Notion },
+    notion: { color: "hover:text-gray-400", element: Notion },
     blog: { color: "hover:text-green-500", element: Blog },
     juicebox: { color: "hover:text-yellow-600", element: Juicebox },
     facebook: { color: "hover:text-blue-700", element: Facebook },
     instagram: { color: "hover:text-pink-500", element: Instagram },
     reddit: { color: "hover:text-red-500", element: Reddit },
     linkedin: { color: "hover:text-blue-700", element: Linkedin },
-    mail: { color: "hover:text-gray-500", element: Mail }
+    mail: { color: "hover:text-gray-400", element: Mail }
   }
 
   return (

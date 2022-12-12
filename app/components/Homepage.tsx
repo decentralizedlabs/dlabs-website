@@ -7,8 +7,8 @@ export default function Homepage() {
       <main className="max-w-screen-lg mx-auto space-y-12 text-center">
         <div>
           <h1>Decentralized labs</h1>
-          <p className="pt-6 text-xl font-bold text-gray-500 xs:text-lg">
-            A nice subtitle
+          <p className="pt-6 text-xl font-bold text-gray-400 sm:text-2xl">
+            On-demand web3 development
           </p>
         </div>
         <Button label="Submit work" href="/submit" />

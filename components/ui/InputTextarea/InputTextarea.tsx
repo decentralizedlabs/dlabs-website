@@ -41,7 +41,7 @@ const Textarea: React.FC<Props> = ({
     setShowPreview((showPreview) => !showPreview)
   }
 
-  const rootClassName = `bg-white rounded-sm py-3 pl-6 w-full appearance-none pr-4 border border-gray-400 text-black focus:outline-none focus:border-blue-600 placeholder-gray-500 disabled:text-gray-400 disabled:border-gray-700 disabled:bg-gray-900 ${
+  const rootClassName = `bg-black rounded-sm py-3 pl-6 w-full appearance-none pr-4 border border-gray-400 text-white focus:outline-none focus:border-blue-600 placeholder-gray-400 disabled:text-gray-400 disabled:border-gray-700 disabled:bg-gray-900 ${
     className ? className : ""
   }`
 
