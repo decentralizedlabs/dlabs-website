@@ -80,6 +80,7 @@ export default function EditForm() {
             label="Full Name*"
             value={formData.name}
             onChange={handleSetName}
+            disabled={loading}
             placeholder="Decentralized Labs LTD"
             required
           />
@@ -87,6 +88,7 @@ export default function EditForm() {
             label="Full address*"
             value={formData.physicalAddress}
             onChange={handleSetPhysicalAddress}
+            disabled={loading}
             placeholder="1234 Main St, New York, USA"
             required
           />
@@ -94,6 +96,7 @@ export default function EditForm() {
             label="VAT number"
             value={formData.taxId}
             onChange={handleSetTaxId}
+            disabled={loading}
           />
         </div>
         <div className="space-y-6">
@@ -115,6 +118,7 @@ export default function EditForm() {
             }
             value={formData.discord}
             onChange={handleSetDiscord}
+            disabled={loading}
             placeholder="Dlabs#1234"
           />
           <Input
@@ -122,6 +126,7 @@ export default function EditForm() {
             helpText="Used as alternative contact method"
             value={formData.email}
             onChange={handleSetEmail}
+            disabled={loading}
             placeholder="gm@dlabs.app"
           />
         </div>

@@ -32,6 +32,7 @@ export default function SubmitForm() {
         const newUserData = userData
         newUserData.notionData.push(newJob)
         setUserData({ ...newUserData })
+        setLink("")
         setSuccess(true)
       } catch (error) {
         console.log(error)
@@ -49,6 +50,7 @@ export default function SubmitForm() {
           label="Job link"
           value={link}
           onChange={handleSetLink}
+          disabled={loading}
           required
         />
         <Button
