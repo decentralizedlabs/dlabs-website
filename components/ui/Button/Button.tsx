@@ -45,7 +45,7 @@ export default function Button({
     "nightwind-prevent overflow-hidden text-sm sm:text-base font-bold tracking-wide px-6 rounded-sm h-[40px] min-w-[150px]"
   const color = !disabled
     ? customColor || secondary
-      ? "text-black border-yellow-300 border-2 hover:bg-yellow-300"
+      ? "text-white border-yellow-300 border-2 hover:text-black hover:bg-yellow-300"
       : success
       ? "text-white bg-green-500"
       : "text-black bg-yellow-300 hover:bg-yellow-400"
