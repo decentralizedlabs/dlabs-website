@@ -96,7 +96,7 @@ export default function EditForm() {
   return userData !== undefined ? (
     <Container page={true} size="max-w-screen-sm">
       <form className="space-y-12 text-left" onSubmit={submit}>
-        <div className="space-y-6">
+        <div className="space-y-8">
           <h2>Billing</h2>
           <Input
             label="Full Name*"
@@ -121,7 +121,7 @@ export default function EditForm() {
             disabled={loading}
           />
         </div>
-        <div className="space-y-6">
+        <div className="space-y-8">
           <h2>Contact</h2>
           <div>
             <div className="relative flex items-center">
@@ -149,7 +149,7 @@ export default function EditForm() {
                       href={discordLink}
                       target="_blank"
                       rel="noreferrer"
-                      className="ml-2 text-gray-400 highlight"
+                      className="ml-2 highlight"
                     >
                       update
                     </a>
@@ -183,17 +183,17 @@ export default function EditForm() {
             placeholder="gm@dlabs.app"
           />
         </div>
-        <div className="space-y-6 text-center">
+        <div className="text-center">
           <div>
             <Button
               type="submit"
-              label="Update profile"
+              label="Update"
               loading={loading}
               success={success}
             />
           </div>
           {userData?.name && userData?.address && (
-            <Link href="/submit" className="block font-bold highlight">
+            <Link href="/submit" className="block mt-6 font-bold highlight">
               Submit job
             </Link>
           )}

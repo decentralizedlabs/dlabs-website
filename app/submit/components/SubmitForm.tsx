@@ -45,7 +45,7 @@ export default function SubmitForm() {
   return (
     <Container page={true}>
       {!success ? (
-        <form className="max-w-screen-sm mx-auto space-y-6" onSubmit={submit}>
+        <form className="max-w-screen-sm mx-auto space-y-8" onSubmit={submit}>
           <h2>Submit job</h2>
           <Input
             label="Job link"
@@ -57,7 +57,7 @@ export default function SubmitForm() {
           <Button type="submit" label="Submit" loading={loading} />
         </form>
       ) : (
-        <div className="space-y-6">
+        <div className="space-y-8">
           <p>Job submitted!</p>
           <p>List of things that will happen now...</p>
           <a
