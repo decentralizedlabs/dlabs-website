@@ -9,17 +9,23 @@ import { Container } from "app/layout/components"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import { useAccount } from "wagmi"
+import { useSearchParams } from "next/navigation"
+import { Discord } from "@components/icons/Social"
+import Spinner from "@components/icons/Spinner"
 
 export default function EditForm() {
   const { address } = useAccount()
   const { userData, setUserData } = useAppContext()
+  const searchParams = useSearchParams()
+  const codeParam = searchParams.get("code")
+  const discordLink = `https://discord.com/oauth2/authorize?response_type=code&client_id=${process.env.NEXT_PUBLIC_DISCORD_APP_ID}&scope=identify&state=1234&redirect_uri=${process.env.NEXT_PUBLIC_APP_URL}/profile&prompt=consent`
+
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
   const [formData, setFormData] = useState({
     name: userData?.name || "",
     physicalAddress: userData?.physicalAddress || "",
     email: userData?.email || "",
-    discord: userData?.discord || "",
     taxId: userData?.taxId || ""
   })
 
@@ -31,9 +37,6 @@ export default function EditForm() {
   }
   const handleSetEmail = (value: string) => {
     handleSetObject("email", value, formData, setFormData, setSuccess)
-  }
-  const handleSetDiscord = (value: string) => {
-    handleSetObject("discord", value, formData, setFormData, setSuccess)
   }
   const handleSetTaxId = (value: string) => {
     handleSetObject("taxId", value, formData, setFormData, setSuccess)
@@ -49,7 +52,6 @@ export default function EditForm() {
           method: "POST"
         }
         const newData: User = await fetcher("/api/accounts", body)
-
         setUserData({ ...newData, notionData: userData.notionData })
         setSuccess(true)
       } catch (error) {
@@ -65,13 +67,33 @@ export default function EditForm() {
         name: userData?.name || "",
         physicalAddress: userData?.physicalAddress || "",
         email: userData?.email || "",
-        discord: userData?.discord || "",
         taxId: userData?.taxId || ""
       })
     }
   }, [userData])
 
-  return (
+  const getDiscordHandle = async (code: string) => {
+    try {
+      const body = {
+        method: "POST",
+        body: JSON.stringify({ code, address })
+      }
+      const newData = await fetcher("/api/discord", body)
+      if (newData) {
+        setUserData(newData)
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    if (codeParam) {
+      getDiscordHandle(codeParam)
+    }
+  }, [codeParam])
+
+  return userData !== undefined ? (
     <Container page={true} size="max-w-screen-sm">
       <form className="space-y-12 text-left" onSubmit={submit}>
         <div className="space-y-6">
@@ -101,26 +123,57 @@ export default function EditForm() {
         </div>
         <div className="space-y-6">
           <h2>Contact</h2>
-          <Input
-            label="Discord username"
-            helpText={
-              <>
-                Used to contact you about job requests, on the{" "}
-                <a
-                  className="highlight"
-                  href="/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  dlabs discord
-                </a>
-              </>
-            }
-            value={formData.discord}
-            onChange={handleSetDiscord}
-            disabled={loading}
-            placeholder="dlabs#1234"
-          />
+          <div>
+            <div className="relative flex items-center">
+              <p className="pr-1 text-sm font-semibold text-gray-300">
+                Discord username
+              </p>
+            </div>
+            <p className="pb-4 text-sm text-gray-400">
+              Used to contact you about job requests, on the{" "}
+              <a
+                className="highlight"
+                href="/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                dlabs discord
+              </a>
+            </p>
+            <div className="flex items-center gap-3">
+              {userData?.discord && (
+                <>
+                  <p className="text-sm font-bold">
+                    @{userData.discord}{" "}
+                    <a
+                      href={discordLink}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="ml-2 text-gray-400 highlight"
+                    >
+                      update
+                    </a>
+                  </p>
+                </>
+              )}
+              {!userData?.discord && (
+                <button type="button">
+                  <a
+                    href={discordLink}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center gap-3 px-6 py-2 font-bold text-white bg-indigo-500 rounded-sm hover:bg-indigo-700 hover:text-white"
+                  >
+                    Connect Discord
+                    <div className="w-5 h-5">
+                      <Discord />
+                    </div>
+                  </a>
+                </button>
+              )}
+            </div>
+          </div>
+
           <Input
             label="Email"
             helpText="Used as alternative contact method"
@@ -147,5 +200,9 @@ export default function EditForm() {
         </div>
       </form>
     </Container>
+  ) : (
+    <div className="flex justify-center">
+      <Spinner size="h-12 w-12" />
+    </div>
   )
 }
