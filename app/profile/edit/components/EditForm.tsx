@@ -1,6 +1,6 @@
 "use client"
 
-import { Button, Input } from "@components/ui"
+import { Button, DiscordAuthorizeButton, Input } from "@components/ui"
 import { User } from "@prisma/client"
 import fetcher from "@utils/fetcher"
 import handleSetObject from "@utils/handleSetObject"
@@ -9,16 +9,11 @@ import { Container } from "app/layout/components"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import { useAccount } from "wagmi"
-import { useSearchParams } from "next/navigation"
-import { Discord } from "@components/icons/Social"
 import Spinner from "@components/icons/Spinner"
 
 export default function EditForm() {
   const { address } = useAccount()
   const { userData, setUserData } = useAppContext()
-  const searchParams = useSearchParams()
-  const codeParam = searchParams.get("code")
-  const discordLink = `https://discord.com/oauth2/authorize?response_type=code&client_id=${process.env.NEXT_PUBLIC_DISCORD_APP_ID}&scope=identify&state=1234&redirect_uri=${process.env.NEXT_PUBLIC_APP_URL}/profile&prompt=consent`
 
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
@@ -72,27 +67,6 @@ export default function EditForm() {
     }
   }, [userData])
 
-  const getDiscordHandle = async (code: string) => {
-    try {
-      const body = {
-        method: "POST",
-        body: JSON.stringify({ code, address })
-      }
-      const newData = await fetcher("/api/discord", body)
-      if (newData) {
-        setUserData(newData)
-      }
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
-  useEffect(() => {
-    if (codeParam) {
-      getDiscordHandle(codeParam)
-    }
-  }, [codeParam])
-
   return userData !== undefined ? (
     <Container page={true} size="max-w-screen-sm">
       <form className="space-y-12 text-left" onSubmit={submit}>
@@ -123,56 +97,7 @@ export default function EditForm() {
         </div>
         <div className="space-y-8">
           <h2>Contact</h2>
-          <div>
-            <div className="relative flex items-center">
-              <p className="pr-1 text-sm font-semibold text-gray-300">
-                Discord username
-              </p>
-            </div>
-            <p className="pb-4 text-sm text-gray-400">
-              Used to contact you about job requests, on the{" "}
-              <a
-                className="highlight"
-                href="/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                dlabs discord
-              </a>
-            </p>
-            <div className="flex items-center gap-3">
-              {userData?.discord && (
-                <>
-                  <p className="text-sm font-bold">
-                    @{userData.discord}{" "}
-                    <a
-                      href={discordLink}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="ml-2 highlight"
-                    >
-                      update
-                    </a>
-                  </p>
-                </>
-              )}
-              {!userData?.discord && (
-                <button type="button">
-                  <a
-                    href={discordLink}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center gap-3 px-6 py-2 font-bold text-white bg-indigo-500 rounded-sm hover:bg-indigo-700 hover:text-white"
-                  >
-                    Connect Discord
-                    <div className="w-5 h-5">
-                      <Discord />
-                    </div>
-                  </a>
-                </button>
-              )}
-            </div>
-          </div>
+          <DiscordAuthorizeButton userData={userData} />
 
           <Input
             label="Email"
