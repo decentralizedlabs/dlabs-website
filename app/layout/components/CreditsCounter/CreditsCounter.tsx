@@ -36,6 +36,7 @@ export default function CreditsCounter() {
       onMouseEnter={() => setShow(true)}
       onMouseLeave={() => setShow(false)}
       href="https://slice.so"
+      // TODO: Add slicer link
       target="_blank"
       rel="noreferrer"
     >
