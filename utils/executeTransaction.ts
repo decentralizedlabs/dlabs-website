@@ -1,4 +1,5 @@
 import { NewTransaction } from "@rainbow-me/rainbowkit/dist/transactions/transactionStore"
+import { ContractReceipt, ContractTransaction } from "ethers"
 import { Dispatch, SetStateAction } from "react"
 
 export type TxData = {
@@ -6,11 +7,11 @@ export type TxData = {
 }
 
 const executeTransaction = async (
-  promise: () => Promise<any>,
+  promise: () => Promise<ContractTransaction>,
   setLoading: Dispatch<SetStateAction<boolean>>,
   txDescription?: string,
   addRecentTransaction?: (transaction: NewTransaction) => void,
-  settlementLogic?: (waitData: any) => Promise<any>,
+  onSuccess?: (waitData: ContractReceipt) => Promise<any>,
   confetti?: boolean
 ) => {
   setLoading(true)
@@ -32,8 +33,8 @@ const executeTransaction = async (
       // launchConfetti()
     }
 
-    if (settlementLogic) {
-      return await settlementLogic(waitData)
+    if (onSuccess) {
+      return await onSuccess(waitData)
     }
   } catch (err) {
     console.log(err)
