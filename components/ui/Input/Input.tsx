@@ -50,7 +50,7 @@ export default function Input({
   const rootClassName = `peer bg-black py-2 pl-6 w-full appearance-none pr-4 border focus:outline-none placeholder-gray-500 disabled:text-gray-500 disabled:border-gray-700 disabled:bg-gray-700 disabled:cursor-not-allowed ${
     error
       ? "border-red-500 text-red-500 focus:border-red-500"
-      : "border-gray-600 text-white focus:border-blue-600"
+      : "border-gray-600 text-white focus:border-yellow-300"
   } ${rounded} ${className}`
 
   const handleOnChange = (e: any) => {
@@ -87,9 +87,9 @@ export default function Input({
             className={`relative text-sm font-medium group flex items-center justify-center px-5 text-white nightwind-prevent ${
               error
                 ? "cursor-pointer bg-red-500"
-                : `bg-blue-600 ${
+                : `bg-yellow-300 ${
                     !disabled && !loading
-                      ? "cursor-pointer hover:bg-blue-700"
+                      ? "cursor-pointer hover:bg-yellow-400"
                       : ""
                   }`
             }`}

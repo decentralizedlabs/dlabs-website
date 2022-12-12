@@ -41,7 +41,7 @@ const Textarea: React.FC<Props> = ({
     setShowPreview((showPreview) => !showPreview)
   }
 
-  const rootClassName = `bg-black rounded-sm py-3 pl-6 w-full appearance-none pr-4 border border-gray-400 text-white focus:outline-none focus:border-blue-600 placeholder-gray-400 disabled:text-gray-400 disabled:border-gray-700 disabled:bg-gray-900 ${
+  const rootClassName = `bg-black rounded-sm py-3 pl-6 w-full appearance-none pr-4 border border-gray-400 text-white focus:outline-none focus:border-yellow-300 placeholder-gray-400 disabled:text-gray-400 disabled:border-gray-700 disabled:bg-gray-900 ${
     className ? className : ""
   }`
 
@@ -74,7 +74,7 @@ const Textarea: React.FC<Props> = ({
           )}
           {markdownView && value && (
             <a
-              className="absolute top-0 right-0 flex items-center h-full mr-1 text-sm text-blue-600"
+              className="absolute top-0 right-0 flex items-center h-full mr-1 text-sm text-yellow-300"
               onClick={async () => await handleShowPreview()}
             >
               {!showPreview ? "Show preview" : "Hide preview"}

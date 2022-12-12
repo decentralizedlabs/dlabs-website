@@ -46,7 +46,7 @@ export default function DropdownMenu({
           <DropdownMenuElement
             href="/"
             image={
-              <div className="w-5 h-5 border-2 border-blue-600 rounded-full group-hover:border-white" />
+              <div className="w-5 h-5 border-2 border-yellow-300 rounded-full group-hover:border-white" />
             }
             label="My profile"
           />

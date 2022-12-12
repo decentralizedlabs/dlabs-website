@@ -12,7 +12,7 @@ h3 {
 }
 
 a {
-  @apply font-medium text-white cursor-pointer hover:text-blue-600;
+  @apply font-medium text-white cursor-pointer hover:text-yellow-300;
   text-decoration: none;
 }
 
@@ -23,11 +23,7 @@ a {
 .highlight {
   text-decoration-line: underline;
   text-decoration-style: solid;
-  text-decoration-color: theme("colors.blue.600");
+  text-decoration-color: theme("colors.yellow.300");
   text-decoration-thickness: 2px;
   text-underline-offset: 1px;
-}
-
-.dark .highlight {
-  text-decoration-color: theme("colors.blue.300");
 }

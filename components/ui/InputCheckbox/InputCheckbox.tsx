@@ -20,8 +20,8 @@ export default function InputCheckbox({
   id,
   ...rest
 }: Props) {
-  const rootClassName = `w-4 h-4 rounded bg-black text-blue-600 dark:text-blue-600 shadow-sm focus:ring focus:ring-offset-0 focus:ring-blue-200 dark:focus:ring-blue-700 focus:!ring-opacity-50 ${
-    checked ? "bg-blue-600 dark:bg-blue-600" : "border-gray-300"
+  const rootClassName = `w-4 h-4 rounded bg-black text-yellow-300 dark:text-yellow-300 shadow-sm focus:ring focus:ring-offset-0 focus:ring-yellow-300 focus:!ring-opacity-50 ${
+    checked ? "bg-yellow-300 dark:bg-yellow-300" : "border-gray-300"
   }`
 
   return (

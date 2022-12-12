@@ -75,7 +75,7 @@ export default function InputAddress({
           className={`${
             resolvedAddress === "Invalid ENS name"
               ? "text-red-500"
-              : "text-blue-600"
+              : "text-yellow-300"
           } absolute text-xs opacity-80 font-black left-0 bottom-[-23px]
           }`}
         >

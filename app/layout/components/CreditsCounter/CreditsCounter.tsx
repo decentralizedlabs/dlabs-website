@@ -47,7 +47,7 @@ export default function CreditsCounter() {
       <span
         className={`${
           !show ? "hidden " : ""
-        }absolute p-5 w-80 z-10 bg-black text-center font-normal text-white shadow-xl top-[65px] right-0 mb-9 rounded-sm overflow-hidden border border-blue-600 border-opacity-50`}
+        }absolute p-5 w-80 z-10 bg-black text-center font-normal text-white shadow-xl top-[65px] right-0 mb-9 rounded-sm overflow-hidden border border-yellow-300 border-opacity-50`}
       >
         Get credits on the Slice store
       </span>

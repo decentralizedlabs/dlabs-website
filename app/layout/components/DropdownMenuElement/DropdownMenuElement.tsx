@@ -8,7 +8,7 @@ type Props = {
 
 export default function DropdownMenuElement({ href, image, label }: Props) {
   const className =
-    "flex items-center py-3.5 group rounded-sm hover:bg-blue-600 hover:text-white"
+    "flex items-center py-3.5 group rounded-sm hover:bg-yellow-300 hover:text-white"
 
   return (
     <>
