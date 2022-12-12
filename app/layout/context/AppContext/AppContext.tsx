@@ -64,12 +64,6 @@ export default function AppWrapper({
     message: messageToSign
   })
 
-  useEffect(() => {
-    if (!isSigned && account && signer && !isSignatureLoading) {
-      signMessage(account, signMessageAsync, setIsSigned)
-    }
-  }, [account, signer])
-
   // User data
   async function getUserData(account: string) {
     const {
