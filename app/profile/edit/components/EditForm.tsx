@@ -134,14 +134,14 @@ export default function EditForm() {
           <div className="pb-4">
             <Button
               type="submit"
-              label="Submit"
+              label="Update profile"
               loading={loading}
               success={success}
             />
           </div>
           {userData?.name && userData?.address && (
             <Link href="/submit" className="highlight">
-              Submit work
+              Submit job
             </Link>
           )}
         </div>

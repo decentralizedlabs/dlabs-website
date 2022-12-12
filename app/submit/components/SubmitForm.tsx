@@ -44,22 +44,27 @@ export default function SubmitForm() {
 
   return (
     <Container page={true}>
-      <form className="max-w-screen-sm mx-auto space-y-4" onSubmit={submit}>
-        <h1 className="text-3xl">Submit job</h1>
-        <Input
-          label="Job link"
-          value={link}
-          onChange={handleSetLink}
-          disabled={loading}
-          required
-        />
-        <Button
-          type="submit"
-          label="Submit"
-          loading={loading}
-          success={success}
-        />
-      </form>
+      {!success ? (
+        <form className="max-w-screen-sm mx-auto space-y-6" onSubmit={submit}>
+          <h2>Submit job</h2>
+          <Input
+            label="Job link"
+            value={link}
+            onChange={handleSetLink}
+            disabled={loading}
+            required
+          />
+          <Button type="submit" label="Submit" loading={loading} />
+        </form>
+      ) : (
+        <div className="space-y-6">
+          <p>Job submitted!</p>
+          <p>List of things that will happen now...</p>
+          <a className="block highlight" onClick={() => setSuccess(false)}>
+            Submit a new job
+          </a>
+        </div>
+      )}
     </Container>
   )
 }
