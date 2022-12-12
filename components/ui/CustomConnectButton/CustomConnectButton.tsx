@@ -70,7 +70,7 @@ export default function CustomConnectButton({
                       }`}
                     >
                       <Button
-                        label="Sign message"
+                        label="Log in"
                         onClick={() =>
                           signMessage(
                             account.address,
@@ -79,6 +79,7 @@ export default function CustomConnectButton({
                           )
                         }
                         loading={isSignatureLoading}
+                        loadingMessage="Sign message"
                         secondary
                       />
                       {!isSignatureLoading && (

@@ -14,6 +14,7 @@ interface Props {
   href?: string
   onClick?: any
   loading?: boolean
+  loadingMessage?: string | JSX.Element
   success?: boolean
   external?: boolean
   targetBlank?: boolean
@@ -31,6 +32,7 @@ export default function Button({
   href,
   onClick,
   loading,
+  loadingMessage,
   success,
   external,
   targetBlank = true,
@@ -40,7 +42,7 @@ export default function Button({
 }: Props) {
   const className =
     customClassName ||
-    "nightwind-prevent overflow-hidden text-sm sm:text-base font-bold tracking-wide px-7 rounded-sm h-[40px] min-w-[150px]"
+    "nightwind-prevent overflow-hidden text-sm sm:text-base font-bold tracking-wide px-6 rounded-sm h-[40px] min-w-[150px]"
   const color = !disabled
     ? customColor || secondary
       ? "text-blue-600 border-blue-600 border-2 hover:bg-blue-600 hover:text-white"
@@ -78,7 +80,16 @@ export default function Button({
           onClick={!disabled && !loading && !success ? onClick : null}
         >
           <div className="flex items-center justify-center w-full">
-            {success ? <Check /> : loading ? <Spinner /> : <p>{label}</p>}
+            {success ? (
+              <Check />
+            ) : loading ? (
+              <span className="flex items-center gap-2">
+                {loadingMessage && <p>{loadingMessage}</p>}
+                <Spinner />
+              </span>
+            ) : (
+              <p>{label}</p>
+            )}
           </div>
         </button>
       )}
