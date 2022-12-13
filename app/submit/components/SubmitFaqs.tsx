@@ -15,7 +15,7 @@ export default function SubmitFaqs() {
             </p>
             <p>
               Job requests cost 1{" "}
-              <span className="inline-block w-3 h-3 mb-0">
+              <span className="inline-block w-2.5 h-2.5 mb-0">
                 <Logo />
               </span>
               , so you just need enough credits to submit new ones (you can get
@@ -27,8 +27,8 @@ export default function SubmitFaqs() {
               ).
             </p>
             <p>
-              The actual cost of each job requested is calculated during the
-              review stage.
+              The actual cost of each job will be calculated during the review
+              stage.
             </p>
           </>
         }

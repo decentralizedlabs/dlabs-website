@@ -84,6 +84,13 @@ export default function AppWrapper({
       }))
     })
 
+  useEffect(() => {
+    setAvailableUnits(0)
+    if (purchasedData && userData) {
+      setAvailableUnits(getAvailableUnits(purchasedData, userData?.notionData))
+    }
+  }, [purchasedData, userData])
+
   // Signature authentication
   const { signMessageAsync, isLoading: isSignatureLoading } = useSignMessage({
     message: messageToSign
@@ -105,11 +112,9 @@ export default function AppWrapper({
   useEffect(() => {
     setIsConnected(account && true)
     setUserData(undefined)
-    setAvailableUnits(0)
 
     if (account) {
       getUserData(account)
-      setAvailableUnits(getAvailableUnits(purchasedData, userData?.notionData))
       if (account && localStorage.getItem("isSigned") == account) {
         setIsSigned(true)
       } else {

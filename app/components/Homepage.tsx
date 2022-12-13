@@ -1,4 +1,5 @@
 import { Button } from "@components/ui"
+import Link from "next/link"
 import { Container } from "../layout/components"
 
 export default function Homepage() {
@@ -11,16 +12,11 @@ export default function Homepage() {
             On-demand web3 development
           </p>
         </div>
-        <Button label="Submit work" href="/submit" />
-        <a
-          href="/"
-          target="_blank"
-          rel="noreferrer"
-          className="inline-block pt-6 font-bold highlight"
-        >
-          {/* TODO: Add link */}
-          See plans
-        </a>{" "}
+        <Button label="See plans" href="/" external={true} />
+        {/* TODO: Add link */}
+        <Link href="/submit" className="inline-block mt-6 font-bold highlight">
+          Submit work
+        </Link>
       </main>
     </Container>
   )

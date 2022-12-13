@@ -18,7 +18,7 @@ export const validateUnits = {
 
 export const getAvailableUnits = (
   purchasedData: BigNumber[],
-  notionData: PageObjectResponse[]
+  notionData: PageObjectResponse[] | undefined
 ) => {
   const purchasedUnits = purchasedData?.reduce(
     (a, b, i) => Number(a) + Number(b) * products[i].value,
