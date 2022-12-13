@@ -73,6 +73,15 @@ export default async function handler(
         // Handle notion update
         const data = await notion.pages.create(formatNotionBody(userData, link))
 
+        // Push notification to Discord webhook
+        fetch(
+          `${process.env.NEXT_PUBLIC_APP_URL}/api/webhook?${
+            userData.discord
+              ? `discord=${encodeURIComponent(userData.discord)}`
+              : ""
+          }`
+        )
+
         res.status(200).json(data)
       } else {
         throw Error("No credits available")
