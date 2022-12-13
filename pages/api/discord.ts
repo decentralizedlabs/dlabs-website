@@ -31,13 +31,13 @@ export default async function handler(
 
       // Get access token
       const tokenData = await fetcher(
-        "https://discord.com/api/v10/oauth2/token",
+        "https://discord.com/api/oauth2/token",
         body
       )
       const { token_type, access_token } = tokenData
 
       // Get Discord username
-      let userData = await fetcher("https://discord.com/api/v10/users/@me", {
+      let userData = await fetcher("https://discord.com/api/users/@me", {
         headers: {
           authorization: `${token_type} ${access_token}`
         }
