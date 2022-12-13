@@ -1,7 +1,7 @@
 "use client"
 
 import Logo from "@components/icons/Logo"
-import { constants } from "@utils/constants"
+import { constants, envConstants } from "@utils/constants"
 import usePurchasedUnits from "@utils/usePurchasedUnits"
 import { accounts } from "app/layout/components/Social/Social"
 
@@ -14,8 +14,7 @@ export default function SubmitDescription() {
         {availableUnits == 0 && (
           <li>
             Visit the{" "}
-            <a href="/" target="_blank" rel="noreferrer">
-              {/* TODO: Add link */}
+            <a href={envConstants.slicerUrl} target="_blank" rel="noreferrer">
               dlabs store
             </a>{" "}
             to get{" "}

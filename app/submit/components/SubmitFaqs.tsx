@@ -1,7 +1,7 @@
 import { CollapsibleItem, NoteText } from "@components/ui"
 import Logo from "@components/icons/Logo"
 import { accounts } from "app/layout/components/Social/Social"
-import { constants } from "@utils/constants"
+import { constants, envConstants } from "@utils/constants"
 
 export default function SubmitFaqs() {
   return (
@@ -21,8 +21,7 @@ export default function SubmitFaqs() {
               </span>
               , so you just need enough credits to submit new ones (you can get
               more on the{" "}
-              <a href="/" target="_blank" rel="noreferrer">
-                {/* TODO: Add link */}
+              <a href={envConstants.slicerUrl} target="_blank" rel="noreferrer">
                 dlabs store
               </a>
               ).
