@@ -31,8 +31,8 @@ export default function Social({ wrapperClassName, altAccounts }: Props) {
   const accountsToDisplay = altAccounts || accounts
 
   const components = {
-    twitter: { color: "hover:text-blue-500", element: Twitter },
-    discord: { color: "hover:text-indigo-500", element: Discord },
+    twitter: { color: "hover:text-blue-400", element: Twitter },
+    discord: { color: "hover:text-indigo-400", element: Discord },
     github: { color: "hover:text-purple-500", element: Github },
     notion: { color: "hover:text-gray-400", element: Notion },
     blog: { color: "hover:text-green-500", element: Blog },
