@@ -33,7 +33,11 @@ export default function CollapsibleItem({
         onClick={() => setShowDetail((showDetail) => !showDetail)}
         id={id || undefined}
       >
-        <div className={`flex-shrink-0 w-4 h-4 mr-4 ${showDetail && "pb-2"}`}>
+        <div
+          className={`flex-shrink-0 w-6 h-6 mr-4 ${
+            showDetail && "pb-2 text-yellow-300"
+          }`}
+        >
           <Chevron
             className={`transition-transform duration-50 ease-out ${
               showDetail
@@ -50,7 +54,7 @@ export default function CollapsibleItem({
         )}
       </div>
       {showDetail && (
-        <div className="px-3 py-5 mt-3 border border-gray-200 xs:px-5">
+        <div className="px-3 py-5 mt-3 prose border border-yellow-300 sm:px-5">
           {typeof detail == "string" ? <p className="">{detail}</p> : detail}
         </div>
       )}

@@ -2,6 +2,7 @@
 
 import { Discord } from "@components/icons/Social"
 import fetcher from "@utils/fetcher"
+import { accounts } from "app/layout/components/Social/Social"
 import { UserData } from "app/layout/context/AppContext/AppContext"
 import { useSearchParams } from "next/navigation"
 import { Dispatch, SetStateAction, useEffect } from "react"
@@ -52,7 +53,12 @@ export default function DiscordAuthorizeButton({
       </div>
       <p className="pb-4 text-sm text-gray-400">
         Used to contact you about job requests, on the{" "}
-        <a className="highlight" href="/" target="_blank" rel="noreferrer">
+        <a
+          className="highlight"
+          href={accounts.discord}
+          target="_blank"
+          rel="noreferrer"
+        >
           dlabs discord
         </a>
       </p>

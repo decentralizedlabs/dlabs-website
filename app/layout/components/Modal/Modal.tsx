@@ -37,14 +37,14 @@ const Modal = () => {
 
   return (
     modalView.name && (
-      <div className="fixed top-0 z-50 w-screen h-screen py-12 overflow-y-scroll xs:py-20 background-modal">
-        <div className="absolute w-full h-full mt-[-3rem] xs:mt-[-5rem]" />
+      <div className="fixed top-0 z-50 w-screen h-screen py-12 overflow-y-scroll sm:py-20 background-modal">
+        <div className="absolute w-full h-full mt-[-3rem] sm:mt-[-5rem]" />
         <div
           className="flex items-center justify-center"
           style={{ minHeight: "100%" }}
         >
           <div
-            className="relative w-full max-w-screen-md px-2 py-16 mx-2 bg-black border border-gray-200 rounded-sm shadow-xl xs:py-20 xs:px-8"
+            className="relative w-full max-w-screen-md px-2 py-16 mx-2 bg-black border border-gray-200 rounded-sm shadow-xl sm:py-20 sm:px-8"
             ref={modalRef}
           >
             {cross && (

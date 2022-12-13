@@ -11,9 +11,7 @@ export default function Container({
 }: Props) {
   return (
     <div
-      className={`${
-        size ? size : "max-w-screen-lg"
-      } w-full mx-auto px-4 md:px-8 ${
+      className={`${size ? size : "max-w-screen-lg"} w-full mx-auto px-4 ${
         page && "pt-16 pb-10 text-center sm:pt-24 sm:pb-12"
       }`}
     >

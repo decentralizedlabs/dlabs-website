@@ -1,5 +1,5 @@
 h1 {
-  @apply text-3xl font-black sm:text-5xl;
+  @apply pb-6 text-3xl font-black sm:text-5xl;
   letter-spacing: 0.005em;
 }
 

@@ -51,7 +51,7 @@ export default function DropdownMenu({
             label="My profile"
           />
         </div>
-        {/* <div className="xs:hidden">
+        {/* <div className="sm:hidden">
         <DropdownMenuElement
           image={<Nightwind size="h-5" onClick={null} />}
           label="Toggle dark mode"

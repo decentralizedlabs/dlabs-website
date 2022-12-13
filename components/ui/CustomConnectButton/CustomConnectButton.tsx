@@ -84,7 +84,7 @@ export default function CustomConnectButton({
                       />
                       {!isSignatureLoading && (
                         <span
-                          className="block text-red-500 underline cursor-pointer hover:text-red-700"
+                          className="block text-red-400 underline cursor-pointer hover:text-red-500"
                           onClick={() => disconnect()}
                         >
                           {disconnectLabel ? (

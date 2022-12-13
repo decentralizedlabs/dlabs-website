@@ -44,7 +44,7 @@ export default async function handler(
       })
 
       let data: User
-      if (userData.username) {
+      if (userData?.username) {
         // Update user in db with Discord username
         data = await prisma.user.update({
           where: { address: String(address) },

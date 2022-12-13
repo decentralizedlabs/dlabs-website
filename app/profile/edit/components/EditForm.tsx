@@ -97,8 +97,11 @@ export default function EditForm() {
         </div>
         <div className="space-y-8">
           <h2>Contact</h2>
-          <DiscordAuthorizeButton userData={userData} />
-
+          <DiscordAuthorizeButton
+            address={address}
+            userData={userData}
+            setUserData={setUserData}
+          />
           <Input
             label="Email"
             helpText="Used as alternative contact method"

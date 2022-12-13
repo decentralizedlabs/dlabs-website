@@ -13,22 +13,23 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            color: theme("colors.black"),
+            color: theme("colors.white"),
             a: {
+              color: theme("colors.white"),
               textDecorationColor: theme("colors.yellow.300"),
               textDecorationThickness: "1.5px",
               textUnderlineOffset: "1px"
             },
             h1: {
-              color: theme("colors.black"),
+              color: theme("colors.white"),
               fontWeight: "900"
             },
             h2: {
-              color: theme("colors.black"),
+              color: theme("colors.white"),
               fontWeight: "900"
             },
             h3: {
-              color: theme("colors.black"),
+              color: theme("colors.white"),
               fontSize: "1.12em"
             },
             blockquote: {

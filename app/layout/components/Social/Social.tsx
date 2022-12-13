@@ -19,8 +19,8 @@ type Props = {
 }
 
 export const accounts: Record<string, string> = {
-  twitter: "https://twitter.com/slice__so"
-  // discord: "https://discord.gg/CdyHUzdZks",
+  twitter: "https://twitter.com/jj_ranalli",
+  discord: "https://discord.gg/PnyVjwMa"
   // notion: "https://slicedao.notion.site",
   // github: "https://github.com/slice-so",
   // blog: "/blog",

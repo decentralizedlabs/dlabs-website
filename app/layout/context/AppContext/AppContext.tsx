@@ -9,11 +9,24 @@ import {
   useState
 } from "react"
 import { View } from "@lib/content/modals"
-import { useAccount, useNetwork, useSigner, useSignMessage } from "wagmi"
+import {
+  useAccount,
+  useContractReads,
+  useNetwork,
+  useSigner,
+  useSignMessage
+} from "wagmi"
 import fetcher from "@utils/fetcher"
 import { User } from "@prisma/client"
-import { messageToSign, signMessage } from "@utils/signMessage"
+import { messageToSign } from "@utils/signMessage"
 import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
+import {
+  getAvailableUnits,
+  products,
+  slicerId,
+  validateUnits
+} from "@lib/storeInfo"
+import { BigNumber } from "ethers"
 
 type Context = {
   isConnected: boolean
@@ -21,6 +34,7 @@ type Context = {
   setIsSigned: Dispatch<SetStateAction<boolean>>
   signMessageAsync: (args?: any) => Promise<`0x${string}`>
   isSignatureLoading: boolean
+  availableUnits: number
   userData: UserData
   setUserData: Dispatch<SetStateAction<UserData>>
   modalView: View
@@ -37,6 +51,7 @@ const AppContext = createContext<Context>({
   setIsSigned: null,
   signMessageAsync: null,
   isSignatureLoading: false,
+  availableUnits: 0,
   userData: null,
   setUserData: null,
   modalView: { name: "" },
@@ -58,6 +73,16 @@ export default function AppWrapper({
   const [isConnected, setIsConnected] = useState(false)
   const [isSigned, setIsSigned] = useState(false)
   const [userData, setUserData] = useState<UserData>()
+  const [availableUnits, setAvailableUnits] = useState<number>()
+
+  // Available units
+  const { data: purchasedData }: { data: BigNumber[]; isLoading: boolean } =
+    useContractReads({
+      contracts: products.map(({ productId }) => ({
+        ...validateUnits,
+        args: [account, slicerId, productId]
+      }))
+    })
 
   // Signature authentication
   const { signMessageAsync, isLoading: isSignatureLoading } = useSignMessage({
@@ -80,9 +105,11 @@ export default function AppWrapper({
   useEffect(() => {
     setIsConnected(account && true)
     setUserData(undefined)
+    setAvailableUnits(0)
 
     if (account) {
       getUserData(account)
+      setAvailableUnits(getAvailableUnits(purchasedData, userData?.notionData))
       if (account && localStorage.getItem("isSigned") == account) {
         setIsSigned(true)
       } else {
@@ -117,6 +144,7 @@ export default function AppWrapper({
         setIsSigned,
         signMessageAsync,
         isSignatureLoading,
+        availableUnits,
         userData,
         setUserData,
         modalView,
