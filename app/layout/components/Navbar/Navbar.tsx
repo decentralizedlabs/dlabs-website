@@ -19,7 +19,7 @@ export default function Navbar() {
             </Link>
           </div>
 
-          <div className="relative z-10 flex items-center space-x-6 sm:space-x-8 sm:space-x-6">
+          <div className="relative z-10 flex items-center space-x-6 sm:space-x-8">
             {/* <div className="hidden sm:block sm:mr-2">
               <Nightwind size="h-[24px]" />
             </div> */}
