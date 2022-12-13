@@ -19,7 +19,7 @@ export default function Homepage() {
           className="inline-block pt-6 font-bold highlight"
         >
           {/* TODO: Add link */}
-          Visit dlabs store
+          See plans
         </a>{" "}
       </main>
     </Container>

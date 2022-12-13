@@ -26,7 +26,7 @@ const defaultOptions: CorsOptions = {
   origin: "*",
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   preflightContinue: false,
-  optionsSuccessStatus: 204,
+  optionsSuccessStatus: 204
 }
 
 function isOriginAllowed(origin: string, allowed: StaticOrigin): boolean {
@@ -152,7 +152,7 @@ export function initCors(options?: CorsOptions) {
   return (req: Request, res: Response) => cors(req, res, options)
 }
 
-// Todo: Use this in place of cors library
+// TODO: Authenticate users with token (siwe + nextauth) and use middleware to protect api routes
 
 // // _middleware.ts
 // import { NextRequest, NextResponse } from "next/server"
