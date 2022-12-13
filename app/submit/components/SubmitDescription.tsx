@@ -1,6 +1,7 @@
 "use client"
 
 import Logo from "@components/icons/Logo"
+import { constants } from "@utils/constants"
 import usePurchasedUnits from "@utils/usePurchasedUnits"
 import { accounts } from "app/layout/components/Social/Social"
 
@@ -33,8 +34,7 @@ export default function SubmitDescription() {
         </li>
         <li>
           Duplicate{" "}
-          <a href="/" target="_blank" rel="noreferrer">
-            {/* TODO: Add link */}
+          <a href={constants.template} target="_blank" rel="noreferrer">
             this Notion document
           </a>{" "}
           and fill in the job details

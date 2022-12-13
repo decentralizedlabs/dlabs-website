@@ -1,4 +1,4 @@
-import { addresses } from "@utils/constants"
+import { envConstants } from "@utils/constants"
 import ProductsModule from "abi/ProductsModule.json"
 import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
 import { BigNumber } from "ethers"
@@ -11,7 +11,7 @@ export const products = [
   { productId: 3, value: 25 }
 ]
 export const callParams = {
-  address: addresses.ProductsModule,
+  address: envConstants.ProductsModule,
   abi: ProductsModule.abi,
   functionName: "validatePurchaseUnits"
 }

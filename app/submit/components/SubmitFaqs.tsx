@@ -1,6 +1,7 @@
 import { CollapsibleItem, NoteText } from "@components/ui"
 import Logo from "@components/icons/Logo"
 import { accounts } from "app/layout/components/Social/Social"
+import { constants } from "@utils/constants"
 
 export default function SubmitFaqs() {
   return (
@@ -62,8 +63,7 @@ export default function SubmitFaqs() {
           <>
             <p>
               We suggest using the provided{" "}
-              <a href="/" target="_blank" rel="noreferrer">
-                {/* TODO: Add link */}
+              <a href={constants.template} target="_blank" rel="noreferrer">
                 Notion document
               </a>{" "}
               to speed up the review phase. You can keep refining your request
