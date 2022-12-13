@@ -44,7 +44,7 @@ const Modal = () => {
           style={{ minHeight: "100%" }}
         >
           <div
-            className="relative w-full max-w-screen-md px-2 py-16 mx-2 bg-black border border-gray-200 rounded-sm shadow-xl sm:py-20 sm:px-8"
+            className="relative w-full max-w-screen-md px-2 py-16 mx-2 bg-black border border-yellow-300 rounded-md shadow-xl sm:py-20 sm:px-8"
             ref={modalRef}
           >
             {cross && (
