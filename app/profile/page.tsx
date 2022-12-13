@@ -1,7 +1,7 @@
 export const runtime = "nodejs"
 
-import ProfileForm from "./edit/components/EditForm"
+import EditPage from "./edit/components/EditPage"
 
 export default function Page() {
-  return <ProfileForm />
+  return <EditPage />
 }

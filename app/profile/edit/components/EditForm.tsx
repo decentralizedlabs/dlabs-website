@@ -5,11 +5,8 @@ import { User } from "@prisma/client"
 import fetcher from "@utils/fetcher"
 import handleSetObject from "@utils/handleSetObject"
 import { useAppContext } from "app/layout/context"
-import { Container } from "app/layout/components"
-import Link from "next/link"
 import { useEffect, useState } from "react"
 import { useAccount } from "wagmi"
-import Spinner from "@components/icons/Spinner"
 
 export default function EditForm() {
   const { address } = useAccount()
@@ -67,70 +64,59 @@ export default function EditForm() {
     }
   }, [userData])
 
-  return userData !== undefined ? (
-    <Container page={true} size="max-w-screen-sm">
-      <form className="space-y-12 text-left" onSubmit={submit}>
-        <div className="space-y-8">
-          <h2>Billing</h2>
-          <Input
-            label="Full Name*"
-            value={formData.name}
-            onChange={handleSetName}
-            disabled={loading}
-            placeholder="Decentralized Labs LTD"
-            required
-          />
-          <Input
-            label="Full address*"
-            value={formData.physicalAddress}
-            onChange={handleSetPhysicalAddress}
-            disabled={loading}
-            placeholder="1234 Main St, New York, USA"
-            required
-          />
-          <Input
-            label="VAT number"
-            value={formData.taxId}
-            onChange={handleSetTaxId}
-            disabled={loading}
+  return (
+    <form className="space-y-12 text-left" onSubmit={submit}>
+      <div className="space-y-8">
+        <h2>Billing</h2>
+        <Input
+          label="Full Name*"
+          value={formData.name}
+          onChange={handleSetName}
+          disabled={loading}
+          placeholder="Decentralized Labs LTD"
+          required
+        />
+        <Input
+          label="Full address*"
+          value={formData.physicalAddress}
+          onChange={handleSetPhysicalAddress}
+          disabled={loading}
+          placeholder="1234 Main St, New York, USA"
+          required
+        />
+        <Input
+          label="VAT number"
+          value={formData.taxId}
+          onChange={handleSetTaxId}
+          disabled={loading}
+        />
+      </div>
+      <div className="space-y-8">
+        <h2>Contact</h2>
+        <DiscordAuthorizeButton
+          address={address}
+          userData={userData}
+          setUserData={setUserData}
+        />
+        <Input
+          label="Email"
+          helpText="Used as alternative contact method"
+          value={formData.email}
+          onChange={handleSetEmail}
+          disabled={loading}
+          placeholder="gm@dlabs.app"
+        />
+      </div>
+      <div className="text-center">
+        <div>
+          <Button
+            type="submit"
+            label="Update"
+            loading={loading}
+            success={success}
           />
         </div>
-        <div className="space-y-8">
-          <h2>Contact</h2>
-          <DiscordAuthorizeButton
-            address={address}
-            userData={userData}
-            setUserData={setUserData}
-          />
-          <Input
-            label="Email"
-            helpText="Used as alternative contact method"
-            value={formData.email}
-            onChange={handleSetEmail}
-            disabled={loading}
-            placeholder="gm@dlabs.app"
-          />
-        </div>
-        <div className="text-center">
-          <div>
-            <Button
-              type="submit"
-              label="Update"
-              loading={loading}
-              success={success}
-            />
-          </div>
-          {userData?.name && userData?.address && (
-            <Link href="/submit" className="block mt-6 font-bold highlight">
-              Submit job
-            </Link>
-          )}
-        </div>
-      </form>
-    </Container>
-  ) : (
-    <div className="flex justify-center">
-      <Spinner size="h-12 w-12" />
-    </div>
+      </div>
+    </form>
   )
 }

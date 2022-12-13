@@ -10,7 +10,7 @@ export const products = [
   { productId: 1, value: 10 },
   { productId: 3, value: 25 }
 ]
-export const validateUnits = {
+export const callParams = {
   address: addresses.ProductsModule,
   abi: ProductsModule.abi,
   functionName: "validatePurchaseUnits"

@@ -4,9 +4,11 @@ import Spinner from "@components/icons/Spinner"
 import { useAppContext } from "app/layout/context"
 import Logo from "@components/icons/Logo"
 import { useState } from "react"
+import usePurchasedUnits from "@utils/usePurchasedUnits"
 
 export default function CreditsCounter() {
-  const { userData, availableUnits } = useAppContext()
+  const { userData } = useAppContext()
+  const { availableUnits } = usePurchasedUnits()
   const [show, setShow] = useState(false)
 
   return availableUnits !== undefined && userData !== undefined ? (

@@ -15,7 +15,7 @@ import {
   getNotionData,
   products,
   slicerId,
-  validateUnits
+  callParams
 } from "@lib/storeInfo"
 import { BigNumber } from "ethers"
 import { User } from "@prisma/client"
@@ -50,7 +50,7 @@ export default async function handler(
         }),
         readContracts({
           contracts: products.map(({ productId }) => ({
-            ...validateUnits,
+            ...callParams,
             args: [address, slicerId, productId]
           }))
         })

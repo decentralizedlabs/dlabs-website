@@ -1,7 +1,7 @@
 export const runtime = "nodejs"
 
-import SubmitForm from "./components/SubmitForm"
+import SubmitPage from "./components/SubmitPage"
 
 export default function Page() {
-  return <SubmitForm />
+  return <SubmitPage />
 }

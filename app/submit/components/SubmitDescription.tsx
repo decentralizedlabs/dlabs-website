@@ -1,11 +1,12 @@
+"use client"
+
 import Logo from "@components/icons/Logo"
+import usePurchasedUnits from "@utils/usePurchasedUnits"
 import { accounts } from "app/layout/components/Social/Social"
 
-type Props = {
-  availableUnits: number
-}
+export default function SubmitDescription() {
+  const { availableUnits } = usePurchasedUnits()
 
-export default function SubmitDescription({ availableUnits }: Props) {
   return (
     <div className="prose text-left">
       <ol>
