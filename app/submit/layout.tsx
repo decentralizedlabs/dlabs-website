@@ -19,7 +19,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           children
         ) : (
           <ActionScreen
-            text="Fill your billing info before requesting a job"
+            title="Missing billing info"
+            text="Complete your profile before requesting a job"
             buttonLabel="Go to profile"
             href="/profile/edit"
           />
