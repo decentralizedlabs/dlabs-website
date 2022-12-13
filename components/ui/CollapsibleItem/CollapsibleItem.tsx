@@ -54,8 +54,8 @@ export default function CollapsibleItem({
         )}
       </div>
       {showDetail && (
-        <div className="px-3 py-5 mt-3 prose-sm prose border border-yellow-300 sm:px-5">
-          {typeof detail == "string" ? <p className="">{detail}</p> : detail}
+        <div className="px-3 py-5 mt-3 prose-sm border border-yellow-300 sm:px-5">
+          {typeof detail == "string" ? <p>{detail}</p> : detail}
         </div>
       )}
     </li>
