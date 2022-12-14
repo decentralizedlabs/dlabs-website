@@ -10,7 +10,7 @@ export const constants = {
   ipfsGateway: "https://ipfs.io/ipfs/"
 }
 
-export const envconstants = {
+export const constantsValues = {
   constants,
   env: {
     1: {
@@ -27,4 +27,4 @@ export const envconstants = {
 }
 
 export const envConstants: EnvConstants =
-  envconstants.env[process.env.NEXT_PUBLIC_CHAIN_ID]
+  constantsValues.env[process.env.NEXT_PUBLIC_CHAIN_ID]

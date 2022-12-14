@@ -18,7 +18,8 @@ module.exports = {
               color: theme("colors.white"),
               textDecorationColor: theme("colors.yellow.300"),
               textDecorationThickness: "1.5px",
-              textUnderlineOffset: "1px"
+              textUnderlineOffset: "1px",
+              textDecorationLine: "underline"
             },
             h1: {
               color: theme("colors.white"),
