@@ -5,13 +5,16 @@ import { useAppContext } from "app/layout/context"
 import { useAccount } from "wagmi"
 import { Button, Input } from "@components/ui"
 import fetcher from "@utils/fetcher"
+import usePurchasedUnits from "@utils/usePurchasedUnits"
 
 export default function SubmitForm() {
   const { address } = useAccount()
+  const { availableUnits } = usePurchasedUnits()
   const { userData, setUserData } = useAppContext()
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
   const [link, setLink] = useState("")
+  const requestCost = Number(process.env.REQUEST_COST)
 
   const handleSetLink = (value: string) => {
     setSuccess(false)
@@ -50,7 +53,22 @@ export default function SubmitForm() {
         disabled={loading}
         required
       />
-      <Button type="submit" label="Submit" loading={loading} />
+      {availableUnits >= requestCost ? (
+        <Button type="submit" label="Submit" loading={loading} />
+      ) : (
+        <div>
+          <Button
+            type="button"
+            label="Submit"
+            loading={loading}
+            disabled={true}
+          />
+          <p className="prose">
+            No credits available.{" "}
+            <a href="https://testnet.slice.so/slicer/9">Get some!</a>
+          </p>
+        </div>
+      )}
     </form>
   )
 }
