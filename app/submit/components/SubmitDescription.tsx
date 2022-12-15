@@ -18,7 +18,7 @@ export default function SubmitDescription() {
               dlabs store
             </a>{" "}
             to get{" "}
-            <span className="inline-block w-3 h-3 mb-0">
+            <span className="inline-block w-3 h-3 my-0">
               <Logo />
             </span>{" "}
             credits

@@ -11,43 +11,41 @@ export default function SubmitFaqs() {
         detail={
           <>
             <p>
-              As many as you want. Jobs are added to a queue and fulfilled based
-              on submission order.
+              As many as you want. Requests are added to a queue and fulfilled
+              based on submission order.
             </p>
             <p>
-              Job requests cost 1{" "}
-              <span className="inline-block w-2.5 h-2.5 mb-0">
+              It costs 1 credit{" "}
+              <span className="inline-block w-2.5 h-2.5 my-0">
                 <Logo />
               </span>
-              , so you just need enough credits to submit new ones (you can get
-              more on the{" "}
+              to submit a request (you can get them on the{" "}
               <a href={envConstants.slicerUrl} target="_blank" rel="noreferrer">
                 dlabs store
               </a>
               ).
             </p>
             <p>
-              The actual cost of each job will be calculated during the review
-              stage.
+              The actual cost of jobs is calculated during the review stage.
             </p>
           </>
         }
       />
       <CollapsibleItem
-        label="How do you calculate the cost of a job"
+        label="How do you calculate the cost of requests"
         detail={
           <>
             <p>
-              Once submitted, we review jobs to estimate the time, effort and
-              skills required to complete it.
+              Once submitted, we review job requests to estimate the credits
+              cost based on the time and effort required.
             </p>
             <p>
-              This estimate is to be considered indicative. We will periodically
-              update it while working on it.
+              This estimate is to be considered indicative, and will be
+              periodically updated while work is carried out.
             </p>
             <p>
-              Once completed, the finalized cost is communicated to you and
-              credits are deducted from your account.
+              Once completed, the work is delivered and credits are deducted
+              from your account.
             </p>
             <NoteText
               text="You can get in touch with us anytime during the
@@ -57,7 +55,7 @@ export default function SubmitFaqs() {
         }
       />
       <CollapsibleItem
-        label="Do I need to use Notion to fill in the job details"
+        label="How do I provide the job details"
         detail={
           <>
             <p>
