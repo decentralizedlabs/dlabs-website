@@ -6,6 +6,7 @@ import { useAccount } from "wagmi"
 import { Button, Input } from "@components/ui"
 import fetcher from "@utils/fetcher"
 import usePurchasedUnits from "@utils/usePurchasedUnits"
+import { envConstants } from "@utils/constants"
 
 export default function SubmitForm() {
   const { address } = useAccount()
@@ -62,10 +63,14 @@ export default function SubmitForm() {
           disabled={!userCanRequest}
         />
         {!userCanRequest && (
-          <p className="prose">
-            No credits available.{" "}
-            <a href="https://testnet.slice.so/slicer/9">Get some!</a>
-          </p>
+          <a
+            href={envConstants.slicerUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-block mt-6 text-sm highlight"
+          >
+            No credits available. Get some!
+          </a>
         )}
       </div>
     </form>
