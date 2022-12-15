@@ -15,6 +15,7 @@ export default function SubmitForm() {
   const [success, setSuccess] = useState(false)
   const [link, setLink] = useState("")
   const requestCost = Number(process.env.REQUEST_COST)
+  const userCanRequest = availableUnits >= requestCost
 
   const handleSetLink = (value: string) => {
     setSuccess(false)
@@ -53,22 +54,20 @@ export default function SubmitForm() {
         disabled={loading}
         required
       />
-      {availableUnits >= requestCost ? (
-        <Button type="submit" label="Submit" loading={loading} />
-      ) : (
-        <div>
-          <Button
-            type="button"
-            label="Submit"
-            loading={loading}
-            disabled={true}
-          />
+      <div>
+        <Button
+          type={userCanRequest ? "submit" : "button"}
+          label="Submit"
+          loading={loading}
+          disabled={!userCanRequest}
+        />
+        {!userCanRequest && (
           <p className="prose">
             No credits available.{" "}
             <a href="https://testnet.slice.so/slicer/9">Get some!</a>
           </p>
-        </div>
-      )}
+        )}
+      </div>
     </form>
   )
 }
