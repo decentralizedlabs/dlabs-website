@@ -15,8 +15,7 @@ export default function SubmitForm() {
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
   const [link, setLink] = useState("")
-  const requestCost = Number(process.env.REQUEST_COST)
-  const userCanRequest = availableUnits >= requestCost
+  const userCanRequest = availableUnits > 0
 
   const handleSetLink = (value: string) => {
     setSuccess(false)
