@@ -18,7 +18,7 @@ export default function SubmitFaqs() {
               It costs 1 credit{" "}
               <span className="inline-block w-2.5 h-2.5 my-0">
                 <Logo />
-              </span>
+              </span>{" "}
               to submit a request (you can get them on the{" "}
               <a href={envConstants.slicerUrl} target="_blank" rel="noreferrer">
                 dlabs store
@@ -69,6 +69,33 @@ export default function SubmitFaqs() {
             <p>
               However, if you wish to use another solution, you can also share
               the job details using a different link.
+            </p>
+          </>
+        }
+      />
+      <CollapsibleItem
+        label="How can I get a quote for a request"
+        detail={
+          <>
+            <p>
+              The credits{" "}
+              <span className="inline-block w-2.5 h-2.5 my-0">
+                <Logo />
+              </span>{" "}
+              necessary to complete a request are estimated after its
+              submission. We thus recommend to buy a credit package suitable to
+              your needs on the{" "}
+              <a href={envConstants.slicerUrl} target="_blank" rel="noreferrer">
+                dlabs store
+              </a>{" "}
+              and submit a request.
+            </p>
+            <p>
+              Alternatively, for simple requests you can ask us directly on{" "}
+              <a href={accounts.discord} target="_blank" rel="noreferrer">
+                discord
+              </a>
+              .
             </p>
           </>
         }

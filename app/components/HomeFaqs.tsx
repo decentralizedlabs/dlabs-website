@@ -8,7 +8,7 @@ export default function HomeFaqs() {
   return (
     <ul className="max-w-screen-sm pt-12 mx-auto space-y-6 text-left">
       <CollapsibleItem
-        label="Why not just hire a full-time developer?"
+        label="Why not just hire a full-time developer"
         detail={
           <>
             <p>
@@ -39,7 +39,7 @@ export default function HomeFaqs() {
         }
       />
       <CollapsibleItem
-        label="How do I submit a job request?"
+        label="How do I submit a job request"
         detail={
           <>
             <p>
@@ -68,16 +68,17 @@ export default function HomeFaqs() {
         }
       />
       <CollapsibleItem
-        label="What are credits and how do I get them?"
+        label="What are credits and how do I get them"
         detail={
           <>
             <p>
-              Credits are the dlabs currency used to pay for request. Each
-              request requires a number of credits{" "}
+              Dlabs credits{" "}
               <span className="inline-block w-2.5 h-2.5 my-0">
                 <Logo />
               </span>{" "}
-              depending on the time, effort and skills required to complete it.
+              are used to pay for job requests. The amount of credits needed
+              depends on the time, effort and skills required to complete each
+              request.
             </p>
             <p>
               Credits can be purchased on the{" "}
@@ -93,13 +94,13 @@ export default function HomeFaqs() {
             </p>
             <NoteText
               text="We review requests upon submission to provide an initial
-              estimate of the credits required"
+              estimate of the credits required to complete them"
             />
           </>
         }
       />
       <CollapsibleItem
-        label="How long does it take to complete a request?"
+        label="How long does it take to complete a request"
         detail={
           <>
             <p>
@@ -110,7 +111,7 @@ export default function HomeFaqs() {
         }
       />
       <CollapsibleItem
-        label="Who is behind dlabs?"
+        label="Who is behind dlabs"
         detail={
           <>
             <p>
@@ -126,37 +127,14 @@ export default function HomeFaqs() {
             </p>
             <p>
               Most requests are directly completed by him, or alternatively by
-              other dlabs collaborators. He will directly oversee development of
-              all work to warrant the highest standard of the delivered work.
+              other dlabs collaborators. The development process is tailored to
+              ensure the highest standard of the delivered work.
             </p>
           </>
         }
       />
       <CollapsibleItem
-        label="How can I get a quote for a request?"
-        detail={
-          <>
-            <p>
-              We estimate the credits necessary to complete a request after it's
-              submitted. We thus recommend to buy a credit package suitable to
-              your needs on the{" "}
-              <a href={envConstants.slicerUrl} target="_blank" rel="noreferrer">
-                dlabs store
-              </a>{" "}
-              and submit a request.
-            </p>
-            <p>
-              Alternatively, for simple requests you can ask us directly on the{" "}
-              <a href={accounts.discord} target="_blank" rel="noreferrer">
-                dlabs discord
-              </a>{" "}
-              .
-            </p>
-          </>
-        }
-      />
-      <CollapsibleItem
-        label="Can I get a refund?"
+        label="Can I get a refund"
         detail={
           <>
             <p>
