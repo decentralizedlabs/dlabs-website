@@ -5,13 +5,17 @@ import { useAppContext } from "app/layout/context"
 import { useAccount } from "wagmi"
 import { Button, Input } from "@components/ui"
 import fetcher from "@utils/fetcher"
+import usePurchasedUnits from "@utils/usePurchasedUnits"
+import { envConstants } from "@utils/constants"
 
 export default function SubmitForm() {
   const { address } = useAccount()
+  const { availableUnits } = usePurchasedUnits()
   const { userData, setUserData } = useAppContext()
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
   const [link, setLink] = useState("")
+  const userCanRequest = availableUnits > 0
 
   const handleSetLink = (value: string) => {
     setSuccess(false)
@@ -50,7 +54,24 @@ export default function SubmitForm() {
         disabled={loading}
         required
       />
-      <Button type="submit" label="Submit" loading={loading} />
+      <div>
+        <Button
+          type={userCanRequest ? "submit" : "button"}
+          label="Submit"
+          loading={loading}
+          disabled={!userCanRequest}
+        />
+        {!userCanRequest && (
+          <a
+            href={envConstants.slicerUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-block mt-6 text-sm highlight"
+          >
+            No credits available. Get some!
+          </a>
+        )}
+      </div>
     </form>
   )
 }
