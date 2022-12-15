@@ -1,6 +1,7 @@
 import Logo from "@components/icons/Logo"
 import { CollapsibleItem, NoteText } from "@components/ui"
 import { envConstants } from "@utils/constants"
+import { accounts } from "app/layout/components/Social/Social"
 import Link from "next/link"
 
 export default function HomeFaqs() {
@@ -127,6 +128,29 @@ export default function HomeFaqs() {
               Most requests are directly completed by him, or alternatively by
               other dlabs collaborators. He will directly oversee development of
               all work to warrant the highest standard of the delivered work.
+            </p>
+          </>
+        }
+      />
+      <CollapsibleItem
+        label="How can I get a quote for a request?"
+        detail={
+          <>
+            <p>
+              We estimate the credits necessary to complete a request after it's
+              submitted. We thus recommend to buy a credit package suitable to
+              your needs on the{" "}
+              <a href={envConstants.slicerUrl} target="_blank" rel="noreferrer">
+                dlabs store
+              </a>{" "}
+              and submit a request.
+            </p>
+            <p>
+              Alternatively, for simple requests you can ask us directly on the{" "}
+              <a href={accounts.discord} target="_blank" rel="noreferrer">
+                dlabs discord
+              </a>{" "}
+              .
             </p>
           </>
         }
