@@ -45,7 +45,7 @@ export default function Pricing() {
         <div className="relative mx-auto text-center max-w-7xl">
           <div className="max-w-2xl mx-auto lg:max-w-4xl">
             <h2 className="text-lg font-bold leading-8 text-yellow-300">
-              Credits packages
+              Credit packages
             </h2>
             <p className="mt-2 text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">
               Development that scales with you
