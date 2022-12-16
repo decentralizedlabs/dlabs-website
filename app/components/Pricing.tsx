@@ -105,6 +105,11 @@ export default function Pricing() {
                       {Math.round(tier.discount * 100)}% off
                     </p>
                   )}
+                  {tier.discount == 0.1 && (
+                    <p className="absolute top-0 px-3 py-1 text-xs font-bold -translate-y-1/2 bg-black rounded-full left-[20px] ring-1 ring-yellow-300 text-yellow-300">
+                      Most popular
+                    </p>
+                  )}
                   {/* <div className="flex flex-col flex-1 p-2">
                     <div className="flex flex-col justify-between flex-1 p-6 bg-gray-900 rounded-lg sm:p-8">
                       <ul role="list" className="space-y-6">
