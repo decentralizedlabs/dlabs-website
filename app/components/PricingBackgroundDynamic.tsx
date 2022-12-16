@@ -3,96 +3,109 @@
 import { useEffect, useState } from "react"
 
 export default function PricingBackgroundDynamic() {
-  const [loaded, setLoaded] = useState(true)
+  const [dynamicProps, setDynamicProps] = useState(
+    Array(9)
+      .fill(0)
+      .map(() => ({
+        fill: "transparent",
+        animationDelay: "0s"
+      }))
+  )
 
   useEffect(() => {
-    setLoaded(true)
+    setDynamicProps(
+      Array(9)
+        .fill(0)
+        .map(() => ({
+          fill: Math.random() < 0.75 ? "#E3E3E3" : "#FDE047",
+          animationDelay: `${Math.random()}s`
+        }))
+    )
   }, [])
 
   return (
-    loaded && (
-      <>
-        <rect
-          x="480"
-          y="160"
-          width="160"
-          height="160"
-          fill={Math.random() < 0.7 ? "#E3E3E3" : "#FDE047"}
-          className="animate-pulse"
-        />
-        <rect
-          x="320"
-          y="800"
-          width="160"
-          height="160"
-          fill={Math.random() < 0.7 ? "#E3E3E3" : "#FDE047"}
-          className="animate-pulse"
-          style={{ animationDelay: `${Math.random()}s` }}
-        />
-        <rect
-          x="800"
-          y="640"
-          width="160"
-          height="160"
-          fill={Math.random() < 0.7 ? "#E3E3E3" : "#FDE047"}
-          className="animate-pulse"
-          style={{ animationDelay: `${Math.random()}s` }}
-        />
-        <rect
-          x="1120"
-          y="480"
-          width="160"
-          height="160"
-          fill={Math.random() < 0.7 ? "#E3E3E3" : "#FDE047"}
-          className="animate-pulse"
-          style={{ animationDelay: `${Math.random()}s` }}
-        />
-        <rect
-          x="1440"
-          y="640"
-          width="160"
-          height="160"
-          fill={Math.random() < 0.7 ? "#E3E3E3" : "#FDE047"}
-          className="animate-pulse"
-          style={{ animationDelay: `${Math.random()}s` }}
-        />
-        <rect
-          x="1760"
-          y="960"
-          width="160"
-          height="160"
-          fill={Math.random() < 0.7 ? "#E3E3E3" : "#FDE047"}
-          className="animate-pulse"
-          style={{ animationDelay: `${Math.random()}s` }}
-        />
-        <rect
-          x="2400"
-          y="960"
-          width="160"
-          height="160"
-          fill={Math.random() < 0.7 ? "#E3E3E3" : "#FDE047"}
-          className="animate-pulse"
-          style={{ animationDelay: `${Math.random()}s` }}
-        />
-        <rect
-          x="2080"
-          y="320"
-          width="160"
-          height="160"
-          fill={Math.random() < 0.7 ? "#E3E3E3" : "#FDE047"}
-          className="animate-pulse"
-          style={{ animationDelay: `${Math.random()}s` }}
-        />
-        <rect
-          x="1600"
-          y="160"
-          width="160"
-          height="160"
-          fill={Math.random() < 0.7 ? "#E3E3E3" : "#FDE047"}
-          className="animate-pulse"
-          style={{ animationDelay: `${Math.random()}s` }}
-        />
-      </>
-    )
+    <>
+      <rect
+        x="480"
+        y="160"
+        width="160"
+        height="160"
+        className="animate-pulse"
+        fill={dynamicProps[0].fill}
+        style={{ animationDelay: dynamicProps[0].animationDelay }}
+      />
+      <rect
+        x="320"
+        y="800"
+        width="160"
+        height="160"
+        className="animate-pulse"
+        fill={dynamicProps[1].fill}
+        style={{ animationDelay: dynamicProps[1].animationDelay }}
+      />
+      <rect
+        x="800"
+        y="640"
+        width="160"
+        height="160"
+        className="animate-pulse"
+        fill={dynamicProps[2].fill}
+        style={{ animationDelay: dynamicProps[2].animationDelay }}
+      />
+      <rect
+        x="1120"
+        y="480"
+        width="160"
+        height="160"
+        className="animate-pulse"
+        fill={dynamicProps[3].fill}
+        style={{ animationDelay: dynamicProps[3].animationDelay }}
+      />
+      <rect
+        x="1440"
+        y="640"
+        width="160"
+        height="160"
+        className="animate-pulse"
+        fill={dynamicProps[4].fill}
+        style={{ animationDelay: dynamicProps[4].animationDelay }}
+      />
+      <rect
+        x="1760"
+        y="960"
+        width="160"
+        height="160"
+        className="animate-pulse"
+        fill={dynamicProps[5].fill}
+        style={{ animationDelay: dynamicProps[5].animationDelay }}
+      />
+      <rect
+        x="2400"
+        y="960"
+        width="160"
+        height="160"
+        className="animate-pulse"
+        fill={dynamicProps[6].fill}
+        style={{ animationDelay: dynamicProps[6].animationDelay }}
+      />
+      <rect
+        x="2080"
+        y="320"
+        width="160"
+        height="160"
+        className="animate-pulse"
+        fill={dynamicProps[7].fill}
+        style={{ animationDelay: dynamicProps[7].animationDelay }}
+      />
+      <rect
+        x="1600"
+        y="160"
+        width="160"
+        height="160"
+        className="animate-pulse"
+        fill={dynamicProps[8].fill}
+        style={{ animationDelay: dynamicProps[8].animationDelay }}
+      />
+    </>
   )
 }
