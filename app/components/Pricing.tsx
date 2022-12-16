@@ -11,7 +11,7 @@ const tiers = [
     name: "Small",
     href: "#",
     priceMonthly: 1,
-    discount: 1,
+    discount: 0,
     description: "For simple tasks",
     features: ["Small projects", "Project estimates"]
   },
@@ -20,7 +20,7 @@ const tiers = [
     name: "Medium",
     href: "#",
     priceMonthly: 20,
-    discount: 0.9,
+    discount: 0.1,
     description: "For small projects",
     features: []
   },
@@ -29,7 +29,7 @@ const tiers = [
     name: "Large",
     href: "#",
     priceMonthly: 100,
-    discount: 0.8,
+    discount: 0.2,
     description: "For complex projects or long-term involvement",
     features: []
   }
@@ -73,15 +73,24 @@ export default function Pricing() {
                     >
                       {tier.name}
                     </h3>
-                    <p className="mt-4 text-4xl font-bold">
-                      $
-                      {formatNumber(
-                        Math.round(
-                          tier.priceMonthly * costPerCredit * tier.discount
-                        )
+                    <div className="relative">
+                      <p className="mt-6 text-4xl font-bold">
+                        $
+                        {formatNumber(
+                          Math.round(
+                            tier.priceMonthly *
+                              costPerCredit *
+                              (1 - tier.discount)
+                          )
+                        )}
+                      </p>
+                      {tier.discount != 0 && (
+                        <p className="absolute top-[-20px] w-full mx-auto text-sm line-through opacity-60">
+                          {formatNumber(tier.priceMonthly * costPerCredit)}
+                        </p>
                       )}
-                    </p>
-                    <p className="mt-3 text-lg text-gray-300">
+                    </div>
+                    <p className="mt-2 text-lg text-gray-300">
                       {tier.priceMonthly}
                       <span className="inline-block w-3 h-3 mt-0 ml-2">
                         <Logo />
@@ -91,9 +100,9 @@ export default function Pricing() {
                       {tier.description}
                     </p>
                   </div>
-                  {tier.discount != 1 && (
+                  {tier.discount != 0 && (
                     <p className="absolute bg-yellow-300 text-black text-sm font-bold px-2 py-1 rounded-sm top-[15px] right-[15px]">
-                      {Math.round((1 - tier.discount) * 100)}% off
+                      {Math.round(tier.discount * 100)}% off
                     </p>
                   )}
                   {/* <div className="flex flex-col flex-1 p-2">
@@ -119,7 +128,7 @@ export default function Pricing() {
           </div>
         </div>
 
-        <div className="mt-20">
+        <div className="mt-16">
           <Button
             label="Purchase on dlabs store"
             customClassName="overflow-hidden sm:text-lg font-bold tracking-wide px-12 rounded-sm h-12 min-w-[250px]"
