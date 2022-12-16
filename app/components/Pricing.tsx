@@ -64,7 +64,7 @@ export default function Pricing() {
               {tiers.map((tier) => (
                 <div
                   key={tier.name}
-                  className="relative flex flex-col shadow-xl bg-black/50 backdrop-blur-xl rounded-xl ring-1 ring-yellow-300"
+                  className="relative flex flex-col rounded-md shadow-xl bg-black/50 backdrop-blur-xl ring-1 ring-yellow-300"
                 >
                   <div className="p-8 sm:p-10">
                     <h3
