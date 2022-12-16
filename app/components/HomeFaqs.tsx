@@ -64,7 +64,10 @@ export default function HomeFaqs() {
                     dlabs store
                   </a>
                 </li>
-                <li>Submit a link containing the request details</li>
+                <li>
+                  Prepare a document with the request details, for example on
+                  Notion
+                </li>
               </ul>
             </>
           }
