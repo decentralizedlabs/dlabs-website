@@ -1,14 +1,14 @@
 export default function PricingBackground() {
   return (
     <svg viewBox="0 0 2880 1943" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g opacity="0.07" clip-path="url(#clip0_13_195)">
+      <g opacity="0.1" clipPath="url(#clip0_13_195)">
         <rect x="-129" y="-52" width="3138" height="1384" fill="black" />
         <rect
           x="480"
           y="160"
           width="160"
           height="160"
-          fill="#E3E3E3"
+          fill={Math.random() < 0.7 ? "#E3E3E3" : "#FDE047"}
           className="animate-pulse"
         />
         <rect
@@ -16,72 +16,72 @@ export default function PricingBackground() {
           y="800"
           width="160"
           height="160"
-          fill="#E3E3E3"
+          fill={Math.random() < 0.7 ? "#E3E3E3" : "#FDE047"}
           className="animate-pulse"
-          style={{ animationDelay: "0.1s" }}
+          style={{ animationDelay: `${Math.random()}s` }}
         />
         <rect
           x="800"
           y="640"
           width="160"
           height="160"
-          fill="#E3E3E3"
+          fill={Math.random() < 0.7 ? "#E3E3E3" : "#FDE047"}
           className="animate-pulse"
-          style={{ animationDelay: "0.2s" }}
+          style={{ animationDelay: `${Math.random()}s` }}
         />
         <rect
           x="1120"
           y="480"
           width="160"
           height="160"
-          fill="#E3E3E3"
+          fill={Math.random() < 0.7 ? "#E3E3E3" : "#FDE047"}
           className="animate-pulse"
-          style={{ animationDelay: "0.3s" }}
+          style={{ animationDelay: `${Math.random()}s` }}
         />
         <rect
           x="1440"
           y="640"
           width="160"
           height="160"
-          fill="#E3E3E3"
+          fill={Math.random() < 0.7 ? "#E3E3E3" : "#FDE047"}
           className="animate-pulse"
-          style={{ animationDelay: "0.4s" }}
+          style={{ animationDelay: `${Math.random()}s` }}
         />
         <rect
           x="1760"
           y="960"
           width="160"
           height="160"
-          fill="#E3E3E3"
+          fill={Math.random() < 0.7 ? "#E3E3E3" : "#FDE047"}
           className="animate-pulse"
-          style={{ animationDelay: "0.5s" }}
+          style={{ animationDelay: `${Math.random()}s` }}
         />
         <rect
           x="2400"
           y="960"
           width="160"
           height="160"
-          fill="#E3E3E3"
+          fill={Math.random() < 0.7 ? "#E3E3E3" : "#FDE047"}
           className="animate-pulse"
-          style={{ animationDelay: "0.6s" }}
+          style={{ animationDelay: `${Math.random()}s` }}
         />
         <rect
           x="2080"
           y="320"
           width="160"
           height="160"
-          fill="#E3E3E3"
+          fill={Math.random() < 0.7 ? "#E3E3E3" : "#FDE047"}
           className="animate-pulse"
-          style={{ animationDelay: "0.7s" }}
+          style={{ animationDelay: `${Math.random()}s` }}
         />
         <rect
           x="1600"
           y="160"
           width="160"
           height="160"
-          fill="#E3E3E3"
+          fill={Math.random() < 0.7 ? "#E3E3E3" : "#FDE047"}
           className="animate-pulse"
-          style={{ animationDelay: "0.8s" }}
+          style={{ animationDelay: `${Math.random()}s` }}
         />
         <rect
           x="1"
@@ -1405,7 +1405,7 @@ export default function PricingBackground() {
           filterUnits="userSpaceOnUse"
           colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1425,9 +1425,9 @@ export default function PricingBackground() {
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(1440 1280) rotate(90) scale(663 957)"
         >
-          <stop stopColor="#fde047" stopOpacity="0.4" />
-          <stop offset="0.6" stopColor="#fde047" stopOpacity="0.1" />
-          <stop offset="1" stopColor="#fde047" stopOpacity="0" />
+          <stop stopColor="#FDE047" stopOpacity="0.4" />
+          <stop offset="0.6" stopColor="#FDE047" stopOpacity="0.1" />
+          <stop offset="1" stopColor="#FDE047" stopOpacity="0" />
         </radialGradient>
         <clipPath id="clip0_13_195">
           <rect width="2880" height="1280" fill="white" />
