@@ -86,7 +86,7 @@ export default function HeroBackgroundDynamic() {
         }}
       />
       <path
-        d="M403 540L481.808 585.5V676.5L403 722L324.192 676.5V585.5L403 540Z"
+        d="M390 540L468.808 585.5V676.5L390 722L311.192 676.5V585.5L390 540Z"
         fill={dynamicProps[7].fill}
         className="animate-pulse"
         style={{
