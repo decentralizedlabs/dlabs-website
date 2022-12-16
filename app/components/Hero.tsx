@@ -15,13 +15,12 @@ export default function Hero() {
           On-demand web3 development
         </p>
       </div>
-      <Button label="See plans" href="/" external={true} />
-      {/* TODO: Add link */}
+      <Button label="See plans" href="#pricing" external targetBlank={false} />
       <Link
         href="/submit"
         className="inline-block mt-4 font-bold sm:mt-6 highlight"
       >
-        Submit work
+        Submit job request
       </Link>
       <Work />
     </div>

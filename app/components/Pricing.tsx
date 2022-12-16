@@ -37,7 +37,7 @@ const tiers = [
 
 export default function Pricing() {
   return (
-    <div className="relative">
+    <div className="relative" id="pricing">
       <div className="absolute top-0 -z-10 left-1/2 w-[1280px] max-w-none -translate-x-1/2">
         <PricingBackground />
       </div>
