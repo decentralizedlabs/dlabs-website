@@ -41,7 +41,7 @@ export default function Navbar() {
           {/* {showDropdown && <DropdownMenu setShowDropdown={setShowDropdown} />} */}
         </nav>
       </Container>
-      <hr className="w-full border-gray-200" />
+      <hr className="w-full border-gray-700" />
     </header>
   )
 }

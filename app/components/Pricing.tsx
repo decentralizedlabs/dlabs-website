@@ -64,7 +64,7 @@ export default function Pricing() {
               {tiers.map((tier) => (
                 <div
                   key={tier.name}
-                  className="relative flex flex-col rounded-md shadow-xl bg-black/50 backdrop-blur-xl ring-1 ring-yellow-300"
+                  className="relative flex flex-col rounded-md shadow-xl bg-black/50 backdrop-blur-xl ring-1 ring-yellow-300/60"
                 >
                   <div className="flex flex-col h-full p-8 sm:p-10">
                     <h3
@@ -106,7 +106,7 @@ export default function Pricing() {
                     </p>
                   )}
                   {tier.discount == 0.1 && (
-                    <p className="absolute top-0 px-3 py-1 text-xs font-bold -translate-y-1/2 bg-black rounded-full left-[20px] ring-1 ring-yellow-300 text-yellow-300">
+                    <p className="absolute top-0 px-3 py-1 text-xs font-bold -translate-y-1/2 bg-black rounded-full left-[20px] ring-1 ring-yellow-300/60 text-yellow-300">
                       Most popular
                     </p>
                   )}

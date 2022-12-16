@@ -3,7 +3,7 @@ import HeroBackgroundDynamic from "./HeroBackgroundDynamic"
 export default function HeroBackground() {
   return (
     <svg viewBox="0 0 2880 1280" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g opacity="0.1" clipPath="url(#clip0_17_2)">
+      <g opacity="0.12" clipPath="url(#clip0_17_2)">
         <rect x="-129" y="-52" width="3138" height="1384" fill="black" />
         <HeroBackgroundDynamic />
         <path
