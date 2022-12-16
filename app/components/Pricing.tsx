@@ -50,7 +50,7 @@ export default function Pricing() {
             <p className="mt-2 text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">
               Development that scales with you
             </p>
-            <p className="mt-6 text-lg leading-8 text-white/60">
+            <p className="mt-6 text-lg leading-8 opacity-60">
               Purchase packages to get credits, then spend them to get requests
               done.
             </p>

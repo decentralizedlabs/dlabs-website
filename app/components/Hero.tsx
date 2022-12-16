@@ -1,7 +1,6 @@
 import { Button } from "@components/ui"
 import Link from "next/link"
 import HeroBackground from "./HeroBackground"
-import Work from "./Work"
 
 export default function Hero() {
   return (
@@ -22,7 +21,6 @@ export default function Hero() {
       >
         Submit job request
       </Link>
-      <Work />
     </div>
   )
 }

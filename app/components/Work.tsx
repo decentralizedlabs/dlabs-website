@@ -43,8 +43,8 @@ const cardsList = [
 
 export default function Work() {
   return (
-    <div className="pt-24">
-      <p className="pb-8 text-lg font-bold text-gray-400">Some of our work</p>
+    <div>
+      <p className="py-8 text-lg font-bold opacity-60">Our works</p>
 
       {/* <LazyMotion features={domAnimation}>
         <m.div
