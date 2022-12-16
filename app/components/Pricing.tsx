@@ -12,7 +12,7 @@ const tiers = [
     href: "#",
     priceMonthly: 1,
     discount: 0,
-    description: "For simple tasks",
+    description: "For single tasks",
     features: ["Small projects", "Project estimates"]
   },
   {
@@ -66,7 +66,7 @@ export default function Pricing() {
                   key={tier.name}
                   className="relative flex flex-col rounded-md shadow-xl bg-black/50 backdrop-blur-xl ring-1 ring-yellow-300"
                 >
-                  <div className="p-8 sm:p-10">
+                  <div className="flex flex-col h-full p-8 sm:p-10">
                     <h3
                       className="text-lg font-bold leading-8 tracking-tight text-yellow-300"
                       id={tier.id}
@@ -74,7 +74,7 @@ export default function Pricing() {
                       {tier.name}
                     </h3>
                     <div className="relative">
-                      <p className="mt-6 text-4xl font-bold">
+                      <p className="mt-6 text-3xl font-bold sm:text-4xl">
                         $
                         {formatNumber(
                           Math.round(
@@ -85,7 +85,7 @@ export default function Pricing() {
                         )}
                       </p>
                       {tier.discount != 0 && (
-                        <p className="absolute top-[-20px] w-full mx-auto text-sm line-through opacity-60">
+                        <p className="absolute top-0 w-full mx-auto text-sm line-through opacity-60">
                           {formatNumber(tier.priceMonthly * costPerCredit)}
                         </p>
                       )}
@@ -96,7 +96,7 @@ export default function Pricing() {
                         <Logo />
                       </span>
                     </p>
-                    <p className="h-full mt-6 text-base leading-7 text-gray-300">
+                    <p className="flex items-center justify-center h-full mt-6 text-base leading-7 text-gray-300">
                       {tier.description}
                     </p>
                   </div>
