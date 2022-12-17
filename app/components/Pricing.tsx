@@ -86,11 +86,11 @@ export default function Pricing() {
                       </p>
                       {tier.discount != 0 && (
                         <p className="absolute top-0 w-full mx-auto text-sm line-through opacity-60">
-                          {formatNumber(tier.priceMonthly * costPerCredit)}
+                          ${formatNumber(tier.priceMonthly * costPerCredit)}
                         </p>
                       )}
                     </div>
-                    <p className="mt-2 text-lg text-gray-300">
+                    <p className="mt-2 text-lg">
                       {tier.priceMonthly}
                       <span className="inline-block w-3 h-3 mt-0 ml-2">
                         <Logo />
