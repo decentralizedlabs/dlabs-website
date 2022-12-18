@@ -66,7 +66,7 @@ export default function DiscordAuthorizeButton({
         {userData?.discord && (
           <>
             <p className="text-sm font-bold">
-              @{userData.discord}{" "}
+              {userData.discord}{" "}
               <a
                 href={discordLink}
                 target="_blank"
