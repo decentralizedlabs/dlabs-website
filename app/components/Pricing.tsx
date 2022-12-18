@@ -2,6 +2,7 @@ import Logo from "@components/icons/Logo"
 import { Button } from "@components/ui"
 import formatNumber from "@utils/formatNumber"
 import PricingBackground from "./PricingBackground"
+import Examples from "./Examples"
 
 const costPerCredit = 750
 
@@ -43,28 +44,26 @@ export default function Pricing() {
       </div>
       <div className="pt-32 overflow-hidden pb-96 lg:pt-40">
         <div className="relative mx-auto text-center max-w-7xl">
-          <div className="max-w-2xl mx-auto lg:max-w-4xl">
-            <h2 className="custom-heading">Credit packages</h2>
-            <p className="mt-2 text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">
-              Development that scales with you
-            </p>
-            <p className="mt-6 text-lg leading-8 opacity-60">
-              Purchase packages to get credits, then spend them to get requests
-              done.
-            </p>
-          </div>
+          <h2 className="custom-heading">Credit packages</h2>
+          <p className="mt-2 text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">
+            Development that scales with you
+          </p>
+          <p className="mt-6 text-lg leading-8 opacity-60">
+            Purchase packages to get credits, then spend them to get requests
+            done.
+          </p>
         </div>
       </div>
-      <div className="flow-root pb-32 lg:pb-40">
+      <div className="flow-root">
         <div className="relative -mt-80">
           <div className="relative z-10 mx-auto">
-            <div className="grid max-w-xl grid-cols-1 gap-8 mx-auto lg:px-4 lg:max-w-none lg:grid-cols-3 lg:gap-4">
+            <div className="grid max-w-xl grid-cols-1 gap-6 mx-auto lg:px-4 lg:max-w-none lg:grid-cols-3 lg:gap-4">
               {tiers.map((tier) => (
                 <div
                   key={tier.name}
                   className="relative flex flex-col rounded-md shadow-xl bg-black/50 backdrop-blur-xl ring-1 ring-yellow-300/60"
                 >
-                  <div className="flex flex-col h-full p-8 sm:p-10">
+                  <div className="flex flex-col h-full p-6 sm:p-10">
                     <h3
                       className="text-lg font-bold leading-8 tracking-tight text-yellow-300"
                       id={tier.id}
@@ -72,7 +71,7 @@ export default function Pricing() {
                       {tier.name}
                     </h3>
                     <div className="relative">
-                      <p className="mt-6 text-3xl font-bold sm:text-4xl">
+                      <p className="mt-5 text-3xl font-bold sm:text-4xl">
                         $
                         {formatNumber(
                           Math.round(
@@ -83,7 +82,7 @@ export default function Pricing() {
                         )}
                       </p>
                       {tier.discount != 0 && (
-                        <p className="absolute top-0 w-full mx-auto text-sm line-through opacity-60">
+                        <p className="absolute top-0 w-full mx-auto text-sm text-gray-400 line-through">
                           ${formatNumber(tier.priceMonthly * costPerCredit)}
                         </p>
                       )}
@@ -94,7 +93,7 @@ export default function Pricing() {
                         <Logo />
                       </span>
                     </p>
-                    <p className="flex items-center justify-center h-full mt-6 text-base leading-7 text-gray-300">
+                    <p className="flex items-center justify-center h-full mt-4 leading-7 text-gray-300 sm:mt-6">
                       {tier.description}
                     </p>
                   </div>
@@ -131,12 +130,14 @@ export default function Pricing() {
           </div>
         </div>
 
-        <div className="mt-16">
+        <div className="my-16">
           <Button
             label="Purchase on dlabs store"
             customClassName="overflow-hidden sm:text-lg font-bold tracking-wide px-12 rounded-sm h-12 min-w-[250px]"
           />
         </div>
+
+        <Examples />
       </div>
     </div>
   )

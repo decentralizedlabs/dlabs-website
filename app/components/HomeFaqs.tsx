@@ -5,7 +5,7 @@ import Link from "next/link"
 
 export default function HomeFaqs() {
   return (
-    <>
+    <div>
       <h1>FAQs</h1>
 
       <ul className="max-w-screen-sm pt-12 mx-auto space-y-6 text-left">
@@ -151,6 +151,6 @@ export default function HomeFaqs() {
           }
         />
       </ul>
-    </>
+    </div>
   )
 }
