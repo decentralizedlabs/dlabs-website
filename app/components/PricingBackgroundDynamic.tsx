@@ -17,7 +17,7 @@ export default function PricingBackgroundDynamic() {
       Array(9)
         .fill(0)
         .map(() => ({
-          fill: Math.random() < 0.75 ? "#E3E3E3" : "#FDE047",
+          fill: Math.random() < 0.75 ? "#808080" : "#FDE047",
           animationDelay: `${Math.random()}s`
         }))
     )
