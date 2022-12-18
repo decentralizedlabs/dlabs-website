@@ -4,6 +4,10 @@
 
 import Image from "next/image"
 import slice from "public/works/slice.png"
+import blunt from "public/works/blunt.png"
+import mte from "public/works/mte.png"
+import gh from "public/works/gh.png"
+import dlabs from "public/og_image.png"
 
 const cardsList = [
   {
@@ -17,22 +21,36 @@ const cardsList = [
     name: "Blunt Finance",
     description: "Fundraising solution built on Juicebox and Slice",
     type: "Protocol",
-    image: slice,
+    image: blunt,
     url: "https://dev.blunt.finance"
   },
   {
     name: "Merge to earn",
-    description: "Reward system for open source development",
+    description: "The reward system for open source development",
     type: "Github app",
-    image: slice,
+    image: mte,
     url: "https://github.com/slice-so/merge-to-earn"
   },
   {
     name: "Uniswap Price Feed",
     description: "Price feed based on Uni V3 TWAP oracles",
     type: "Smart contract",
-    image: slice,
+    image: gh,
     url: "https://github.com/slice-so/uniswap-v3-price-feed"
+  },
+  {
+    name: "Slice subgraph",
+    description: "Decentralized storage based on Slice on-chain events",
+    type: "Subgraph",
+    image: gh,
+    url: "https://github.com/slice-so/subgraph"
+  },
+  {
+    name: "Dlabs",
+    description: "The website you're on right now",
+    type: "Website",
+    image: dlabs,
+    url: "https://github.com/jjranalli/dlabs.app" // TODO: Update after transferring to dlabs org
   }
 ]
 
@@ -49,14 +67,16 @@ export default function Work() {
             repeat: Infinity
           }}
         > */}
-      <div className="grid gap-4 lg:gap-8 sm:grid-cols-2">
-        {cardsList.map((card) => (
+      <div className="grid gap-4 lg:gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {cardsList.map((card, i) => (
           <a
             key={card.name}
             href={card.url}
             target="_blank"
             rel="noreferrer"
-            className="relative rounded-sm group hover:text-white"
+            className={`${
+              i > 3 ? "hidden lg:block" : ""
+            } relative duration-200 border border-gray-800 rounded-sm group hover:text-white hover:border-yellow-300 bg-black/70 hover:bg-black/0`}
           >
             <Image
               src={card.image}
@@ -64,15 +84,13 @@ export default function Work() {
               alt={card.name}
               className="z-[-10] object-contain"
             />
-            <div className="flex items-end h-40 p-4 text-left duration-200 border border-gray-800 bg-black/70 group-hover:bg-black/50 sm:px-6 group-hover:backdrop-filter-none group-hover:border-yellow-300 backdrop-blur-[8px]">
-              <div className="duration-200 group-hover:opacity-0">
-                <div>
-                  <p className="absolute top-[15px] right-[20px] font-bold text-xs text-yellow-300/80">
-                    {card.type}
-                  </p>
-                  <p className="font-bold leading-8 lg:text-lg">{card.name}</p>
-                  <p className="text-sm opacity-80">{card.description}</p>
-                </div>
+            <div className="flex items-end min-h-[6rem] sm:h-32 p-4 text-left duration-200 group-hover:opacity-0 backdrop-blur-[8px]">
+              <div>
+                <p className="absolute top-[15px] right-[20px] font-bold text-xs text-yellow-300/80">
+                  {card.type}
+                </p>
+                <p className="font-bold leading-8">{card.name}</p>
+                <p className="text-sm text-gray-400">{card.description}</p>
               </div>
             </div>
           </a>
