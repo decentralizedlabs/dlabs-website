@@ -2,7 +2,7 @@ import Logo from "@components/icons/Logo"
 import { Button } from "@components/ui"
 import formatNumber from "@utils/formatNumber"
 import PricingBackground from "./PricingBackground"
-import Examples from "./Examples"
+import Estimates from "./Estimates"
 
 const costPerCredit = 750
 
@@ -137,7 +137,7 @@ export default function Pricing() {
           />
         </div>
 
-        <Examples />
+        <Estimates />
       </div>
     </div>
   )
