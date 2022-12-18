@@ -27,3 +27,7 @@ a {
   text-decoration-thickness: 2px;
   text-underline-offset: 1px;
 }
+
+.custom-heading {
+  @apply text-lg font-bold leading-8 text-yellow-300;
+}
