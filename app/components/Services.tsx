@@ -1,43 +1,46 @@
-import Check from "@components/icons/Check"
+import Blockchain from "@components/icons/Blockchain"
+import Desktop from "@components/icons/Desktop"
+import Development from "@components/icons/Development"
+import Ethereum from "@components/icons/Ethereum"
 
 export default function Services() {
   const features = [
     {
-      name: "Blockchain strategy and implementation consulting",
+      name: "Blockchain strategy",
       description:
-        "D-Labs could help organizations understand the potential uses and benefits of blockchain technology, and develop a tailored strategy for implementing it within their business. This could include identifying potential use cases, selecting the right blockchain platform, and developing a roadmap for implementation.",
-      icon: Check
+        "We provide custom strategy development for your project, including the selection of the most appropriate blockchains, a roadmap for implementation, and the identification of potential use cases.",
+      icon: Blockchain
     },
     {
-      name: "Smart contract development and auditing",
+      name: "Smart contract development",
       description:
-        "Smart contracts are self-executing contracts with the terms of the agreement between buyer and seller being directly written into lines of code. D-Labs could help organizations develop custom smart contracts for their specific needs, as well as audit existing contracts to ensure their security and functionality.",
-      icon: Check
+        "We have extensive experience writing, optimizing, and testing smart contracts, as well as performing audits to ensure their security and functionality.",
+      icon: Ethereum
     },
     {
-      name: "Decentralized application (dApp) development",
+      name: "Web & dApp development",
       description:
-        "dApps are applications that run on a decentralized network, such as a blockchain. D-Labs could help organizations develop custom dApps that leverage the unique features and benefits of decentralized technology.",
-      icon: Check
+        "We specialize in integrating smart contract logic into websites and dApps, using cutting-edge frameworks and technologies to provide the best possible experience.",
+      icon: Development
     },
     {
-      name: "Training and workshops on web3 technologies",
+      name: "UX / UI design",
       description:
-        "D-Labs could offer training and workshops to help individuals and organizations understand the fundamentals of web3 technologies, including blockchain, smart contracts, and dApps. These workshops could be customized to the specific needs and goals of the participants.",
-      icon: Check
-    },
-    {
-      name: "UX and product research for web3 projects",
-      description:
-        "D-Labs could conduct user experience (UX) and product research to help organizations understand the needs and preferences of their target users, and design web3 products that are intuitive, user-friendly, and effective. This could include user interviews, usability testing, and other research methods to gather valuable insights and feedback.",
-      icon: Check
-    },
-    {
-      name: "Community management and growth strategy for web3 projects",
-      description:
-        "Building and engaging a community is crucial for the success of many web3 projects. D-Labs could help organizations develop and implement a community management and growth strategy, including tactics such as content creation, social media marketing, and event planning.",
-      icon: Check
+        "We work with you to design the optimal user experience for your project, as well as make your brand stand out with clean and effective interfaces.",
+      icon: Desktop
     }
+    // {
+    //   name: "Training and workshops on web3 technologies",
+    //   description:
+    //     "D-Labs could offer training and workshops to help individuals and organizations understand the fundamentals of web3 technologies, including blockchain, smart contracts, and dApps. These workshops could be customized to the specific needs and goals of the participants.",
+    //   icon: Check
+    // },
+    // {
+    //   name: "Community management and growth strategy for web3 projects",
+    //   description:
+    //     "Building and engaging a community is crucial for the success of many web3 projects. D-Labs could help organizations develop and implement a community management and growth strategy, including tactics such as content creation, social media marketing, and event planning.",
+    //   icon: Check
+    // }
   ]
 
   return (
@@ -47,7 +50,7 @@ export default function Services() {
         Not just devs, we&apos;re your partners
       </p>
       <p className="mt-6 text-lg leading-8 text-gray-400">
-        We don&apos;t just get the job done, we set you up for success.
+        We don&apos;t only get the job done, we set you up for success.
       </p>
 
       <div className="grid grid-cols-1 mt-20 text-left gap-y-16 md:grid-cols-2 md:gap-x-12 md:gap-y-16">
