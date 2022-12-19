@@ -5,7 +5,7 @@ import { useAppContext } from "app/layout/context"
 import Logo from "@components/icons/Logo"
 import { useState } from "react"
 import usePurchasedUnits from "@utils/usePurchasedUnits"
-import { envConstants } from "@utils/constants"
+import { slicerUrl } from "@utils/constants"
 
 export default function CreditsCounter() {
   const { userData } = useAppContext()
@@ -17,7 +17,7 @@ export default function CreditsCounter() {
       className="flex items-center gap-2 text-sm font-bold"
       onMouseEnter={() => setShow(true)}
       onMouseLeave={() => setShow(false)}
-      href={envConstants.slicerUrl}
+      href={slicerUrl}
       target="_blank"
       rel="noreferrer"
     >

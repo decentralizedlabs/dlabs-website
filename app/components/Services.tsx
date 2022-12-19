@@ -76,5 +76,3 @@ export default function Services() {
     </div>
   )
 }
-
-// TODO: Complete text

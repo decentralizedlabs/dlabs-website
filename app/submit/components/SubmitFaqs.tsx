@@ -1,7 +1,7 @@
 import { CollapsibleItem, NoteText } from "@components/ui"
 import Logo from "@components/icons/Logo"
 import { accounts } from "app/layout/components/Social/Social"
-import { constants, envConstants } from "@utils/constants"
+import { constants, slicerUrl } from "@utils/constants"
 
 export default function SubmitFaqs() {
   return (
@@ -20,7 +20,7 @@ export default function SubmitFaqs() {
                 <Logo />
               </span>{" "}
               to submit a request (you can get them on the{" "}
-              <a href={envConstants.slicerUrl} target="_blank" rel="noreferrer">
+              <a href={slicerUrl} target="_blank" rel="noreferrer">
                 dlabs store
               </a>
               ).
@@ -85,7 +85,7 @@ export default function SubmitFaqs() {
               necessary to complete a request are estimated after its
               submission. We thus recommend to buy a credit package suitable to
               your needs on the{" "}
-              <a href={envConstants.slicerUrl} target="_blank" rel="noreferrer">
+              <a href={slicerUrl} target="_blank" rel="noreferrer">
                 dlabs store
               </a>{" "}
               and submit a request.

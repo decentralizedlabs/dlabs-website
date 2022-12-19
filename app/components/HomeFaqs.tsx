@@ -1,6 +1,6 @@
 import Logo from "@components/icons/Logo"
 import { CollapsibleItem, NoteText } from "@components/ui"
-import { envConstants } from "@utils/constants"
+import { slicerUrl } from "@utils/constants"
 import Link from "next/link"
 
 export default function HomeFaqs() {
@@ -28,7 +28,7 @@ export default function HomeFaqs() {
                 <b>Dlabs is an all-in-one solution that scales with you.</b> Our
                 flexible plans work regardless of the size of your business:{" "}
                 <a
-                  href={envConstants.slicerUrl}
+                  href={slicerUrl}
                   target="_blank"
                   rel="noreferrer"
                   className="highlight"
@@ -56,11 +56,7 @@ export default function HomeFaqs() {
                     <Logo />
                   </span>{" "}
                   credits on the{" "}
-                  <a
-                    href={envConstants.slicerUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
+                  <a href={slicerUrl} target="_blank" rel="noreferrer">
                     dlabs store
                   </a>
                 </li>
@@ -88,7 +84,7 @@ export default function HomeFaqs() {
               <p>
                 Credits can be purchased on the{" "}
                 <a
-                  href={envConstants.slicerUrl}
+                  href={slicerUrl}
                   target="_blank"
                   rel="noreferrer"
                   className="highlight"

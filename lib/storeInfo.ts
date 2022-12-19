@@ -5,11 +5,6 @@ import { BigNumber } from "ethers"
 import { notion } from "./notionClient"
 
 // ONCHAIN
-export const slicerId = 3
-export const products = [
-  { productId: 1, value: 10 },
-  { productId: 3, value: 25 }
-]
 export const callParams = {
   address: envConstants.ProductsModule,
   abi: ProductsModule.abi,
@@ -21,7 +16,7 @@ export const getAvailableUnits = (
   notionData: PageObjectResponse[] | undefined
 ) => {
   const purchasedUnits = purchasedData?.reduce(
-    (a, b, i) => Number(a) + Number(b) * products[i].value,
+    (a, b, i) => Number(a) + Number(b) * envConstants.slicerProducts[i].value,
     0
   )
 
