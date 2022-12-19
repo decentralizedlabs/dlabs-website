@@ -50,7 +50,7 @@ const cardsList = [
     description: "The website you're on right now",
     type: "Website",
     image: dlabs,
-    url: "https://github.com/jjranalli/dlabs.app" // TODO: Update after transferring to dlabs org
+    url: "https://github.com/decentralizedlabs/dlabs-website"
   }
 ]
 
