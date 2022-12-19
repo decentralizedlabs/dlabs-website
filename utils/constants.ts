@@ -30,10 +30,11 @@ export const constantsValues: {
     },
     5: {
       notionDbId: "12fca9a29d8841a99b35e4136978455c",
-      slicerId: 3,
+      slicerId: 11,
       slicerProducts: [
-        { productId: 1, value: 10 },
-        { productId: 3, value: 25 }
+        { productId: 1, value: 100 }, // To test
+        { productId: 2, value: 20 },
+        { productId: 3, value: 100 }
       ],
       ProductsModule: "0xcA6b9D59849EC880e82210e9cb8237E1d0cAA69e",
       SliceCore: "0xAE38a794E839D045460839ABe288a8e5C28B0fc6"
