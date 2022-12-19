@@ -3,9 +3,30 @@ import Logo from "@components/icons/Logo"
 export default function Estimates() {
   const people = [
     {
-      work: "Smart contract dev",
+      work: "Blockchain strategy",
       cost: 15,
-      notes: "Writing, optimizing, testing, deploying a smart contract"
+      notes: "Identify use cases, design smart contract / business logic"
+    },
+    {
+      work: "Smart contract",
+      cost: 15,
+      notes: "Logic design, development, optimization, testing, deployment"
+    },
+    {
+      work: "Website / app",
+      cost: 10,
+      notes:
+        "Frontend / backend, on-chain logic, design, content, SEO, deployment"
+    },
+    {
+      work: "Subgraph",
+      cost: 8,
+      notes: "Mappings and schema, deployment, frontend integration"
+    },
+    {
+      work: "UX / UI design",
+      cost: 5,
+      notes: "Wireframes, mockups, branding, user experience"
     }
   ]
   return (
@@ -21,7 +42,10 @@ export default function Estimates() {
                     <th scope="col" className="py-3.5 px-4 sm:pl-6">
                       Work
                     </th>
-                    <th scope="col" className="py-3.5 px-4 sm:pr-6">
+                    <th
+                      scope="col"
+                      className="py-3.5 whitespace-nowrap px-4 sm:pr-6"
+                    >
                       Starting from
                     </th>
                     <th scope="col" className="px-4 py-3.5">
@@ -29,7 +53,7 @@ export default function Estimates() {
                     </th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-200">
+                <tbody className="divide-y divide-black">
                   {people.map((person) => (
                     <tr key={person.work} className="divide-x divide-gray-600">
                       <td className="p-4 whitespace-nowrap sm:pl-6">
@@ -54,7 +78,7 @@ export default function Estimates() {
       </div>
       <p className="max-w-screen-sm mx-auto text-sm leading-6 text-gray-400">
         Development costs vary significantly between projects, so the estimates
-        listed above are indicative
+        provided are indicative
       </p>
     </div>
   )
