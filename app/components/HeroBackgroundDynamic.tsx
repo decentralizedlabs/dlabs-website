@@ -29,7 +29,7 @@ export default function HeroBackgroundDynamic() {
         dynamicProps[0].fill == "transparent" ? "opacity-0" : "opacity-100"
       }`}
     >
-      <path
+      {/* <path
         d="M702 270L780.808 315.5V406.5L702 452L623.192 406.5V315.5L702 270Z"
         fill={dynamicProps[0].fill}
         className="hidden sm:block animate-pulse"
@@ -100,7 +100,7 @@ export default function HeroBackgroundDynamic() {
         style={{
           animationDelay: dynamicProps[8].animationDelay
         }}
-      />
+      /> */}
       <path
         d="M2028 405L2106.81 450.5V541.5L2028 587L1949.19 541.5V450.5L2028 405Z"
         fill={dynamicProps[9].fill}
@@ -109,14 +109,14 @@ export default function HeroBackgroundDynamic() {
           animationDelay: dynamicProps[9].animationDelay
         }}
       />
-      <path
+      {/* <path
         d="M2496 135L2574.81 180.5V271.5L2496 317L2417.19 271.5V180.5L2496 135Z"
         fill={dynamicProps[0].fill}
         className="hidden sm:block animate-pulse"
         style={{
           animationDelay: dynamicProps[0].animationDelay
         }}
-      />
+      /> */}
     </g>
   )
 }
