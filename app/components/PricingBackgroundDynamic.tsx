@@ -23,8 +23,6 @@ export default function PricingBackgroundDynamic() {
     )
   }, [])
 
-  // TODO: Use Framer Motion to solve dynamic being laggy on older devices // also in HeroBackgrounDynamic
-
   return (
     <>
       <rect
@@ -32,7 +30,7 @@ export default function PricingBackgroundDynamic() {
         y="160"
         width="160"
         height="160"
-        className="animate-pulse"
+        className="md:animate-pulse"
         fill={dynamicProps[0].fill}
         style={{
           animationDelay: dynamicProps[0].animationDelay,
@@ -44,7 +42,7 @@ export default function PricingBackgroundDynamic() {
         y="800"
         width="160"
         height="160"
-        className="animate-pulse"
+        className="md:animate-pulse"
         fill={dynamicProps[1].fill}
         style={{
           animationDelay: dynamicProps[1].animationDelay,
@@ -56,7 +54,7 @@ export default function PricingBackgroundDynamic() {
         y="640"
         width="160"
         height="160"
-        className="animate-pulse"
+        className="md:animate-pulse"
         fill={dynamicProps[2].fill}
         style={{
           animationDelay: dynamicProps[2].animationDelay,
@@ -68,7 +66,7 @@ export default function PricingBackgroundDynamic() {
         y="480"
         width="160"
         height="160"
-        className="animate-pulse"
+        className="md:animate-pulse"
         fill={dynamicProps[3].fill}
         style={{
           animationDelay: dynamicProps[3].animationDelay,
@@ -80,7 +78,7 @@ export default function PricingBackgroundDynamic() {
         y="640"
         width="160"
         height="160"
-        className="animate-pulse"
+        className="md:animate-pulse"
         fill={dynamicProps[4].fill}
         style={{
           animationDelay: dynamicProps[4].animationDelay,
@@ -92,7 +90,7 @@ export default function PricingBackgroundDynamic() {
         y="960"
         width="160"
         height="160"
-        className="animate-pulse"
+        className="md:animate-pulse"
         fill={dynamicProps[5].fill}
         style={{
           animationDelay: dynamicProps[5].animationDelay,
@@ -104,7 +102,7 @@ export default function PricingBackgroundDynamic() {
         y="960"
         width="160"
         height="160"
-        className="animate-pulse"
+        className="md:animate-pulse"
         fill={dynamicProps[6].fill}
         style={{
           animationDelay: dynamicProps[6].animationDelay,
@@ -116,7 +114,7 @@ export default function PricingBackgroundDynamic() {
         y="320"
         width="160"
         height="160"
-        className="animate-pulse"
+        className="md:animate-pulse"
         fill={dynamicProps[7].fill}
         style={{
           animationDelay: dynamicProps[7].animationDelay,
@@ -128,7 +126,7 @@ export default function PricingBackgroundDynamic() {
         y="160"
         width="160"
         height="160"
-        className="animate-pulse"
+        className="md:animate-pulse"
         fill={dynamicProps[8].fill}
         style={{
           animationDelay: dynamicProps[8].animationDelay,
