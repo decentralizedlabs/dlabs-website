@@ -10,17 +10,12 @@ import {
 } from "@wagmi/core"
 import { alchemyProvider } from "@wagmi/core/providers/alchemy"
 import { publicProvider } from "@wagmi/core/providers/public"
-import {
-  getAvailableUnits,
-  getNotionData,
-  products,
-  slicerId,
-  callParams
-} from "@lib/storeInfo"
+import { getAvailableUnits, getNotionData, callParams } from "@lib/storeInfo"
 import { BigNumber } from "ethers"
 import { User } from "@prisma/client"
 import { formatNotionBody } from "@utils/formatNotionBody"
 import { notion } from "@lib/notionClient"
+import { envConstants } from "@utils/constants"
 
 export default async function handler(
   req: NextApiRequest,
@@ -49,9 +44,9 @@ export default async function handler(
           where: { address: String(address) }
         }),
         readContracts({
-          contracts: products.map(({ productId }) => ({
+          contracts: envConstants.slicerProducts.map(({ productId }) => ({
             ...callParams,
-            args: [address, slicerId, productId]
+            args: [address, envConstants.slicerId, productId]
           }))
         })
       ]

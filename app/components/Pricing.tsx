@@ -3,6 +3,7 @@ import { Button } from "@components/ui"
 import formatNumber from "@utils/formatNumber"
 import PricingBackground from "./PricingBackground"
 import Estimates from "./Estimates"
+import { slicerUrl } from "@utils/constants"
 
 const costPerCredit = 750
 
@@ -134,6 +135,8 @@ export default function Pricing() {
           <Button
             label="Purchase on dlabs store"
             customClassName="overflow-hidden sm:text-lg font-bold tracking-wide px-12 rounded-sm h-12 min-w-[250px]"
+            href={slicerUrl}
+            external
           />
         </div>
 

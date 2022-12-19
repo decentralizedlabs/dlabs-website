@@ -1,13 +1,9 @@
 import { useAccount, useContractReads } from "wagmi"
-import {
-  getAvailableUnits,
-  products,
-  slicerId,
-  callParams
-} from "@lib/storeInfo"
+import { getAvailableUnits, callParams } from "@lib/storeInfo"
 import { BigNumber } from "ethers"
 import { useEffect, useState } from "react"
 import { useAppContext } from "app/layout/context/AppContext/AppContext"
+import { envConstants } from "./constants"
 
 export default function usePurchasedUnits() {
   const { userData } = useAppContext()
@@ -33,9 +29,9 @@ function useReadPurchasedUnits(options?: { watch?: boolean }) {
 
   const { data, isLoading }: { data: BigNumber[]; isLoading: boolean } =
     useContractReads({
-      contracts: products.map(({ productId }) => ({
+      contracts: envConstants.slicerProducts.map(({ productId }) => ({
         ...callParams,
-        args: [address, slicerId, productId]
+        args: [address, envConstants.slicerId, productId]
       })),
       ...options
     })
