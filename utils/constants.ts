@@ -1,6 +1,7 @@
 type EnvConstants = {
   notionDbId: string
-  slicerUrl: string
+  slicerId: number
+  slicerProducts: { productId: number; value: number }[]
   ProductsModule: string
   SliceCore: string
 }
@@ -11,18 +12,29 @@ export const constants = {
   ipfsGateway: "https://ipfs.io/ipfs/"
 }
 
-export const constantsValues = {
+export const constantsValues: {
+  constants: any
+  env: { [chainId: number]: EnvConstants }
+} = {
   constants,
   env: {
     1: {
       notionDbId: "da6f6e25366c45d6ad50b4ff2f06e7d8",
-      slicerUrl: "https://slice.so/slicer/1",
+      slicerId: 3,
+      slicerProducts: [
+        { productId: 1, value: 10 },
+        { productId: 3, value: 25 }
+      ],
       ProductsModule: "0x689Bba0e25c259b205ECe8e6152Ee1eAcF307f5F",
       SliceCore: "0x21da1b084175f95285B49b22C018889c45E1820d"
     },
     5: {
       notionDbId: "12fca9a29d8841a99b35e4136978455c",
-      slicerUrl: "https://testnet.slice.so/slicer/1",
+      slicerId: 3,
+      slicerProducts: [
+        { productId: 1, value: 10 },
+        { productId: 3, value: 25 }
+      ],
       ProductsModule: "0xcA6b9D59849EC880e82210e9cb8237E1d0cAA69e",
       SliceCore: "0xAE38a794E839D045460839ABe288a8e5C28B0fc6"
     }
@@ -31,3 +43,7 @@ export const constantsValues = {
 
 export const envConstants: EnvConstants =
   constantsValues.env[process.env.NEXT_PUBLIC_CHAIN_ID]
+
+export const slicerUrl = `https://${
+  process.env.NEXT_PUBLIC_CHAIN_ID === "5" ? "testnet." : ""
+}slice.so/slicer/${envConstants.slicerId}`

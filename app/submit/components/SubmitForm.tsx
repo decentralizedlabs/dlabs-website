@@ -6,7 +6,7 @@ import { useAccount } from "wagmi"
 import { Button, Input } from "@components/ui"
 import fetcher from "@utils/fetcher"
 import usePurchasedUnits from "@utils/usePurchasedUnits"
-import { envConstants } from "@utils/constants"
+import { slicerUrl } from "@utils/constants"
 
 type Props = {
   setSuccess: Dispatch<SetStateAction<boolean>>
@@ -64,7 +64,7 @@ export default function SubmitForm({ setSuccess }) {
         />
         {!userCanRequest && (
           <a
-            href={envConstants.slicerUrl}
+            href={slicerUrl}
             target="_blank"
             rel="noreferrer"
             className="inline-block mt-6 text-sm highlight"
