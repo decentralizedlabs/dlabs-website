@@ -20,10 +20,11 @@ export const constantsValues: {
   env: {
     1: {
       notionDbId: "da6f6e25366c45d6ad50b4ff2f06e7d8",
-      slicerId: 3,
+      slicerId: 27,
       slicerProducts: [
-        { productId: 1, value: 10 },
-        { productId: 3, value: 25 }
+        { productId: 1, value: 1 },
+        { productId: 2, value: 20 },
+        { productId: 3, value: 100 }
       ],
       ProductsModule: "0x689Bba0e25c259b205ECe8e6152Ee1eAcF307f5F",
       SliceCore: "0x21da1b084175f95285B49b22C018889c45E1820d"
