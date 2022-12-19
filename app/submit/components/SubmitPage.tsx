@@ -15,7 +15,7 @@ export default function SubmitPage() {
         <div className="space-y-12">
           <h1>Submit job</h1>
           <SubmitDescription />
-          <SubmitForm />
+          <SubmitForm setSuccess={setSuccess} />
           <SubmitFaqs />
         </div>
       ) : (
