@@ -34,7 +34,8 @@ export default function HeroBackgroundDynamic() {
         fill={dynamicProps[0].fill}
         className="animate-pulse"
         style={{
-          animationDelay: dynamicProps[0].animationDelay
+          animationDelay: dynamicProps[0].animationDelay,
+          transform: "translateZ(0)"
         }}
       />
       <path
@@ -42,7 +43,8 @@ export default function HeroBackgroundDynamic() {
         fill={dynamicProps[1].fill}
         className="animate-pulse"
         style={{
-          animationDelay: dynamicProps[1].animationDelay
+          animationDelay: dynamicProps[1].animationDelay,
+          transform: "translateZ(0)"
         }}
       />
       <path
@@ -50,7 +52,8 @@ export default function HeroBackgroundDynamic() {
         fill={dynamicProps[2].fill}
         className="animate-pulse"
         style={{
-          animationDelay: dynamicProps[2].animationDelay
+          animationDelay: dynamicProps[2].animationDelay,
+          transform: "translateZ(0)"
         }}
       />
       <path
@@ -58,7 +61,8 @@ export default function HeroBackgroundDynamic() {
         fill={dynamicProps[3].fill}
         className="animate-pulse"
         style={{
-          animationDelay: dynamicProps[3].animationDelay
+          animationDelay: dynamicProps[3].animationDelay,
+          transform: "translateZ(0)"
         }}
       />
       <path
@@ -66,7 +70,8 @@ export default function HeroBackgroundDynamic() {
         fill={dynamicProps[4].fill}
         className="animate-pulse"
         style={{
-          animationDelay: dynamicProps[4].animationDelay
+          animationDelay: dynamicProps[4].animationDelay,
+          transform: "translateZ(0)"
         }}
       />
       <path
@@ -74,7 +79,8 @@ export default function HeroBackgroundDynamic() {
         fill={dynamicProps[5].fill}
         className="animate-pulse"
         style={{
-          animationDelay: dynamicProps[5].animationDelay
+          animationDelay: dynamicProps[5].animationDelay,
+          transform: "translateZ(0)"
         }}
       />
       <path
@@ -82,7 +88,8 @@ export default function HeroBackgroundDynamic() {
         fill={dynamicProps[6].fill}
         className="animate-pulse"
         style={{
-          animationDelay: dynamicProps[6].animationDelay
+          animationDelay: dynamicProps[6].animationDelay,
+          transform: "translateZ(0)"
         }}
       />
       <path
@@ -90,7 +97,8 @@ export default function HeroBackgroundDynamic() {
         fill={dynamicProps[7].fill}
         className="animate-pulse"
         style={{
-          animationDelay: dynamicProps[7].animationDelay
+          animationDelay: dynamicProps[7].animationDelay,
+          transform: "translateZ(0)"
         }}
       />
       <path
@@ -98,7 +106,8 @@ export default function HeroBackgroundDynamic() {
         fill={dynamicProps[8].fill}
         className="animate-pulse"
         style={{
-          animationDelay: dynamicProps[8].animationDelay
+          animationDelay: dynamicProps[8].animationDelay,
+          transform: "translateZ(0)"
         }}
       />
       <path
@@ -106,7 +115,8 @@ export default function HeroBackgroundDynamic() {
         fill={dynamicProps[9].fill}
         className="animate-pulse"
         style={{
-          animationDelay: dynamicProps[9].animationDelay
+          animationDelay: dynamicProps[9].animationDelay,
+          transform: "translateZ(0)"
         }}
       />
       <path
@@ -114,7 +124,8 @@ export default function HeroBackgroundDynamic() {
         fill={dynamicProps[0].fill}
         className="animate-pulse"
         style={{
-          animationDelay: dynamicProps[0].animationDelay
+          animationDelay: dynamicProps[0].animationDelay,
+          transform: "translateZ(0)"
         }}
       />
     </g>

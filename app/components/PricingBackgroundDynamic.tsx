@@ -34,7 +34,10 @@ export default function PricingBackgroundDynamic() {
         height="160"
         className="animate-pulse"
         fill={dynamicProps[0].fill}
-        style={{ animationDelay: dynamicProps[0].animationDelay }}
+        style={{
+          animationDelay: dynamicProps[0].animationDelay,
+          transform: "translateZ(0)"
+        }}
       />
       <rect
         x="320"
@@ -43,7 +46,10 @@ export default function PricingBackgroundDynamic() {
         height="160"
         className="animate-pulse"
         fill={dynamicProps[1].fill}
-        style={{ animationDelay: dynamicProps[1].animationDelay }}
+        style={{
+          animationDelay: dynamicProps[1].animationDelay,
+          transform: "translateZ(0)"
+        }}
       />
       <rect
         x="800"
@@ -52,7 +58,10 @@ export default function PricingBackgroundDynamic() {
         height="160"
         className="animate-pulse"
         fill={dynamicProps[2].fill}
-        style={{ animationDelay: dynamicProps[2].animationDelay }}
+        style={{
+          animationDelay: dynamicProps[2].animationDelay,
+          transform: "translateZ(0)"
+        }}
       />
       <rect
         x="1120"
@@ -61,7 +70,10 @@ export default function PricingBackgroundDynamic() {
         height="160"
         className="animate-pulse"
         fill={dynamicProps[3].fill}
-        style={{ animationDelay: dynamicProps[3].animationDelay }}
+        style={{
+          animationDelay: dynamicProps[3].animationDelay,
+          transform: "translateZ(0)"
+        }}
       />
       <rect
         x="1440"
@@ -70,7 +82,10 @@ export default function PricingBackgroundDynamic() {
         height="160"
         className="animate-pulse"
         fill={dynamicProps[4].fill}
-        style={{ animationDelay: dynamicProps[4].animationDelay }}
+        style={{
+          animationDelay: dynamicProps[4].animationDelay,
+          transform: "translateZ(0)"
+        }}
       />
       <rect
         x="1760"
@@ -79,7 +94,10 @@ export default function PricingBackgroundDynamic() {
         height="160"
         className="animate-pulse"
         fill={dynamicProps[5].fill}
-        style={{ animationDelay: dynamicProps[5].animationDelay }}
+        style={{
+          animationDelay: dynamicProps[5].animationDelay,
+          transform: "translateZ(0)"
+        }}
       />
       <rect
         x="2400"
@@ -88,7 +106,10 @@ export default function PricingBackgroundDynamic() {
         height="160"
         className="animate-pulse"
         fill={dynamicProps[6].fill}
-        style={{ animationDelay: dynamicProps[6].animationDelay }}
+        style={{
+          animationDelay: dynamicProps[6].animationDelay,
+          transform: "translateZ(0)"
+        }}
       />
       <rect
         x="2080"
@@ -97,7 +118,10 @@ export default function PricingBackgroundDynamic() {
         height="160"
         className="animate-pulse"
         fill={dynamicProps[7].fill}
-        style={{ animationDelay: dynamicProps[7].animationDelay }}
+        style={{
+          animationDelay: dynamicProps[7].animationDelay,
+          transform: "translateZ(0)"
+        }}
       />
       <rect
         x="1600"
@@ -106,7 +130,10 @@ export default function PricingBackgroundDynamic() {
         height="160"
         className="animate-pulse"
         fill={dynamicProps[8].fill}
-        style={{ animationDelay: dynamicProps[8].animationDelay }}
+        style={{
+          animationDelay: dynamicProps[8].animationDelay,
+          transform: "translateZ(0)"
+        }}
       />
     </>
   )
