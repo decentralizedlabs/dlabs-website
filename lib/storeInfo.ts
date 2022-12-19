@@ -32,7 +32,7 @@ export const getAvailableUnits = (
 }
 
 // NOTION
-export const dbId = "12fca9a29d8841a99b35e4136978455c"
+export const dbId = envConstants.notionDbId
 export const getNotionData = async (userId: number) => {
   const data = await notion.databases.query({
     database_id: dbId,
