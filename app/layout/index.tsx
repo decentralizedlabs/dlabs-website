@@ -33,3 +33,5 @@ export default function RootLayout({
     </html>
   )
 }
+
+// TODO: Solve Font not swapping after first load
