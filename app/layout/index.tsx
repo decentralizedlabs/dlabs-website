@@ -5,7 +5,11 @@ import "../../styles/global/styles.css"
 import { Space_Mono } from "@next/font/google"
 import Script from "next/script"
 
-const font = Space_Mono({ weight: ["400", "700"], subsets: ["latin"] })
+const font = Space_Mono({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  display: "swap"
+})
 
 export default function RootLayout({
   children
@@ -33,5 +37,3 @@ export default function RootLayout({
     </html>
   )
 }
-
-// TODO: Solve Font not swapping after first load
