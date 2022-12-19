@@ -32,37 +32,33 @@ export default function HeroBackgroundDynamic() {
       <path
         d="M702 270L780.808 315.5V406.5L702 452L623.192 406.5V315.5L702 270Z"
         fill={dynamicProps[0].fill}
-        className="animate-pulse"
+        className="hidden sm:block animate-pulse"
         style={{
-          animationDelay: dynamicProps[0].animationDelay,
-          transform: "translateZ(0)"
+          animationDelay: dynamicProps[0].animationDelay
         }}
       />
       <path
         d="M780 675L858.808 720.5V811.5L780 857L701.192 811.5V720.5L780 675Z"
         fill={dynamicProps[1].fill}
-        className="animate-pulse"
+        className="hidden sm:block animate-pulse"
         style={{
-          animationDelay: dynamicProps[1].animationDelay,
-          transform: "translateZ(0)"
+          animationDelay: dynamicProps[1].animationDelay
         }}
       />
       <path
         d="M1872 135L1950.81 180.5V271.5L1872 317L1793.19 271.5V180.5L1872 135Z"
         fill={dynamicProps[2].fill}
-        className="animate-pulse"
+        className="hidden sm:block animate-pulse"
         style={{
-          animationDelay: dynamicProps[2].animationDelay,
-          transform: "translateZ(0)"
+          animationDelay: dynamicProps[2].animationDelay
         }}
       />
       <path
         d="M2340 675L2418.81 720.5V811.5L2340 857L2261.19 811.5V720.5L2340 675Z"
         fill={dynamicProps[3].fill}
-        className="animate-pulse"
+        className="hidden sm:block animate-pulse"
         style={{
-          animationDelay: dynamicProps[3].animationDelay,
-          transform: "translateZ(0)"
+          animationDelay: dynamicProps[3].animationDelay
         }}
       />
       <path
@@ -70,8 +66,7 @@ export default function HeroBackgroundDynamic() {
         fill={dynamicProps[4].fill}
         className="animate-pulse"
         style={{
-          animationDelay: dynamicProps[4].animationDelay,
-          transform: "translateZ(0)"
+          animationDelay: dynamicProps[4].animationDelay
         }}
       />
       <path
@@ -79,26 +74,23 @@ export default function HeroBackgroundDynamic() {
         fill={dynamicProps[5].fill}
         className="animate-pulse"
         style={{
-          animationDelay: dynamicProps[5].animationDelay,
-          transform: "translateZ(0)"
+          animationDelay: dynamicProps[5].animationDelay
         }}
       />
       <path
         d="M468 945L546.808 990.5V1081.5L468 1127L389.192 1081.5V990.5L468 945Z"
         fill={dynamicProps[6].fill}
-        className="animate-pulse"
+        className="hidden sm:block animate-pulse"
         style={{
-          animationDelay: dynamicProps[6].animationDelay,
-          transform: "translateZ(0)"
+          animationDelay: dynamicProps[6].animationDelay
         }}
       />
       <path
         d="M390 540L468.808 585.5V676.5L390 722L311.192 676.5V585.5L390 540Z"
         fill={dynamicProps[7].fill}
-        className="animate-pulse"
+        className="hidden sm:block animate-pulse"
         style={{
-          animationDelay: dynamicProps[7].animationDelay,
-          transform: "translateZ(0)"
+          animationDelay: dynamicProps[7].animationDelay
         }}
       />
       <path
@@ -106,8 +98,7 @@ export default function HeroBackgroundDynamic() {
         fill={dynamicProps[8].fill}
         className="animate-pulse"
         style={{
-          animationDelay: dynamicProps[8].animationDelay,
-          transform: "translateZ(0)"
+          animationDelay: dynamicProps[8].animationDelay
         }}
       />
       <path
@@ -115,17 +106,15 @@ export default function HeroBackgroundDynamic() {
         fill={dynamicProps[9].fill}
         className="animate-pulse"
         style={{
-          animationDelay: dynamicProps[9].animationDelay,
-          transform: "translateZ(0)"
+          animationDelay: dynamicProps[9].animationDelay
         }}
       />
       <path
         d="M2496 135L2574.81 180.5V271.5L2496 317L2417.19 271.5V180.5L2496 135Z"
         fill={dynamicProps[0].fill}
-        className="animate-pulse"
+        className="hidden sm:block animate-pulse"
         style={{
-          animationDelay: dynamicProps[0].animationDelay,
-          transform: "translateZ(0)"
+          animationDelay: dynamicProps[0].animationDelay
         }}
       />
     </g>

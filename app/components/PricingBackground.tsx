@@ -5,7 +5,7 @@ export default function PricingBackground() {
     <svg viewBox="0 0 2880 1943" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g opacity="0.16" clipPath="url(#clip0_13_195)">
         <rect x="-129" y="-52" width="3138" height="1384" fill="black" />
-        <PricingBackgroundDynamic />
+        {/* <PricingBackgroundDynamic /> */}
         <g opacity="0.7">
           <rect
             x="1"
