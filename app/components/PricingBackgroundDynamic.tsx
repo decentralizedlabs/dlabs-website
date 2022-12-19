@@ -23,6 +23,8 @@ export default function PricingBackgroundDynamic() {
     )
   }, [])
 
+  // TODO: Use Framer Motion to solve dynamic being laggy on older devices // also in HeroBackgrounDynamic
+
   return (
     <>
       <rect
