@@ -12,7 +12,7 @@ type Props = {
   setSuccess: Dispatch<SetStateAction<boolean>>
 }
 
-export default function SubmitForm({ setSuccess }) {
+export default function SubmitForm({ setSuccess }: Props) {
   const { address } = useAccount()
   const { availableUnits } = usePurchasedUnits()
   const { userData, setUserData } = useAppContext()
