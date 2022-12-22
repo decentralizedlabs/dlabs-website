@@ -1,6 +1,7 @@
 "use client"
 
 import Logo from "@components/icons/Logo"
+import { NoteText } from "@components/ui"
 import { constants, slicerUrl } from "@utils/constants"
 import usePurchasedUnits from "@utils/usePurchasedUnits"
 import { accounts } from "app/layout/components/Social/Social"
@@ -44,6 +45,9 @@ export default function SubmitDescription() {
         Once we receive your request, we&apos;ll provide an estimate for the job
         and keep you updated on its progress.
       </p>
+      <div className="text-sm">
+        <NoteText text="If you have no requests in progress, the first request is free" />
+      </div>
     </div>
   )
 }
