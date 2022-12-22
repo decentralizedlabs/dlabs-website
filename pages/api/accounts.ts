@@ -40,9 +40,9 @@ export default async function handler(
           address: String(address),
           name,
           physicalAddress,
-          email,
-          discord,
-          taxId
+          email: email || null,
+          discord: discord || null,
+          taxId: taxId || null
         },
         update: { name, physicalAddress, email, discord, taxId }
       })
@@ -50,6 +50,8 @@ export default async function handler(
       res.status(200).json(data)
     }
   } catch (error) {
+    console.log(error)
+
     res.status(500).json(error)
   }
 }
