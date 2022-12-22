@@ -65,6 +65,9 @@ export default function AppWrapper({
   })
 
   useEffect(() => {
+    setIsConnected(account && true)
+    setUserData(undefined)
+
     if (account) {
       getUserData(account, setUserData)
       if (account && localStorage.getItem("isSigned") == account) {
@@ -75,11 +78,6 @@ export default function AppWrapper({
       }
     } else {
       localStorage.removeItem("isSigned")
-    }
-
-    return () => {
-      setIsConnected(account && true)
-      setUserData(undefined)
     }
   }, [account])
 
