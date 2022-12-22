@@ -3,11 +3,15 @@
 import Logo from "@components/icons/Logo"
 import { NoteText } from "@components/ui"
 import { constants, slicerUrl } from "@utils/constants"
+import getCreditsForRequest from "@utils/getCreditsForRequest"
 import usePurchasedUnits from "@utils/usePurchasedUnits"
 import { accounts } from "app/layout/components/Social/Social"
+import { useAppContext } from "app/layout/context"
 
 export default function SubmitDescription() {
   const { availableUnits } = usePurchasedUnits()
+  const { userData } = useAppContext()
+  const creditsForRequest = getCreditsForRequest(userData)
 
   return (
     <div className="prose text-left">
@@ -45,9 +49,15 @@ export default function SubmitDescription() {
         Once we receive your request, we&apos;ll provide an estimate for the job
         and keep you updated on its progress.
       </p>
-      <div className="text-sm">
-        <NoteText text="If you have no requests in progress, the first request is free" />
-      </div>
+      {creditsForRequest == 0 && (
+        <div className="text-sm">
+          <NoteText
+            text={
+              "You have no requests in progress, so you can submit one for free"
+            }
+          />
+        </div>
+      )}
     </div>
   )
 }
