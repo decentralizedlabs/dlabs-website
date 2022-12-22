@@ -23,7 +23,7 @@ export default async function handler(
 ) {
   try {
     if (req.method === "POST") {
-      const { address, link } = JSON.parse(req.body)
+      const { address, link, creditsForRequest } = JSON.parse(req.body)
 
       const env = String(process.env.NEXT_PUBLIC_ENV)
       const alchemyId = String(process.env.NEXT_PUBLIC_ALCHEMY_ID)
@@ -64,9 +64,11 @@ export default async function handler(
 
       const availableUnits = getAvailableUnits(purchasedData, notionData)
 
-      if (availableUnits > 0) {
+      if (availableUnits >= creditsForRequest) {
         // Handle notion update
-        const data = await notion.pages.create(formatNotionBody(userData, link))
+        const data = await notion.pages.create(
+          formatNotionBody(userData, link, creditsForRequest)
+        )
 
         // Push notification to Discord webhook
         fetch(
