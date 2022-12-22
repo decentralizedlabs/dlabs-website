@@ -1,7 +1,11 @@
 import { dbId } from "@lib/storeInfo"
 import { User } from "@prisma/client"
 
-export const formatNotionBody = (userData: User, link: string) => ({
+export const formatNotionBody = (
+  userData: User,
+  link: string,
+  creditsForRequest: number
+) => ({
   parent: {
     database_id: dbId
   },
@@ -31,15 +35,15 @@ export const formatNotionBody = (userData: User, link: string) => ({
             content: `Name: ${userData.name}; Billing address: ${userData.physicalAddress};`
           }
         },
-        userData.taxId && {
+        {
           text: {
-            content: ` VAT: ${userData.taxId};`
+            content: ` VAT: ${userData.taxId || "..."};`
           }
         }
       ]
     },
     Credits: {
-      number: 1
+      number: creditsForRequest
     },
     Status: {
       select: {

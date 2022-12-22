@@ -7,6 +7,7 @@ import { Button, Input } from "@components/ui"
 import fetcher from "@utils/fetcher"
 import usePurchasedUnits from "@utils/usePurchasedUnits"
 import { slicerUrl } from "@utils/constants"
+import getCreditsForRequest from "@utils/getCreditsForRequest"
 
 type Props = {
   setSuccess: Dispatch<SetStateAction<boolean>>
@@ -18,7 +19,8 @@ export default function SubmitForm({ setSuccess }: Props) {
   const { userData, setUserData } = useAppContext()
   const [loading, setLoading] = useState(false)
   const [link, setLink] = useState("")
-  const userCanRequest = availableUnits > 0
+  const creditsForRequest = getCreditsForRequest(userData)
+  const userCanRequest = availableUnits >= creditsForRequest
 
   const handleSetLink = (value: string) => {
     setSuccess(false)
@@ -30,7 +32,7 @@ export default function SubmitForm({ setSuccess }: Props) {
     setLoading(true)
     try {
       const body = {
-        body: JSON.stringify({ address, link }),
+        body: JSON.stringify({ address, link, creditsForRequest }),
         method: "POST"
       }
       const newJob = await fetcher("/api/jobs", body)

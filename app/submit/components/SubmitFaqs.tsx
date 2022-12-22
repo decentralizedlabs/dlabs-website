@@ -15,11 +15,16 @@ export default function SubmitFaqs() {
               based on submission order.
             </p>
             <p>
-              It costs 1 credit{" "}
+              If you have no requests in progress,{" "}
+              <b>the first request is free.</b>
+            </p>
+            <p>
+              If you want to submit multiple requests, excluding the first one
+              each will cost 1 credit{" "}
               <span className="inline-block w-2.5 h-2.5 my-0">
                 <Logo />
               </span>{" "}
-              to submit a request (you can get them on the{" "}
+              (you can get them on the{" "}
               <a href={slicerUrl} target="_blank" rel="noreferrer">
                 dlabs store
               </a>
@@ -88,7 +93,8 @@ export default function SubmitFaqs() {
               <a href={slicerUrl} target="_blank" rel="noreferrer">
                 dlabs store
               </a>{" "}
-              and submit a request.
+              and submit a request (if you have no requests in progress, the
+              first one is free).
             </p>
             <p>
               Alternatively, for simple requests you can ask us directly on{" "}
