@@ -14,6 +14,7 @@ import fetcher from "@utils/fetcher"
 import { User } from "@prisma/client"
 import { messageToSign } from "@utils/signMessage"
 import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
+import { getUserData } from "@utils/getUserData"
 
 type Context = {
   isConnected: boolean
@@ -63,25 +64,9 @@ export default function AppWrapper({
     message: messageToSign
   })
 
-  // User data
-  async function getUserData(account: string) {
-    const {
-      data,
-      notionData
-    }: {
-      data: User
-      notionData: PageObjectResponse[]
-    } = await fetcher(`/api/accounts?address=${account}`)
-
-    setUserData({ ...data, notionData })
-  }
-
   useEffect(() => {
-    setIsConnected(account && true)
-    setUserData(undefined)
-
     if (account) {
-      getUserData(account)
+      getUserData(account, setUserData)
       if (account && localStorage.getItem("isSigned") == account) {
         setIsSigned(true)
       } else {
@@ -90,6 +75,11 @@ export default function AppWrapper({
       }
     } else {
       localStorage.removeItem("isSigned")
+    }
+
+    return () => {
+      setIsConnected(account && true)
+      setUserData(undefined)
     }
   }, [account])
 
