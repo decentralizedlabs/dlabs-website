@@ -44,7 +44,13 @@ export default async function handler(
           discord: discord || null,
           taxId: taxId || null
         },
-        update: { name, physicalAddress, email, discord, taxId }
+        update: {
+          name,
+          physicalAddress,
+          email: email || null,
+          discord: discord || null,
+          taxId: taxId || null
+        }
       })
 
       res.status(200).json(data)
