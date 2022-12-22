@@ -3,6 +3,7 @@
 import { Button, DiscordAuthorizeButton, Input } from "@components/ui"
 import { User } from "@prisma/client"
 import fetcher from "@utils/fetcher"
+import { getUserData } from "@utils/getUserData"
 import handleSetObject from "@utils/handleSetObject"
 import { useAppContext } from "app/layout/context"
 import { useEffect, useState } from "react"
@@ -45,6 +46,7 @@ export default function EditForm() {
         }
         const newData: User = await fetcher("/api/accounts", body)
         setUserData({ ...newData, notionData: userData.notionData })
+        await getUserData(address, setUserData)
         setSuccess(true)
       } catch (error) {
         console.log(error)

@@ -12,8 +12,8 @@ export default function EditPage() {
   return userData !== undefined ? (
     <Container page={true} size="max-w-screen-sm">
       <EditForm />
-      {userData?.name && userData?.address && (
-        <Link href="/submit" className="block mt-6 font-bold highlight">
+      {userData.notionData && (
+        <Link href="/submit" className="inline-block mt-6 font-bold highlight">
           Submit job
         </Link>
       )}
