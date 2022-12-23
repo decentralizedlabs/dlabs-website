@@ -1,7 +1,7 @@
+export const runtime = "nodejs"
+
 import { markdownToHtml } from "@lib/markdownToHtml"
 import { Container } from "app/layout/components"
-
-export const runtime = "nodejs"
 import { content } from "./content"
 
 export default async function Page() {
