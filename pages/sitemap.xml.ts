@@ -9,6 +9,12 @@ function generateSiteMap() {
       <url>
         <loc>${appUrl}/submit</loc>
       </url>
+      <url>
+        <loc>${appUrl}/privacy</loc>
+      </url>
+      <url>
+        <loc>${appUrl}/terms</loc>
+      </url>
    </urlset>
  `
 }

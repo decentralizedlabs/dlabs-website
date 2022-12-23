@@ -1,6 +1,6 @@
 import { AppWrapper, WalletProvider } from "./context"
 import { AppLayout } from "./components"
-import "../../styles/global/styles.css"
+import "styles/global/styles.css"
 
 import { Space_Mono } from "@next/font/google"
 import Script from "next/script"
