@@ -10,7 +10,7 @@ export default async function Page() {
   return (
     <Container>
       <main
-        className="pt-32 pb-20 mx-auto prose"
+        className="pt-32 pb-20 mx-auto prose-sm prose"
         dangerouslySetInnerHTML={{ __html: html }}
       />
     </Container>
