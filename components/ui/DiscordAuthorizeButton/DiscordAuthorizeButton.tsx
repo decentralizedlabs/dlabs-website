@@ -22,6 +22,7 @@ export default function DiscordAuthorizeButton({
   const codeParam = searchParams.get("code")
   const discordLink = `https://discord.com/oauth2/authorize?response_type=code&client_id=${process.env.NEXT_PUBLIC_DISCORD_APP_ID}&scope=identify&state=1234&redirect_uri=${process.env.NEXT_PUBLIC_APP_URL}/profile&prompt=consent`
   // TODO: Add CSRF protection by using session token as state param
+  // TODO: Make sure callback url works in prod
 
   const getDiscordHandle = async (code: string) => {
     try {

@@ -39,6 +39,7 @@ module.exports = {
             "blockquote p:first-of-type::before": false,
             "blockquote p:last-of-type::after": false,
             strong: {
+              color: theme("colors.white"),
               fontWeight: "900"
             },
             img: {

@@ -6,16 +6,18 @@ export default function Footer() {
     <footer className="relative z-20 pt-8 pb-8 text-center bg-black shadow-sm">
       <Container>
         <Social wrapperClassName="flex justify-center" />
-        {/* <div className="grid items-center justify-center grid-cols-9 pt-4 mx-auto text-xs text-gray-600 w-72">
-          <Link href="/privacy" className="col-span-4 text-right text-gray-400">
+        <div className="grid items-center justify-center grid-cols-9 pt-4 mx-auto text-xs text-gray-600 w-72">
+          <a href="/privacy" className="col-span-4 text-right text-gray-400">
             Privacy policy
-          </Link>
+          </a>
           <p className="col-span-1">·</p>
-          <Link href="/terms" className="col-span-4 text-left text-gray-400">
+          <a href="/terms" className="col-span-4 text-left text-gray-400">
             Terms of service
-          </Link>
-        </div> */}
+          </a>
+        </div>
       </Container>
     </footer>
   )
 }
+
+// TODO: Switch <a> to <Link> once scroll bug is fixed
