@@ -30,7 +30,7 @@ export const constantsValues: {
       SliceCore: "0x21da1b084175f95285B49b22C018889c45E1820d"
     },
     5: {
-      notionDbId: "12fca9a29d8841a99b35e4136978455c",
+      notionDbId: "2900d1a37fdd405cbcc55b2ebd768e56",
       slicerId: 11,
       slicerProducts: [
         { productId: 1, value: 100 }, // To test
