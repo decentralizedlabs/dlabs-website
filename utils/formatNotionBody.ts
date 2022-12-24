@@ -28,20 +28,6 @@ export const formatNotionBody = (
         }
       ]
     },
-    "Billing info": {
-      rich_text: [
-        {
-          text: {
-            content: `Name: ${userData.name}; Billing address: ${userData.physicalAddress};`
-          }
-        },
-        {
-          text: {
-            content: ` VAT: ${userData.taxId || "..."};`
-          }
-        }
-      ]
-    },
     Credits: {
       number: creditsForRequest
     },
@@ -51,7 +37,7 @@ export const formatNotionBody = (
       }
     },
     "Client ID": { number: userData.id },
-    Link: {
+    "Request link": {
       url: link
     }
   }
