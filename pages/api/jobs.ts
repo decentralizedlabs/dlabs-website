@@ -71,7 +71,7 @@ export default async function handler(
         )
 
         // Push notification to Discord webhook
-        fetch(
+        await fetch(
           `${process.env.NEXT_PUBLIC_APP_URL}/api/webhook?${
             userData.discord
               ? `discord=${encodeURIComponent(userData.discord)}`
