@@ -14,11 +14,11 @@ export default function SubmitFaqs() {
               As many as you want. Requests are added to a queue and fulfilled
               based on submission order.
             </p>
-            <p>
+            {/* <p>
               If you have no requests in progress,{" "}
               <b>the first request is free.</b>
-            </p>
-            <p>
+            </p> */}
+            {/* <p>
               If you want to submit multiple requests, excluding the first one
               each will cost 1 credit{" "}
               <span className="inline-block w-2.5 h-2.5 my-0">
@@ -29,9 +29,10 @@ export default function SubmitFaqs() {
                 dlabs store
               </a>
               ).
-            </p>
+            </p> */}
             <p>
-              The actual cost of jobs is calculated during the review stage.
+              Requests can be submitted for <b>free</b>. The actual cost of jobs
+              is calculated during the review stage.
             </p>
           </>
         }
@@ -78,7 +79,7 @@ export default function SubmitFaqs() {
           </>
         }
       />
-      <CollapsibleItem
+      {/* <CollapsibleItem
         label="How can I get a quote for a request"
         detail={
           <>
@@ -88,7 +89,8 @@ export default function SubmitFaqs() {
                 <Logo />
               </span>{" "}
               necessary to complete a request are estimated after its
-              submission. We thus recommend to buy a credit package suitable to
+              submission. 
+              We thus recommend to buy a credit package suitable to
               your needs on the{" "}
               <a href={slicerUrl} target="_blank" rel="noreferrer">
                 dlabs store
@@ -105,7 +107,7 @@ export default function SubmitFaqs() {
             </p>
           </>
         }
-      />
+      /> */}
       <CollapsibleItem
         label="I have a specific question"
         detail={
