@@ -5,17 +5,23 @@ import SubmitFaqs from "./SubmitFaqs"
 import SubmitDescription from "./SubmitDescription"
 import { Container } from "app/layout/components"
 import SubmitForm from "./SubmitForm"
+import { useAppContext } from "app/layout/context"
 
 export default function SubmitPage() {
+  const { userData } = useAppContext()
   const [success, setSuccess] = useState(false)
+  const isRequiredDataFilled = userData?.name && userData?.address && true
 
   return (
     <Container page={true} size="max-w-screen-sm">
       {!success ? (
         <div className="space-y-12">
           <h1>Submit job</h1>
-          <SubmitDescription />
-          <SubmitForm setSuccess={setSuccess} />
+          <SubmitDescription isRequiredDataFilled={isRequiredDataFilled} />
+          <SubmitForm
+            setSuccess={setSuccess}
+            isRequiredDataFilled={isRequiredDataFilled}
+          />
           <SubmitFaqs />
         </div>
       ) : (
