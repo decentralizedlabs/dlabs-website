@@ -3,7 +3,7 @@
 import { Dispatch, SetStateAction, useState } from "react"
 import { useAppContext } from "app/layout/context"
 import { useAccount } from "wagmi"
-import { Button, Input } from "@components/ui"
+import { Button, CustomConnectButton, Input } from "@components/ui"
 import fetcher from "@utils/fetcher"
 import usePurchasedUnits from "@utils/usePurchasedUnits"
 import { slicerUrl } from "@utils/constants"
@@ -11,15 +11,19 @@ import getCreditsForRequest from "@utils/getCreditsForRequest"
 
 type Props = {
   setSuccess: Dispatch<SetStateAction<boolean>>
+  isRequiredDataFilled: boolean
 }
 
-export default function SubmitForm({ setSuccess }: Props) {
+export default function SubmitForm({
+  setSuccess,
+  isRequiredDataFilled
+}: Props) {
   const { address } = useAccount()
   const { availableUnits } = usePurchasedUnits()
-  const { userData, setUserData } = useAppContext()
+  const { userData, setUserData, isSigned } = useAppContext()
   const [loading, setLoading] = useState(false)
   const [link, setLink] = useState("")
-  const creditsForRequest = getCreditsForRequest(userData)
+  const creditsForRequest = 0 // getCreditsForRequest(userData)
   const userCanRequest = availableUnits >= creditsForRequest
 
   const handleSetLink = (value: string) => {
@@ -49,32 +53,40 @@ export default function SubmitForm({ setSuccess }: Props) {
   }
 
   return (
-    <form className="space-y-12" onSubmit={submit}>
-      <Input
-        label="Job link"
-        value={link}
-        onChange={handleSetLink}
-        disabled={loading}
-        required
-      />
-      <div>
-        <Button
-          type={userCanRequest ? "submit" : "button"}
-          label="Submit"
-          loading={loading}
-          disabled={!userCanRequest}
-        />
-        {!userCanRequest && (
-          <a
-            href={slicerUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-block mt-6 text-sm highlight"
-          >
-            No credits available. Get some!
-          </a>
-        )}
-      </div>
+    <form onSubmit={submit}>
+      {isSigned ? (
+        isRequiredDataFilled ? (
+          <div className="space-y-12">
+            <Input
+              label="Job link"
+              value={link}
+              onChange={handleSetLink}
+              disabled={loading}
+              required
+            />
+            <Button
+              type={userCanRequest ? "submit" : "button"}
+              label="Submit"
+              loading={loading}
+              disabled={!userCanRequest}
+            />
+            {!userCanRequest && (
+              <a
+                href={slicerUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-block mt-6 text-sm highlight"
+              >
+                No credits available. Get some!
+              </a>
+            )}
+          </div>
+        ) : (
+          <Button type="button" label="Go to profile" href="/profile/edit" />
+        )
+      ) : (
+        <CustomConnectButton signable disconnectLabel />
+      )}
     </form>
   )
 }
