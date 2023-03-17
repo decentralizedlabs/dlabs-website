@@ -77,8 +77,8 @@ export default function Estimates() {
         </div>
       </div>
       <p className="max-w-screen-sm mx-auto text-sm leading-6 text-gray-400">
-        Cost estimates are indicative, as they can vary significantly between
-        projects.
+        Cost estimates are indicative, as they vary significantly between
+        projects
       </p>
     </div>
   )
