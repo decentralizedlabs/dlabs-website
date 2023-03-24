@@ -4,8 +4,8 @@
 
 import Image from "next/image"
 import slice from "public/works/slice.png"
+import agora from "public/works/agora.png"
 import blunt from "public/works/blunt.png"
-import mte from "public/works/mte.png"
 import gh from "public/works/gh.png"
 import dlabs from "public/og_image.png"
 
@@ -13,24 +13,31 @@ const cardsList = [
   {
     name: "Slice",
     description: "Decentralized protocol for commerce and payments",
-    type: "Protocol",
+    type: "Protocol | Application",
     image: slice,
     url: "https://slice.so"
   },
   {
-    name: "Blunt Finance",
-    description: "Fundraising solution built on Juicebox and Slice",
-    type: "Protocol",
-    image: blunt,
-    url: "https://dev.blunt.finance"
+    name: "Agora",
+    description: "Liquid delegation protocol for DAOs",
+    type: "Protocol | Application",
+    image: agora,
+    url: "https://github.com/voteagora"
   },
   {
-    name: "Merge to earn",
-    description: "The reward system for open source development",
-    type: "Github app",
-    image: mte,
-    url: "https://github.com/slice-so/merge-to-earn"
+    name: "Blunt Finance",
+    description: "Fundraising solution built on Juicebox and Slice",
+    type: "Protocol | Application",
+    image: blunt,
+    url: "https://testnet.blunt.finance"
   },
+  // {
+  //   name: "Merge to earn",
+  //   description: "The reward system for open source development",
+  //   type: "Github app",
+  //   image: mte,
+  //   url: "https://github.com/slice-so/merge-to-earn"
+  // },
   {
     name: "Uniswap Price Feed",
     description: "Price feed based on Uni V3 TWAP oracles",
