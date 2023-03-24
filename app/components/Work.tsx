@@ -6,6 +6,7 @@ import Image from "next/image"
 import slice from "public/works/slice.png"
 import agora from "public/works/agora.png"
 import blunt from "public/works/blunt.png"
+import mte from "public/works/mte.png"
 import gh from "public/works/gh.png"
 import dlabs from "public/og_image.png"
 
@@ -13,7 +14,7 @@ const cardsList = [
   {
     name: "Slice",
     description: "Decentralized protocol for commerce and payments",
-    type: "Protocol | Application",
+    type: "Protocol | Application | Subgraph",
     image: slice,
     url: "https://slice.so"
   },
@@ -31,13 +32,13 @@ const cardsList = [
     image: blunt,
     url: "https://testnet.blunt.finance"
   },
-  // {
-  //   name: "Merge to earn",
-  //   description: "The reward system for open source development",
-  //   type: "Github app",
-  //   image: mte,
-  //   url: "https://github.com/slice-so/merge-to-earn"
-  // },
+  {
+    name: "Merge to earn",
+    description: "The reward system for open source development",
+    type: "Github app",
+    image: mte,
+    url: "https://github.com/slice-so/merge-to-earn"
+  },
   {
     name: "Uniswap Price Feed",
     description: "Price feed based on Uni V3 TWAP oracles",
@@ -45,13 +46,13 @@ const cardsList = [
     image: gh,
     url: "https://github.com/slice-so/uniswap-v3-price-feed"
   },
-  {
-    name: "Slice subgraph",
-    description: "Decentralized storage based on Slice on-chain events",
-    type: "Subgraph",
-    image: gh,
-    url: "https://github.com/slice-so/subgraph"
-  },
+  // {
+  //   name: "Slice subgraph",
+  //   description: "Decentralized storage based on Slice on-chain events",
+  //   type: "Subgraph",
+  //   image: gh,
+  //   url: "https://github.com/slice-so/subgraph"
+  // },
   {
     name: "Dlabs",
     description: "The website you're on right now",
