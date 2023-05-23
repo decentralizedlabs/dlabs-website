@@ -3,29 +3,34 @@ import Logo from "@components/icons/Logo"
 export default function Estimates() {
   const people = [
     {
+      work: "Smart contract audit",
+      cost: 20,
+      notes: "Identify vulnerabilities, optimize gas, improve functionality"
+    },
+    {
+      work: "Smart contract development",
+      cost: 20,
+      notes: "Logic design, development, optimization, testing, deployment"
+    },
+    {
       work: "Blockchain strategy",
       cost: 15,
       notes: "Identify use cases, design smart contract / business logic"
     },
     {
-      work: "Smart contract",
-      cost: 15,
-      notes: "Logic design, development, optimization, testing, deployment"
-    },
-    {
       work: "Website / app",
-      cost: 10,
+      cost: 12,
       notes:
         "Frontend / backend, on-chain logic, design, content, SEO, deployment"
     },
     {
-      work: "Subgraph",
-      cost: 8,
+      work: "Event indexing / subgraph",
+      cost: 10,
       notes: "Mappings and schema, deployment, frontend integration"
     },
     {
       work: "UX / UI design",
-      cost: 5,
+      cost: 8,
       notes: "Wireframes, mockups, branding, user experience"
     }
   ]

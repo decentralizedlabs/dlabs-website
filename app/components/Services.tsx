@@ -6,16 +6,16 @@ import Ethereum from "@components/icons/Ethereum"
 export default function Services() {
   const features = [
     {
+      name: "Smart contract dev & audit",
+      description:
+        "We have extensive experience writing, optimizing, and testing smart contracts, as well as performing audits to ensure their security and functionality.",
+      icon: Ethereum
+    },
+    {
       name: "Blockchain strategy",
       description:
         "We provide custom strategy development for your project, including the selection of the most appropriate blockchains, a roadmap for implementation, and the identification of potential use cases.",
       icon: Blockchain
-    },
-    {
-      name: "Smart contract development",
-      description:
-        "We have extensive experience writing, optimizing, and testing smart contracts, as well as performing audits to ensure their security and functionality.",
-      icon: Ethereum
     },
     {
       name: "Web & dApp development",
