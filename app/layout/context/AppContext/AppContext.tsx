@@ -10,7 +10,6 @@ import {
 } from "react"
 import { View } from "@lib/content/modals"
 import { useAccount, useNetwork, useSignMessage } from "wagmi"
-import fetcher from "@utils/fetcher"
 import { User } from "@prisma/client"
 import { messageToSign } from "@utils/signMessage"
 import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
