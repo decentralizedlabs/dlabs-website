@@ -3,9 +3,7 @@ export const content = /* Markdown */ `
 
 *Last updated December 22, 2022*
 
-
-
-This privacy notice for Decentralized Labs LTD (doing business as dlabs) ('**dlabs**', 'we', 'us', or 'our'), describes how and why we might collect, store, use, and/or share ('**process**') your information when you use our services ('*Services*'), such as when you:
+This privacy notice for Delikate Enterprises srl (doing business as dlabs) ('**dlabs**', 'we', 'us', or 'our'), describes how and why we might collect, store, use, and/or share ('**process**') your information when you use our services ('*Services*'), such as when you:
 
 - Visit our website at dlabs.app, or any website of ours that links to this privacy notice
 - Engage with us in other related ways, including any sales, marketing, or events
@@ -188,17 +186,7 @@ If you are under 18 years of age, reside in California, and have a registered ac
 
 We may update this privacy notice from time to time. The updated version will be indicated by an updated 'Revised' date and the updated version will be effective as soon as it is accessible. If we make material changes to this privacy notice, we may notify you either by prominently posting a notice of such changes or by directly sending you a notification. We encourage you to review this privacy notice frequently to be informed of how we are protecting your information.
 
-## 13. HOW CAN YOU CONTACT US ABOUT THIS NOTICE?
-
-If you have questions or comments about this notice, you may contact our Data Protection Officer (DPO), Jacopo Ranalli, by email at support@dlabs.app, or by post to:
-
-Decentralized Labs LTD
-Jacopo Ranalli
-71-75 Shelton Street
-London, England WC2H 9JQ
-England
-
-## 14. HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE COLLECT FROM YOU?
+## 13. HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE COLLECT FROM YOU?
 
 Based on the applicable laws of your country, you may have the right to request access to the personal information we collect from you, change that information, or delete it. To request to review, update, or delete your personal information, please visit: dlabs.app/profile.
 `
