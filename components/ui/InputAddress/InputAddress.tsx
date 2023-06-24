@@ -8,7 +8,7 @@ import React, {
   useEffect
 } from "react"
 import Input from "../Input/Input"
-import { useProvider } from "wagmi"
+import { usePublicClient } from "wagmi"
 
 export interface Props extends InputHTMLAttributes<HTMLInputElement> {
   address: string
@@ -33,7 +33,7 @@ export default function InputAddress({
   placeholder = "0x… / vitalik.eth",
   ...rest
 }: Props) {
-  const provider = useProvider()
+  const provider = usePublicClient()
 
   const addressReduced = resolvedAddress
     ? resolvedAddress.substring(resolvedAddress.length - 4) !== ".eth" &&
