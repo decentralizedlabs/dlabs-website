@@ -45,6 +45,7 @@ export default async function handler(
           where: { address: String(address) }
         }),
         readContracts({
+          // @ts-ignore
           contracts: envConstants.slicerProducts.map(({ productId }) => ({
             ...callParams,
             args: [address, envConstants.slicerId, productId]

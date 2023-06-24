@@ -28,6 +28,7 @@ function useReadPurchasedUnits(options?: { watch?: boolean }) {
   const { address } = useAccount()
 
   const { data, isLoading } = useContractReads({
+    // @ts-ignore
     contracts: envConstants.slicerProducts.map(({ productId }) => ({
       ...callParams,
       args: [address, envConstants.slicerId, productId]

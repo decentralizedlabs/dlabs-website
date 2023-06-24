@@ -4,7 +4,7 @@ import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
 import { BigNumber } from "ethers"
 import { notion } from "./notionClient"
 
-export type PurchasedData = { result: BigNumber; status: string }[]
+export type PurchasedData = { result?: BigNumber | unknown; status: string }[]
 
 // ONCHAIN
 export const callParams = {

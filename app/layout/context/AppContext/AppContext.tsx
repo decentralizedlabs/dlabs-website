@@ -19,7 +19,7 @@ type Context = {
   isConnected: boolean
   isSigned: boolean
   setIsSigned: Dispatch<SetStateAction<boolean>>
-  signMessageAsync: ((args?: any) => Promise<`0x${string}`>) | undefined
+  signMessageAsync: (args?: any) => Promise<`0x${string}`>
   isSignatureLoading: boolean
   userData: UserData | undefined
   setUserData: Dispatch<SetStateAction<UserData>>
@@ -35,7 +35,7 @@ const AppContext = createContext<Context>({
   isConnected: false,
   isSigned: false,
   setIsSigned: () => null,
-  signMessageAsync: undefined,
+  signMessageAsync: () => Promise.resolve(`0x`),
   isSignatureLoading: false,
   userData: undefined,
   setUserData: () => null,
@@ -64,7 +64,7 @@ export default function AppWrapper({
   })
 
   useEffect(() => {
-    setIsConnected(account && true)
+    setIsConnected(!!account)
     setUserData(undefined)
 
     if (account) {

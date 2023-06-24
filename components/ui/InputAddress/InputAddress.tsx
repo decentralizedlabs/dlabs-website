@@ -11,7 +11,7 @@ import Input from "../Input/Input"
 import { usePublicClient } from "wagmi"
 
 export interface Props extends InputHTMLAttributes<HTMLInputElement> {
-  address: string
+  address: `0x${string}`
   resolvedAddress: string
   setResolvedAddress: Dispatch<SetStateAction<string>>
   helptext?: string | JSX.Element

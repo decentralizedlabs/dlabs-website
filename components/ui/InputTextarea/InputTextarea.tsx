@@ -91,6 +91,7 @@ const Textarea: React.FC<Props> = ({
             disabled={disabled}
             rows={rows}
             required={required}
+            // @ts-ignore
             onChange={(e) => onChange(e.target.value)}
           />
         </div>

@@ -40,7 +40,7 @@ export default function SubmitForm({
         method: "POST"
       }
       const newJob = await fetcher("/api/jobs", body)
-      const newUserData = userData
+      const newUserData = userData!
       newUserData.notionData.push(newJob)
       setUserData({ ...newUserData })
       setLink("")
