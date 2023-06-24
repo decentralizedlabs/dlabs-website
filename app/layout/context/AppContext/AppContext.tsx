@@ -19,9 +19,9 @@ type Context = {
   isConnected: boolean
   isSigned: boolean
   setIsSigned: Dispatch<SetStateAction<boolean>>
-  signMessageAsync: (args?: any) => Promise<`0x${string}`>
+  signMessageAsync: ((args?: any) => Promise<`0x${string}`>) | undefined
   isSignatureLoading: boolean
-  userData: UserData
+  userData: UserData | undefined
   setUserData: Dispatch<SetStateAction<UserData>>
   modalView: View
   setModalView: Dispatch<SetStateAction<View>>
@@ -34,13 +34,13 @@ export type UserData = User & {
 const AppContext = createContext<Context>({
   isConnected: false,
   isSigned: false,
-  setIsSigned: null,
-  signMessageAsync: null,
+  setIsSigned: () => null,
+  signMessageAsync: undefined,
   isSignatureLoading: false,
-  userData: null,
-  setUserData: null,
+  userData: undefined,
+  setUserData: () => null,
   modalView: { name: "" },
-  setModalView: null
+  setModalView: () => null
 })
 
 export default function AppWrapper({

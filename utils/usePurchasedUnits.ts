@@ -7,7 +7,7 @@ import { envConstants } from "./constants"
 
 export default function usePurchasedUnits() {
   const { userData } = useAppContext()
-  const [availableUnits, setAvailableUnits] = useState<number>()
+  const [availableUnits, setAvailableUnits] = useState<number>(0)
 
   const { data, isLoading } = useReadPurchasedUnits({ watch: true })
 
@@ -27,14 +27,13 @@ export default function usePurchasedUnits() {
 function useReadPurchasedUnits(options?: { watch?: boolean }) {
   const { address } = useAccount()
 
-  const { data, isLoading }: { data: BigNumber[]; isLoading: boolean } =
-    useContractReads({
-      contracts: envConstants.slicerProducts.map(({ productId }) => ({
-        ...callParams,
-        args: [address, envConstants.slicerId, productId]
-      })),
-      ...options
-    })
+  const { data, isLoading } = useContractReads({
+    contracts: envConstants.slicerProducts.map(({ productId }) => ({
+      ...callParams,
+      args: [address, envConstants.slicerId, productId]
+    })),
+    ...options
+  })
 
   return { data, isLoading }
 }

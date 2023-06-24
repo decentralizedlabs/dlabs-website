@@ -15,7 +15,9 @@ export default async function handler(
   try {
     if (req.method === "GET") {
       const { address } = req.query
-      let notionData: (PageObjectResponse | PartialPageObjectResponse)[]
+      let notionData:
+        | (PageObjectResponse | PartialPageObjectResponse)[]
+        | undefined
 
       const data = await prisma.user.findFirst({
         where: { address: String(address) }

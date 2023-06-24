@@ -3,19 +3,19 @@ export const runtime = "nodejs"
 import { prisma } from "@lib/prisma"
 import { NextApiRequest, NextApiResponse } from "next"
 import {
-  chain,
-  createClient,
-  configureChains,
-  readContracts
-} from "@wagmi/core"
-import { alchemyProvider } from "@wagmi/core/providers/alchemy"
-import { publicProvider } from "@wagmi/core/providers/public"
-import { getAvailableUnits, getNotionData, callParams } from "@lib/storeInfo"
-import { BigNumber } from "ethers"
+  getAvailableUnits,
+  getNotionData,
+  callParams,
+  PurchasedData
+} from "@lib/storeInfo"
 import { User } from "@prisma/client"
 import { formatNotionBody } from "@utils/formatNotionBody"
 import { notion } from "@lib/notionClient"
 import { envConstants } from "@utils/constants"
+import { configureChains, createConfig, mainnet, readContracts } from "wagmi"
+import { alchemyProvider } from "wagmi/providers/alchemy"
+import { publicProvider } from "wagmi/providers/public"
+import { goerli } from "viem/chains"
 
 export default async function handler(
   req: NextApiRequest,
@@ -28,15 +28,16 @@ export default async function handler(
       const env = String(process.env.NEXT_PUBLIC_ENV)
       const alchemyId = String(process.env.NEXT_PUBLIC_ALCHEMY_ID)
 
-      const customChains = [chain[env]]
-      const { provider } = configureChains(customChains, [
-        alchemyProvider({ apiKey: alchemyId }),
-        publicProvider()
-      ])
+      const customChains = [env === "goerli" ? goerli : mainnet]
+      const { publicClient, webSocketPublicClient } = configureChains(
+        customChains,
+        [alchemyProvider({ apiKey: alchemyId }), publicProvider()]
+      )
 
-      createClient({
+      createConfig({
         autoConnect: true,
-        provider
+        publicClient,
+        webSocketPublicClient
       })
 
       const promises = [
@@ -53,7 +54,7 @@ export default async function handler(
 
       const [userData, purchasedData] = (await Promise.all(promises)) as [
         User,
-        BigNumber[]
+        PurchasedData
       ]
 
       // Retrieve user ID from Account data in db
@@ -67,7 +68,7 @@ export default async function handler(
       if (availableUnits >= creditsForRequest) {
         // Handle notion update
         const data = await notion.pages.create(
-          formatNotionBody(userData, link, creditsForRequest)
+          formatNotionBody(userData, link, creditsForRequest) as any
         )
 
         // Push notification to Discord webhook
