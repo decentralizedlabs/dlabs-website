@@ -45,8 +45,8 @@ export default function EditForm() {
           method: "POST"
         }
         const newData: User = await fetcher("/api/accounts", body)
-        setUserData({ ...newData, notionData: userData.notionData })
-        await getUserData(address, setUserData)
+        setUserData({ ...newData, notionData: userData!.notionData })
+        await getUserData(address!, setUserData)
         setSuccess(true)
       } catch (error) {
         console.log(error)
@@ -96,8 +96,8 @@ export default function EditForm() {
       <div className="space-y-8">
         <h2>Contact</h2>
         <DiscordAuthorizeButton
-          address={address}
-          userData={userData}
+          address={address!}
+          userData={userData!}
           setUserData={setUserData}
         />
         <Input

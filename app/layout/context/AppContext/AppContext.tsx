@@ -21,7 +21,7 @@ type Context = {
   setIsSigned: Dispatch<SetStateAction<boolean>>
   signMessageAsync: (args?: any) => Promise<`0x${string}`>
   isSignatureLoading: boolean
-  userData: UserData
+  userData: UserData | undefined
   setUserData: Dispatch<SetStateAction<UserData>>
   modalView: View
   setModalView: Dispatch<SetStateAction<View>>
@@ -34,13 +34,13 @@ export type UserData = User & {
 const AppContext = createContext<Context>({
   isConnected: false,
   isSigned: false,
-  setIsSigned: null,
-  signMessageAsync: null,
+  setIsSigned: () => null,
+  signMessageAsync: () => Promise.resolve(`0x`),
   isSignatureLoading: false,
-  userData: null,
-  setUserData: null,
+  userData: undefined,
+  setUserData: () => null,
   modalView: { name: "" },
-  setModalView: null
+  setModalView: () => null
 })
 
 export default function AppWrapper({
@@ -64,7 +64,7 @@ export default function AppWrapper({
   })
 
   useEffect(() => {
-    setIsConnected(account && true)
+    setIsConnected(!!account)
     setUserData(undefined)
 
     if (account) {

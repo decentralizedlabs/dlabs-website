@@ -17,10 +17,10 @@ export default function SubmitPage() {
       {!success ? (
         <div className="space-y-12">
           <h1>Submit job</h1>
-          <SubmitDescription isRequiredDataFilled={isRequiredDataFilled} />
+          <SubmitDescription isRequiredDataFilled={!!isRequiredDataFilled} />
           <SubmitForm
             setSuccess={setSuccess}
-            isRequiredDataFilled={isRequiredDataFilled}
+            isRequiredDataFilled={!!isRequiredDataFilled}
           />
           <SubmitFaqs />
         </div>

@@ -93,7 +93,7 @@ export default function Input({
                       : ""
                   }`
             }`}
-            onClick={!disabled && !loading ? onClick : null}
+            onClick={!disabled && !loading ? onClick : undefined}
           >
             {onClickLabel && (
               <span className={`mr-1 ${loading ? "-z-10" : ""}`}>
@@ -139,7 +139,7 @@ export default function Input({
             onClick={
               prefixAction && !disabled && !loading
                 ? () => prefixAction()
-                : null
+                : undefined
             }
           >
             {prefix}

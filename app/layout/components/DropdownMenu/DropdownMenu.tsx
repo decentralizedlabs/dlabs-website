@@ -23,19 +23,19 @@ export default function DropdownMenu({
 
   const dropdownRef = useRef(null)
 
-  useEffect(() => {
-    function handleClick(event) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setShowDropdown(false)
-      }
-    }
-    // Bind the event listener
-    document.addEventListener("mousedown", handleClick)
-    return () => {
-      // Unbind the event listener on clean up
-      document.removeEventListener("mousedown", handleClick)
-    }
-  }, [dropdownRef, setShowDropdown])
+  // useEffect(() => {
+  //   function handleClick(event) {
+  //     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+  //       setShowDropdown(false)
+  //     }
+  //   }
+  //   // Bind the event listener
+  //   document.addEventListener("mousedown", handleClick)
+  //   return () => {
+  //     // Unbind the event listener on clean up
+  //     document.removeEventListener("mousedown", handleClick)
+  //   }
+  // }, [dropdownRef, setShowDropdown])
 
   return (
     <div className="absolute top-0 right-0" ref={dropdownRef}>

@@ -1,30 +1,32 @@
 "use client"
 
+import "@rainbow-me/rainbowkit/styles.css"
+import { appName } from "app/layout/components/DefaultHead/DefaultHead"
 import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit"
 import { alchemyProvider } from "wagmi/providers/alchemy"
 import { publicProvider } from "wagmi/providers/public"
-import { chain, createClient, configureChains, WagmiConfig } from "wagmi"
-import "@rainbow-me/rainbowkit/styles.css"
-import { appName } from "app/layout/components/DefaultHead/DefaultHead"
+import { createConfig, configureChains, WagmiConfig, mainnet } from "wagmi"
+import { goerli } from "viem/chains"
 
 const env = String(process.env.NEXT_PUBLIC_ENV)
 const alchemyId = String(process.env.NEXT_PUBLIC_ALCHEMY_ID)
 
-const customChains = [chain[env]]
-const { chains, provider } = configureChains(customChains, [
+const customChains = [env === "goerli" ? goerli : mainnet]
+const { chains, publicClient } = configureChains(customChains, [
   alchemyProvider({ apiKey: alchemyId }),
   publicProvider()
 ])
 
 const { connectors } = getDefaultWallets({
   appName,
+  projectId: "26a03d94a14be94f80505f3daef1c58d",
   chains
 })
 
-const wagmiClient = createClient({
+const wagmiConfig = createConfig({
   autoConnect: true,
   connectors,
-  provider
+  publicClient
 })
 
 export default function WalletProvider({
@@ -33,7 +35,7 @@ export default function WalletProvider({
   children: React.ReactNode
 }) {
   return (
-    <WagmiConfig client={wagmiClient}>
+    <WagmiConfig config={wagmiConfig}>
       <RainbowKitProvider
         chains={chains}
         coolMode

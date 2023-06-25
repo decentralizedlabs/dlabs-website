@@ -1,5 +1,5 @@
-import { AppWrapper, WalletProvider } from "./context"
-import { AppLayout } from "./components"
+import { AppWrapper, WalletProvider } from "./layout/context"
+import { AppLayout } from "./layout/components"
 import "styles/global/styles.css"
 
 import { Space_Mono } from "@next/font/google"

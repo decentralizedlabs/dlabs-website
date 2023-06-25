@@ -5,7 +5,7 @@ import { Dispatch, SetStateAction } from "react"
 import fetcher from "./fetcher"
 
 export async function getUserData(
-  account: string,
+  account: `0x${string}`,
   setUserData: Dispatch<SetStateAction<UserData>>
 ) {
   const {

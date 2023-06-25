@@ -15,14 +15,14 @@ export default async function handler(
 
       // Format body for Discord request
       const body = {
-        body: new URLSearchParams({
+        body: {
           client_id: process.env.NEXT_PUBLIC_DISCORD_APP_ID,
           client_secret: process.env.DISCORD_APP_SECRET,
           code: String(code),
           grant_type: "authorization_code",
           redirect_uri: `${process.env.NEXT_PUBLIC_APP_URL}/profile`,
           scope: "identify"
-        }),
+        },
         headers: {
           "Content-Type": "application/x-www-form-urlencoded"
         },
@@ -43,7 +43,7 @@ export default async function handler(
         }
       })
 
-      let data: User
+      let data: User | undefined
       if (userData?.username) {
         // Update user in db with Discord username
         data = await prisma.user.update({

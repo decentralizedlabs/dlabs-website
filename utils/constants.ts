@@ -44,7 +44,7 @@ export const constantsValues: {
 }
 
 export const envConstants: EnvConstants =
-  constantsValues.env[process.env.NEXT_PUBLIC_CHAIN_ID]
+  constantsValues.env[process.env.NEXT_PUBLIC_CHAIN_ID!]
 
 export const slicerUrl = `https://${
   process.env.NEXT_PUBLIC_CHAIN_ID === "5" ? "testnet." : ""

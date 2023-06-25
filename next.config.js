@@ -1,8 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    appDir: true,
-    runtime: "edge",
     fontLoaders: [
       { loader: "@next/font/google", options: { subsets: ["latin"] } }
     ]
@@ -14,6 +12,10 @@ const nextConfig = {
     //     hostname: "avatars.githubusercontent.com"
     //   }
     // ]
+  },
+  webpack: (config) => {
+    config.resolve.fallback = { fs: false, net: false, tls: false }
+    return config
   }
 }
 
