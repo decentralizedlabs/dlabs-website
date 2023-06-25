@@ -1,11 +1,11 @@
 "use client"
 
+import "@rainbow-me/rainbowkit/styles.css"
+import { appName } from "app/layout/components/DefaultHead/DefaultHead"
 import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit"
 import { alchemyProvider } from "wagmi/providers/alchemy"
 import { publicProvider } from "wagmi/providers/public"
 import { createConfig, configureChains, WagmiConfig, mainnet } from "wagmi"
-import "@rainbow-me/rainbowkit/styles.css"
-import { appName } from "app/layout/components/DefaultHead/DefaultHead"
 import { goerli } from "viem/chains"
 
 const env = String(process.env.NEXT_PUBLIC_ENV)
