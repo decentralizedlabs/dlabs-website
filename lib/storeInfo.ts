@@ -4,6 +4,8 @@ import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
 import { BigNumber } from "ethers"
 import { notion } from "./notionClient"
 
+export type PurchasedData = { result?: BigNumber | unknown; status: string }[]
+
 // ONCHAIN
 export const callParams = {
   address: envConstants.ProductsModule,
@@ -12,11 +14,11 @@ export const callParams = {
 }
 
 export const getAvailableUnits = (
-  purchasedData: BigNumber[],
+  purchasedData: PurchasedData,
   notionData: PageObjectResponse[] | undefined
 ) => {
   const purchasedUnits = purchasedData?.reduce(
-    (a, b, i) => Number(a) + Number(b) * envConstants.slicerProducts[i].value,
+    (a, b, i) => a + Number(b.result) * envConstants.slicerProducts[i].value,
     0
   )
 

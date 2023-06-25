@@ -1,17 +1,18 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react"
 import { ethers } from "ethers"
+import { PublicClient } from "viem"
 
 const resolveEns = async (
-  provider: ethers.providers.BaseProvider,
-  address: string,
-  setAddress: Dispatch<SetStateAction<string>>
+  provider: PublicClient,
+  address: `0x${string}`,
+  setAddress: Dispatch<SetStateAction<string | null>>
 ) => {
   if (address) {
     try {
       const resolved =
         address.substring(address.length - 4) !== ".eth"
-          ? await provider.lookupAddress(address)
-          : await provider.resolveName(address)
+          ? await provider.getEnsName({ address })
+          : await provider.getEnsAddress({ name: address })
       if (address.substring(address.length - 4) === ".eth" && !resolved) {
         throw Error
       }
@@ -22,10 +23,7 @@ const resolveEns = async (
   }
 }
 
-export const useEns = (
-  provider: ethers.providers.BaseProvider,
-  address: string
-) => {
+export const useEns = (provider: PublicClient, address: `0x${string}`) => {
   const [resolvedAddress, setResolvedAddress] = useState("")
   useEffect(() => {
     resolveEns(provider, address, setResolvedAddress)

@@ -21,7 +21,7 @@ export default function CreditsCounter() {
       target="_blank"
       rel="noreferrer"
     >
-      {availableUnits}{" "}
+      {availableUnits || 0}{" "}
       <span className="block w-3 h-3">
         <Logo />
       </span>
