@@ -16,7 +16,7 @@ export default function SubmitPage() {
     <Container page={true} size="max-w-screen-sm">
       {!success ? (
         <div className="space-y-12">
-          <h1>Submit job</h1>
+          <h1>Submit request</h1>
           <SubmitDescription isRequiredDataFilled={!!isRequiredDataFilled} />
           <SubmitForm
             setSuccess={setSuccess}

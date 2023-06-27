@@ -26,7 +26,7 @@ module.exports = {
               fontWeight: "900"
             },
             h2: {
-              color: theme("colors.white"),
+              color: theme("colors.yellow.300"),
               fontWeight: "900"
             },
             h3: {
@@ -44,6 +44,11 @@ module.exports = {
             },
             img: {
               borderRadius: "0.75rem"
+            },
+            hr: {
+              borderColor: theme("colors.gray.600"),
+              width: "128px",
+              margin: "0 auto"
             }
           }
         }

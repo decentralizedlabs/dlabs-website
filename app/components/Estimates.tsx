@@ -10,7 +10,8 @@ export default function Estimates() {
     {
       work: "Smart contract development",
       cost: 20,
-      notes: "Logic design, development, optimization, testing, deployment"
+      notes:
+        "Architecture design, development, optimization, testing, deployment"
     },
     {
       work: "Blockchain strategy",
@@ -64,7 +65,7 @@ export default function Estimates() {
                       <td className="p-4 whitespace-nowrap sm:pl-6">
                         {person.work}
                       </td>
-                      <td className="p-4 whitespace-nowrap sm:pr-6">
+                      <td className="p-4 text-right whitespace-nowrap sm:pr-6">
                         {person.cost}{" "}
                         <span className="inline-block w-2.5 h-2.5 my-0">
                           <Logo />

@@ -6,14 +6,18 @@ export default function Footer() {
     <footer className="relative z-20 pt-8 pb-8 text-center bg-black shadow-sm">
       <Container>
         <Social wrapperClassName="flex justify-center" />
-        <div className="grid items-center justify-center grid-cols-9 pt-4 mx-auto text-xs text-gray-600 w-72">
-          <a href="/privacy" className="col-span-4 text-right text-gray-400">
+        <div className="flex items-center justify-center gap-2 pt-4 mx-auto text-xs text-gray-600 max-w-[440px]">
+          <Link href="/careers" className="text-gray-400">
+            Careers
+          </Link>
+          <p>·</p>
+          <Link href="/privacy" className="text-gray-400">
             Privacy policy
-          </a>
-          <p className="col-span-1">·</p>
-          <a href="/terms" className="col-span-4 text-left text-gray-400">
+          </Link>
+          <p>·</p>
+          <Link href="/terms" className="text-gray-400">
             Terms of service
-          </a>
+          </Link>
         </div>
       </Container>
     </footer>
