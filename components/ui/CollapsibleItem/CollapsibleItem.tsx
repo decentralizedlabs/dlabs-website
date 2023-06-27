@@ -5,7 +5,7 @@ import Chevron from "@components/icons/Chevron"
 import { useState } from "react"
 
 type Props = {
-  label: string
+  label: string | JSX.Element
   detail: string | JSX.Element
   id?: string
   anchor?: string
