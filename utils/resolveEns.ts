@@ -24,7 +24,7 @@ const resolveEns = async (
 }
 
 export const useEns = (provider: PublicClient, address: `0x${string}`) => {
-  const [resolvedAddress, setResolvedAddress] = useState("")
+  const [resolvedAddress, setResolvedAddress] = useState<string | null>("")
   useEffect(() => {
     resolveEns(provider, address, setResolvedAddress)
   }, [address])
