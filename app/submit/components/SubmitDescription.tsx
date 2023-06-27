@@ -1,10 +1,10 @@
 "use client"
 
-import Logo from "@components/icons/Logo"
+// import Logo from "@components/icons/Logo"
 import { NoteText } from "@components/ui"
 import { constants, slicerUrl } from "@utils/constants"
-import getCreditsForRequest from "@utils/getCreditsForRequest"
-import usePurchasedUnits from "@utils/usePurchasedUnits"
+// import getCreditsForRequest from "@utils/getCreditsForRequest"
+// import usePurchasedUnits from "@utils/usePurchasedUnits"
 import { accounts } from "app/layout/components/Social/Social"
 import { useAppContext } from "app/layout/context"
 
@@ -13,14 +13,14 @@ type Props = {
 }
 
 export default function SubmitDescription({ isRequiredDataFilled }: Props) {
-  const { availableUnits } = usePurchasedUnits()
+  // const { availableUnits } = usePurchasedUnits()
   const { isSigned } = useAppContext()
-  const creditsForRequest = 0 // getCreditsForRequest(userData)
+  // const creditsForRequest = 0 // getCreditsForRequest(userData)
 
   return (
     <div className="prose text-left">
       <ol>
-        {availableUnits == 0 && (
+        {/* {availableUnits == 0 && (
           <li>
             Visit the{" "}
             <a href={slicerUrl} target="_blank" rel="noreferrer">
@@ -32,7 +32,7 @@ export default function SubmitDescription({ isRequiredDataFilled }: Props) {
             </span>{" "}
             credits
           </li>
-        )}
+        )} */}
         <li>
           Join the{" "}
           <a href={accounts.discord} target="_blank" rel="noreferrer">
@@ -43,7 +43,7 @@ export default function SubmitDescription({ isRequiredDataFilled }: Props) {
         <li>
           Duplicate{" "}
           <a href={constants.template} target="_blank" rel="noreferrer">
-            this Notion document
+            this template
           </a>{" "}
           and fill in the job details
         </li>
