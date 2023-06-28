@@ -12,7 +12,7 @@ export default async function Careers() {
         <div className="prose text-left mx-auto my-8">
           <p>
             We are always on the lookout for exceptional developers and
-            candidates to join our team, either as contractors or employees.
+            candidates to join our team.
           </p>
           <p className="pt-6 text-lg font-bold opacity-60 mb-0">About us</p>
           <p>

@@ -8,7 +8,8 @@ import agora from "public/works/agora.png"
 import blunt from "public/works/blunt.png"
 import mte from "public/works/mte.png"
 import gh from "public/works/gh.png"
-import dlabs from "public/og_image.png"
+import valorem from "public/works/valorem.png"
+// import dlabs from "public/og_image.png"
 
 const cardsList = [
   {
@@ -23,18 +24,25 @@ const cardsList = [
     description: "Liquid delegation protocol for DAOs",
     type: "Protocol | Application",
     image: agora,
-    url: "https://github.com/voteagora"
+    url: "https://nounsagora.com"
   },
   {
-    name: "Blunt Finance",
-    description: "Fundraising solution built on Juicebox and Slice",
+    name: "Valorem",
+    description: "Permissionless options strategies on digital assets",
+    type: "Protocol | Application",
+    image: valorem,
+    url: "https://app.valorem.xyz"
+  },
+  {
+    name: "blunt",
+    description: "Fundraising protocol based on Juicebox",
     type: "Protocol | Application",
     image: blunt,
-    url: "https://testnet.blunt.finance"
+    url: "https://blunt.fund"
   },
   {
     name: "Merge to earn",
-    description: "The reward system for open source development",
+    description: "Reward system for open source development",
     type: "Github app",
     image: mte,
     url: "https://github.com/slice-so/merge-to-earn"
@@ -45,7 +53,7 @@ const cardsList = [
     type: "Smart contract",
     image: gh,
     url: "https://github.com/slice-so/uniswap-v3-price-feed"
-  },
+  }
   // {
   //   name: "Slice subgraph",
   //   description: "Decentralized storage based on Slice on-chain events",
@@ -53,19 +61,19 @@ const cardsList = [
   //   image: gh,
   //   url: "https://github.com/slice-so/subgraph"
   // },
-  {
-    name: "Dlabs",
-    description: "The website you're on right now",
-    type: "Website",
-    image: dlabs,
-    url: "https://github.com/decentralizedlabs/dlabs-website"
-  }
+  // {
+  //   name: "dlabs",
+  //   description: "The website you're on right now",
+  //   type: "Website",
+  //   image: dlabs,
+  //   url: "https://github.com/decentralizedlabs/dlabs-website"
+  // }
 ]
 
 export default function Work() {
   return (
     <div>
-      <p className="py-10 text-lg font-bold opacity-60">Our works</p>
+      <p className="py-10 text-lg font-bold opacity-60">Some of our works</p>
 
       {/* <LazyMotion features={domAnimation}>
         <m.div
@@ -104,14 +112,14 @@ export default function Work() {
           </a>
         ))}
       </div>
-      <a
+      {/* <a
         className="inline-block mt-10 text-sm text-center text-gray-400 underline"
         href="https://github.com/slice-so"
         target="_blank"
         rel="noreferrer"
       >
         See more
-      </a>
+      </a> */}
       {/* </m.div>
       </LazyMotion> */}
     </div>

@@ -5,7 +5,7 @@ export default function Estimates() {
     {
       work: "Smart contract audit",
       cost: 20,
-      notes: "Identify vulnerabilities, optimize gas, improve functionality"
+      notes: "Identify vulnerabilities, review of fixes, audit report"
     },
     {
       work: "Smart contract development",
@@ -16,7 +16,7 @@ export default function Estimates() {
     {
       work: "Blockchain strategy",
       cost: 15,
-      notes: "Identify use cases, design smart contract / business logic"
+      notes: "Identify use cases, design application / business logic"
     },
     {
       work: "Website / app",
@@ -83,7 +83,7 @@ export default function Estimates() {
         </div>
       </div>
       <p className="max-w-screen-sm mx-auto text-sm leading-6 text-gray-400">
-        Cost estimates are indicative, as they vary significantly between
+        Cost estimates are indicative as they vary significantly between
         projects
       </p>
     </div>

@@ -50,10 +50,10 @@ export default function Services() {
         Not just devs, we&apos;re your partners
       </p>
       <p className="mt-6 text-lg leading-8 text-gray-400">
-        We don&apos;t only get the job done, we set you up for success.
+        We don&apos;t only get the job done, we set you up for success
       </p>
 
-      <div className="grid grid-cols-1 mt-20 text-left gap-y-16 md:grid-cols-2 md:gap-x-12 md:gap-y-16">
+      <div className="grid grid-cols-1 mt-12 sm:mt-20 text-left gap-y-8 md:grid-cols-2 md:gap-x-12 md:gap-y-16">
         {features.map((feature) => (
           <div
             key={feature.name}

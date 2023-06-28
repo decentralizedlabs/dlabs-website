@@ -10,7 +10,7 @@ export default function Homepage() {
     <>
       <Container page={true}>
         <main className="max-w-screen-lg mx-auto text-center">
-          <div className="space-y-32">
+          <div className="space-y-32 sm:space-y-40">
             <Hero />
             <Work />
             <Services />
