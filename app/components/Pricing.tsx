@@ -51,7 +51,7 @@ export default function Pricing() {
           </p>
           <p className="mt-6 text-lg leading-8 opacity-60">
             Purchase packages to get credits, then spend them to get requests
-            done.
+            done
           </p>
         </div>
       </div>
