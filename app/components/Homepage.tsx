@@ -3,6 +3,7 @@ import Hero from "./Hero"
 import HomeFaqs from "./HomeFaqs"
 import Pricing from "./Pricing"
 import Services from "./Services"
+import SmartContracts from "./SmartContracts"
 import Work from "./Work"
 
 export default function Homepage() {
@@ -14,6 +15,7 @@ export default function Homepage() {
             <Hero />
             <Work />
             <Services />
+            <SmartContracts />
             <Pricing />
             <HomeFaqs />
           </div>

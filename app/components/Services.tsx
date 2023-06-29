@@ -8,7 +8,7 @@ export default function Services() {
     {
       name: "Smart contract dev & audit",
       description:
-        "We have extensive experience in designing, optimizing, testing and auditing smart contracts.",
+        "Our team has decades of experience in designing, optimizing, testing and auditing smart contracts.",
       icon: Ethereum
     },
     {
