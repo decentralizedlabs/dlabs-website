@@ -93,43 +93,44 @@ export default function SmartContracts() {
 
       <div className="mt-28 mb-20 max-w-screen-sm mx-auto">
         <h2 className="custom-heading text-gray-400">
-          Protocols built / secured by our devs
+          {/* Contracts built / secured by our devs */}
+          Trusted by
         </h2>
-        <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 mx-4 sm:mx-0 gap-x-12 gap-y-12 opacity-40 pt-12">
-          <div className="max-w-[140px] mx-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-4 mx-4 sm:mx-0 gap-x-12 gap-y-12 opacity-40 pt-10">
+          <div className="max-w-[140px] mx-auto mt-0.5">
             <Optimism />
           </div>
-          <Image
+          {/* <Image
             src={astaria}
             alt="astaria"
             className="object-contain w-full h-full px-4 mt-[1px] max-w-[140px] mx-auto"
-          />
-          <div className="pt-[3px] max-w-[140px] mx-auto">
+          /> */}
+          <div className="pt-[3px] max-w-[140px] mx-auto mt-0.5">
             <Agora />
           </div>
-          <Image
+          {/* <Image
             src={olympus}
             alt="olympus"
             className="object-contain w-full h-full px-4 mt-[1px] max-w-[140px] mx-auto"
-          />
+          /> */}
           <Image
             src={slice}
             alt="slice"
-            className="object-contain w-full h-full px-6 max-w-[140px] mx-auto mt-[1px]"
+            className="object-contain w-full h-full px-6 max-w-[140px] mx-auto"
           />
           <Image
             src={blunt}
             alt="blunt"
-            className="object-contain w-full h-full px-6 mt-0.5 max-w-[140px] mx-auto"
+            className="object-contain w-full h-full px-6 max-w-[140px] mx-auto"
           />
-          <Image
+          {/* <Image
             src={polygon}
             alt="polygon"
             className="object-contain w-full h-full px-2 mt-1 hidden sm:block max-w-[140px] mx-auto"
           />
           <div className="max-w-[140px] mx-auto px-6 mt-2 hidden sm:block">
             <Parcel />
-          </div>
+          </div> */}
         </div>
       </div>
 
