@@ -1,12 +1,12 @@
 export const smartContract = {
-  label: "Smart contract developer / auditor",
+  label: "Smart contract developer / security researcher",
   isDev: true,
   content: `
-We are seeking a highly skilled smart contract developer/auditor to join our team. The ideal candidate will have proven experience in Solidity, a deep understanding of blockchain technologies, and preferably experience in auditing smart contracts.
+We are seeking a highly skilled smart contract developer / security researcher to join our team. The ideal candidate will have proven experience in Solidity, a deep understanding of blockchain technologies, and preferably experience in auditing smart contracts.
 
 ## Key Responsibilities
 
-**Smart Contract Development:** You will be responsible for designing, developing, testing, and deploying smart contracts using Solidity.
+**Smart Contract Development:** You will be responsible for designing, developing, testing, and deploying smart contracts for dlabs and its clients.
 
 **Smart Contract Auditing:** You will audit smart contracts to identify vulnerabilities, bugs, and violations of programming conventions. Your goal is to ensure the security and robustness of our smart contracts.
 

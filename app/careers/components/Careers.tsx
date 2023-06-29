@@ -9,10 +9,10 @@ export default async function Careers() {
         <h1 className="mt-2 text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">
           Careers
         </h1>
-        <div className="prose text-left mx-auto my-8">
+        <div className="prose text-left mx-auto my-8 max-w-screen-md">
           <p>
             We are always on the lookout for exceptional developers and
-            candidates to join our team.
+            candidates to join our team at dlabs.
           </p>
           <p className="pt-6 text-lg font-bold opacity-60 mb-0">About us</p>
           <p>
@@ -22,7 +22,7 @@ export default async function Careers() {
             pushing the boundaries of what is possible in web3.
           </p>
         </div>
-        <div className="prose text-left mx-auto my-10">
+        <div className="prose text-left mx-auto my-10 max-w-screen-md">
           <h2 className="custom-heading mb-2">Open roles</h2>
           <p className="text-sm text-gray-300">
             All positions are fully remote
