@@ -8,26 +8,26 @@ export default function Services() {
     {
       name: "Smart contract dev & audit",
       description:
-        "We have extensive experience writing, optimizing, and testing smart contracts, as well as performing audits to ensure their security and functionality.",
+        "Our team has decades of experience in designing, optimizing, testing and auditing smart contracts.",
       icon: Ethereum
-    },
-    {
-      name: "Blockchain strategy",
-      description:
-        "We provide custom strategy development for your project, including the selection of the most appropriate blockchains, a roadmap for implementation, and the identification of potential use cases.",
-      icon: Blockchain
     },
     {
       name: "Web & dApp development",
       description:
-        "We specialize in integrating smart contract logic into websites and dApps, using cutting-edge frameworks and technologies to provide the best possible experience.",
+        "We use cutting-edge frameworks and technologies to provide the best experience to your customers.",
       icon: Development
     },
     {
       name: "UX / UI design",
       description:
-        "We work with you to design the optimal user experience for your project, as well as make your brand stand out with clean and effective interfaces.",
+        "We design the optimal user experience for your project, as well as make your brand stand out with clean and effective interfaces.",
       icon: Desktop
+    },
+    {
+      name: "Blockchain strategy",
+      description:
+        "We provide custom strategy development for your project, with roadmaps for implementation and the identification of potential use cases.",
+      icon: Blockchain
     }
     // {
     //   name: "Training and workshops on web3 technologies",
@@ -50,10 +50,10 @@ export default function Services() {
         Not just devs, we&apos;re your partners
       </p>
       <p className="mt-6 text-lg leading-8 text-gray-400">
-        We don&apos;t only get the job done, we set you up for success.
+        We don&apos;t only get the job done, we set you up for success
       </p>
 
-      <div className="grid grid-cols-1 mt-20 text-left gap-y-16 md:grid-cols-2 md:gap-x-12 md:gap-y-16">
+      <div className="grid grid-cols-1 mt-12 sm:mt-20 text-left gap-y-8 md:grid-cols-2 md:gap-x-12 md:gap-y-16">
         {features.map((feature) => (
           <div
             key={feature.name}

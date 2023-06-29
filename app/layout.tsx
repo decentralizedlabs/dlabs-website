@@ -4,6 +4,7 @@ import "styles/global/styles.css"
 
 import { Space_Mono } from "@next/font/google"
 import Script from "next/script"
+import { Provider as BalancerProvider } from "react-wrap-balancer"
 
 const font = Space_Mono({
   weight: ["400", "700"],
@@ -27,7 +28,9 @@ export default function RootLayout({
         > */}
         <WalletProvider>
           <AppWrapper>
-            <AppLayout>{children}</AppLayout>
+            <AppLayout>
+              <BalancerProvider>{children}</BalancerProvider>
+            </AppLayout>
           </AppWrapper>
         </WalletProvider>
         {/* </ThemeProvider> */}

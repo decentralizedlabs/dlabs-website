@@ -42,20 +42,19 @@ export default function SubmitFaqs() {
         detail={
           <>
             <p>
-              Once submitted, we review job requests to estimate the credits
-              cost based on the time and effort required.
+              Once submitted, we review job requests to estimate their cost.
             </p>
-            <p>
+            {/* <p>
               This estimate is to be considered indicative, and will be
               periodically updated while work is carried out.
-            </p>
+            </p> */}
             <p>
               Once completed, the work is delivered and credits are deducted
               from your account.
             </p>
             <NoteText
-              text="You can get in touch with us anytime during the
-                    process"
+              text={`You can get in touch with us anytime during the
+                    process, via discord`}
             />
           </>
         }
@@ -67,10 +66,10 @@ export default function SubmitFaqs() {
             <p>
               We suggest using the provided{" "}
               <a href={constants.template} target="_blank" rel="noreferrer">
-                Notion document
+                template
               </a>{" "}
               to speed up the review phase. You can keep refining your request
-              after submitting it, or ask us any question while filling it.
+              after submitting it.
             </p>
             <p>
               However, if you wish to use another solution, you can also share
@@ -109,7 +108,7 @@ export default function SubmitFaqs() {
         }
       /> */}
       <CollapsibleItem
-        label="I have a specific question"
+        label="I have a different question"
         detail={
           <>
             <p>

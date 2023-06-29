@@ -5,17 +5,18 @@ export default function Estimates() {
     {
       work: "Smart contract audit",
       cost: 20,
-      notes: "Identify vulnerabilities, optimize gas, improve functionality"
+      notes: "Identify vulnerabilities, review of fixes, audit report"
     },
     {
       work: "Smart contract development",
       cost: 20,
-      notes: "Logic design, development, optimization, testing, deployment"
+      notes:
+        "Architecture design, development, optimization, testing, deployment"
     },
     {
       work: "Blockchain strategy",
       cost: 15,
-      notes: "Identify use cases, design smart contract / business logic"
+      notes: "Identify use cases, design application / business logic"
     },
     {
       work: "Website / app",
@@ -64,7 +65,7 @@ export default function Estimates() {
                       <td className="p-4 whitespace-nowrap sm:pl-6">
                         {person.work}
                       </td>
-                      <td className="p-4 whitespace-nowrap sm:pr-6">
+                      <td className="p-4 text-right whitespace-nowrap sm:pr-6">
                         {person.cost}{" "}
                         <span className="inline-block w-2.5 h-2.5 my-0">
                           <Logo />
@@ -82,7 +83,7 @@ export default function Estimates() {
         </div>
       </div>
       <p className="max-w-screen-sm mx-auto text-sm leading-6 text-gray-400">
-        Cost estimates are indicative, as they vary significantly between
+        Cost estimates are indicative as they vary significantly between
         projects
       </p>
     </div>

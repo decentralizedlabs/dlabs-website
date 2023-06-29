@@ -9,7 +9,7 @@ export default function Hero() {
         <HeroBackground />
       </div>
       <div className="pb-10 sm:pb-12">
-        <h1>Decentralized labs</h1>
+        <h1>dlabs</h1>
         <p className="text-xl font-bold text-gray-400 sm:text-2xl">
           On-demand web3 development
         </p>
