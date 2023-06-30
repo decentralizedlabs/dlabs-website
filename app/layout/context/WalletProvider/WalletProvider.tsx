@@ -1,7 +1,7 @@
 "use client"
 
 import "@rainbow-me/rainbowkit/styles.css"
-import { appName } from "app/layout/components/DefaultHead/DefaultHead"
+import { appName } from "app/layout/components"
 import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit"
 import { alchemyProvider } from "wagmi/providers/alchemy"
 import { publicProvider } from "wagmi/providers/public"

@@ -1,8 +1,8 @@
 import { AppWrapper, WalletProvider } from "./layout/context"
-import { AppLayout } from "./layout/components"
+import { AppLayout, baseMetadata } from "./layout/components"
 import "styles/global/styles.css"
 
-import { Space_Mono } from "@next/font/google"
+import { Space_Mono } from "next/font/google"
 import Script from "next/script"
 import { Provider as BalancerProvider } from "react-wrap-balancer"
 
@@ -40,3 +40,5 @@ export default function RootLayout({
     </html>
   )
 }
+
+export const metadata = baseMetadata
