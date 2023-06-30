@@ -1,7 +1,6 @@
 import Link from "next/link"
-import { Container, CreditsCounter } from "../"
+import { Container, CreditsCounter, appName } from "../"
 import Logo from "@components/icons/Logo"
-import { appName } from "../DefaultHead/DefaultHead"
 import { CustomConnectButton, IsSignedBlock } from "@components/ui"
 import UserIcon from "@components/icons/UserIcon"
 // import Nightwind from "@components/icons/Nightwind"
