@@ -7,6 +7,7 @@ import astaria from "./brandIcons/astaria.png"
 import olympus from "./brandIcons/olympus.png"
 import slice from "./brandIcons/slice.png"
 import blunt from "./brandIcons/blunt.png"
+import juicebox from "./brandIcons/juicebox.png"
 import polygon from "./brandIcons/polygon.png"
 
 export default function SmartContracts() {
@@ -119,11 +120,16 @@ export default function SmartContracts() {
             className="object-contain w-full h-full px-6 max-w-[140px] mx-auto"
           />
           <Image
+            src={juicebox}
+            alt="juicebox"
+            className="object-contain w-full h-full px-3 max-w-[140px] mx-auto mt-[1px]"
+          />
+          {/* <Image
+          <Image
             src={blunt}
             alt="blunt"
             className="object-contain w-full h-full px-6 max-w-[140px] mx-auto"
           />
-          {/* <Image
             src={polygon}
             alt="polygon"
             className="object-contain w-full h-full px-2 mt-1 hidden sm:block max-w-[140px] mx-auto"
