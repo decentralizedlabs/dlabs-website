@@ -11,9 +11,9 @@ export default function ConnectBlock({ children, signable = false }: Props) {
   return isConnected && (!signable || isSigned) ? (
     children
   ) : (
-    <div className="flex flex-col items-center py-6 mx-auto max-w-screen-xs">
+    <div className="flex flex-col items-center py-6 text-center">
       <h1>{!isConnected ? "Connect your wallet" : "Log in with wallet"}</h1>
-      <p className="py-10 sm:text-lg">
+      <p className="py-10 sm:text-lg mx-auto max-w-screen-sm">
         {!isConnected
           ? "Connect your wallet to view this page"
           : "Sign a message with your wallet to view this page"}
