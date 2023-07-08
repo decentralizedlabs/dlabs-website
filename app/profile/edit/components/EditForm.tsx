@@ -79,12 +79,11 @@ export default function EditForm() {
           required
         />
         <Input
-          label="Full address*"
+          label="Full address"
           value={formData.physicalAddress}
           onChange={handleSetPhysicalAddress}
           disabled={loading}
           placeholder="1234 Main St, New York, USA"
-          required
         />
         <Input
           label="VAT number"
