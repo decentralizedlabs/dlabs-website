@@ -8,7 +8,7 @@ import agora from "public/works/agora.png"
 import blunt from "public/works/blunt.png"
 import mte from "public/works/mte.png"
 import gh from "public/works/gh.png"
-import valorem from "public/works/valorem.png"
+import op from "public/works/op.png"
 // import dlabs from "public/og_image.png"
 
 const cardsList = [
@@ -21,17 +21,24 @@ const cardsList = [
   },
   {
     name: "Agora",
-    description: "Liquid delegation protocol for DAOs",
+    description: "The home of governance participants",
     type: "Protocol | Application",
     image: agora,
     url: "https://nounsagora.com"
   },
   {
-    name: "Valorem",
-    description: "Permissionless options strategies on digital assets",
-    type: "Protocol | Application",
-    image: valorem,
-    url: "https://app.valorem.xyz"
+    name: "Optimism governor",
+    description: "Onchain governance contracts for Optimism",
+    type: "Protocol | Smart contract",
+    image: op,
+    url: "https://github.com/voteagora/optimism-gov/"
+  },
+  {
+    name: "Alligator",
+    description: "Liquid delegation protocol for onchain governance",
+    type: "Protocol | Smart contract",
+    image: gh,
+    url: "https://github.com/voteagora/liquid-delegator/tree/main"
   },
   {
     name: "blunt",
@@ -41,19 +48,19 @@ const cardsList = [
     url: "https://blunt.fund"
   },
   {
-    name: "Merge to earn",
-    description: "Reward system for open source development",
-    type: "Github app",
-    image: mte,
-    url: "https://github.com/slice-so/merge-to-earn"
-  },
-  {
     name: "Uniswap Price Feed",
     description: "Price feed based on Uni V3 TWAP oracles",
     type: "Smart contract",
     image: gh,
     url: "https://github.com/slice-so/uniswap-v3-price-feed"
   }
+  // {
+  //   name: "Merge to earn",
+  //   description: "Reward system for open source development",
+  //   type: "Github app",
+  //   image: mte,
+  //   url: "https://github.com/slice-so/merge-to-earn"
+  // },
   // {
   //   name: "Slice subgraph",
   //   description: "Decentralized storage based on Slice on-chain events",
