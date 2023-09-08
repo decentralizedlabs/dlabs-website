@@ -24,7 +24,7 @@ export default function SmartContracts() {
       colorTo: "to-amber-300"
     },
     {
-      name: "Optimization",
+      name: "Gas optimization",
       description:
         "We push your contract's efficiency to the limit, minimizing operational costs and gas fees for your users.",
       subText: "1-2 optimizoors",
