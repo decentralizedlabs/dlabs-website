@@ -8,13 +8,13 @@ export default function Services() {
     {
       name: "Smart contract dev & audit",
       description:
-        "Our team has decades of experience in designing, optimizing, testing and auditing smart contracts.",
+        "Our team has combined decades of experience in designing, optimizing, testing and auditing smart contracts.",
       icon: Ethereum
     },
     {
       name: "Web & dApp development",
       description:
-        "We use cutting-edge frameworks and technologies to provide the best experience to your customers.",
+        "We use cutting-edge frameworks and technologies to provide the best experience to your users.",
       icon: Development
     },
     {
@@ -26,7 +26,7 @@ export default function Services() {
     {
       name: "Blockchain strategy",
       description:
-        "We provide custom strategy development for your project, with roadmaps for implementation and the identification of potential use cases.",
+        "We provide custom strategy development for your project, with roadmaps for implementation and exploration of potential use cases.",
       icon: Blockchain
     }
     // {
@@ -45,10 +45,10 @@ export default function Services() {
 
   return (
     <div>
-      <h2 className="custom-heading">Services</h2>
-      <p className="mt-2 text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">
+      <h1 className="custom-heading pb-2">Services</h1>
+      <h2 className="mt-2 text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">
         Not just devs, we&apos;re your partners
-      </p>
+      </h2>
       <p className="mt-6 text-lg leading-8 text-gray-400">
         We don&apos;t only get the job done, we set you up for success
       </p>

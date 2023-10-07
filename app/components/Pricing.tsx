@@ -23,7 +23,7 @@ const tiers = [
     href: "#",
     priceMonthly: 20,
     discount: 0.1,
-    description: "For small projects",
+    description: "For single projects",
     features: []
   },
   {
@@ -45,10 +45,10 @@ export default function Pricing() {
       </div>
       <div className="pt-32 overflow-hidden pb-96 lg:pt-40">
         <div className="relative mx-auto text-center max-w-7xl">
-          <h2 className="custom-heading">Credit packages</h2>
-          <p className="mt-2 text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">
+          <h1 className="custom-heading pb-2">Credit packages</h1>
+          <h2 className="mt-2 text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">
             Development that scales with you
-          </p>
+          </h2>
           <p className="mt-6 text-lg leading-8 opacity-60">
             Purchase packages to get credits, then spend them to get requests
             done
