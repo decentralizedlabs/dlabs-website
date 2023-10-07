@@ -29,6 +29,17 @@ export const constantsValues: {
       ProductsModule: "0x689Bba0e25c259b205ECe8e6152Ee1eAcF307f5F",
       SliceCore: "0x21da1b084175f95285B49b22C018889c45E1820d"
     },
+    8453: {
+      notionDbId: "da6f6e25366c45d6ad50b4ff2f06e7d8",
+      slicerId: 8,
+      slicerProducts: [
+        { productId: 1, value: 100 },
+        { productId: 2, value: 20 },
+        { productId: 3, value: 1 }
+      ],
+      ProductsModule: "0xb9d5B99d5D0fA04dD7eb2b0CD7753317C2ea1a84",
+      SliceCore: "0x5Cef0380cE0aD3DAEefef8bDb85dBDeD7965adf9"
+    },
     5: {
       notionDbId: "2900d1a37fdd405cbcc55b2ebd768e56",
       slicerId: 11,
@@ -47,5 +58,5 @@ export const envConstants: EnvConstants =
   constantsValues.env[process.env.NEXT_PUBLIC_CHAIN_ID!]
 
 export const slicerUrl = `https://${
-  process.env.NEXT_PUBLIC_CHAIN_ID === "5" ? "testnet." : "mainnet."
+  process.env.NEXT_PUBLIC_CHAIN_ID === "5" ? "testnet." : ""
 }slice.so/slicer/${envConstants.slicerId}`
