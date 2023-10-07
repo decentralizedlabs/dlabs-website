@@ -6,6 +6,8 @@ import SubmitDescription from "./SubmitDescription"
 import { Container } from "app/layout/components"
 import SubmitForm from "./SubmitForm"
 import { useAppContext } from "app/layout/context"
+import { accounts } from "app/layout/components/Social/Social"
+import { Button } from "@components/ui"
 
 export default function SubmitPage() {
   const { userData } = useAppContext()
@@ -26,17 +28,26 @@ export default function SubmitPage() {
         </div>
       ) : (
         <div className="space-y-8 text-center">
-          <h1>Job submitted</h1>
+          <h1>Request submitted</h1>
           <p>
-            Thank you, we&apos;ll be in touch soon to provide an estimate for
-            your request.
+            Thank you! We&apos;ll be back soon with a quote for your request.
           </p>
-          <a
-            className="inline-block font-bold highlight"
+          <p>
+            Meanwhile, you can{" "}
+            <a
+              href={accounts.discord}
+              target="_blank"
+              rel="noreferrer"
+              className="highlight font-bold"
+            >
+              join the dlabs discord
+            </a>{" "}
+            so we can keep in touch.
+          </p>
+          <Button
+            label="Submit a new request"
             onClick={() => setSuccess(false)}
-          >
-            Submit a new job
-          </a>
+          />
         </div>
       )}
     </Container>

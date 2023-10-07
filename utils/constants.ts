@@ -8,7 +8,7 @@ type EnvConstants = {
 
 export const constants = {
   template:
-    "https://pointed-canopy-f8d.notion.site/Job-Title-54eda4a6280542a98fb6f23ef6721261",
+    "https://pointed-canopy-f8d.notion.site/Request-Title-54eda4a6280542a98fb6f23ef6721261",
   ipfsGateway: "https://ipfs.io/ipfs/"
 }
 
@@ -47,5 +47,5 @@ export const envConstants: EnvConstants =
   constantsValues.env[process.env.NEXT_PUBLIC_CHAIN_ID!]
 
 export const slicerUrl = `https://${
-  process.env.NEXT_PUBLIC_CHAIN_ID === "5" ? "testnet." : ""
+  process.env.NEXT_PUBLIC_CHAIN_ID === "5" ? "testnet." : "mainnet."
 }slice.so/slicer/${envConstants.slicerId}`

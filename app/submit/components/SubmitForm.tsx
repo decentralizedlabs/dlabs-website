@@ -6,7 +6,7 @@ import { useAccount } from "wagmi"
 import { Button, CustomConnectButton, Input } from "@components/ui"
 import fetcher from "@utils/fetcher"
 import usePurchasedUnits from "@utils/usePurchasedUnits"
-import { slicerUrl } from "@utils/constants"
+import { constants, slicerUrl } from "@utils/constants"
 import getCreditsForRequest from "@utils/getCreditsForRequest"
 
 type Props = {
@@ -58,7 +58,21 @@ export default function SubmitForm({
         isRequiredDataFilled ? (
           <div className="space-y-12">
             <Input
-              label="Job link"
+              label="Request url"
+              helpText={
+                <>
+                  You can use{" "}
+                  <a
+                    href={constants.template}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="highlight"
+                  >
+                    this notion template
+                  </a>{" "}
+                  to fill in the details
+                </>
+              }
               value={link}
               onChange={handleSetLink}
               disabled={loading}
