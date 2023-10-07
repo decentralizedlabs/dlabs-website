@@ -19,39 +19,9 @@ export default function SubmitDescription({ isRequiredDataFilled }: Props) {
 
   return (
     <div className="prose text-left">
-      <ol>
-        {/* {availableUnits == 0 && (
-          <li>
-            Visit the{" "}
-            <a href={slicerUrl} target="_blank" rel="noreferrer">
-              dlabs store
-            </a>{" "}
-            to get{" "}
-            <span className="inline-block w-3 h-3 my-0">
-              <Logo />
-            </span>{" "}
-            credits
-          </li>
-        )} */}
-        <li>
-          Join the{" "}
-          <a href={accounts.discord} target="_blank" rel="noreferrer">
-            dlabs discord
-          </a>{" "}
-          so we can get in touch
-        </li>
-        <li>
-          Duplicate{" "}
-          <a href={constants.template} target="_blank" rel="noreferrer">
-            this template
-          </a>{" "}
-          and fill in the job details
-        </li>
-        <li>Enable sharing, paste the document link below and submit</li>
-      </ol>
       <p>
-        Once we receive your request, we&apos;ll provide an estimate for the job
-        and keep you updated on its progress.
+        Provide a link with details on your request, and we&apos;ll get back
+        with a quote right away.
       </p>
       {/* {creditsForRequest == 0 && (
         <div className="text-sm">

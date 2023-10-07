@@ -8,13 +8,13 @@ export default function Services() {
     {
       name: "Smart contract dev & audit",
       description:
-        "Our team has decades of experience in designing, optimizing, testing and auditing smart contracts.",
+        "Our team has combined decades of experience in designing, optimizing, testing and auditing smart contracts.",
       icon: Ethereum
     },
     {
       name: "Web & dApp development",
       description:
-        "We use cutting-edge frameworks and technologies to provide the best experience to your customers.",
+        "We use cutting-edge frameworks and technologies to provide the best experience to your users.",
       icon: Development
     },
     {
@@ -26,7 +26,7 @@ export default function Services() {
     {
       name: "Blockchain strategy",
       description:
-        "We provide custom strategy development for your project, with roadmaps for implementation and the identification of potential use cases.",
+        "We provide custom strategy development for your project, with roadmaps for implementation and exploration of potential use cases.",
       icon: Blockchain
     }
     // {

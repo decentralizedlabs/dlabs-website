@@ -74,9 +74,7 @@ export default function Input({
               )}
             </div>
             {helpText && (
-              <p className={`${question ? "pb-2" : ""} text-sm text-gray-400`}>
-                {helpText}
-              </p>
+              <p className="pb-2 pt-1 text-sm text-gray-400">{helpText}</p>
             )}
           </div>
         </>

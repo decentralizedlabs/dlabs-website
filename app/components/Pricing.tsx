@@ -23,7 +23,7 @@ const tiers = [
     href: "#",
     priceMonthly: 20,
     discount: 0.1,
-    description: "For small projects",
+    description: "For single projects",
     features: []
   },
   {
