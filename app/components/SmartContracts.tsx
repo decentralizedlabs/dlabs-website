@@ -15,7 +15,7 @@ export default function SmartContracts() {
     {
       name: "Architecture design",
       description:
-        "Whether starting from scratch or reviewing existing contracts, we ensure logic is optimal. This step also prepares your contract for audit, allowing the focus to be solely on security.",
+        "Design or review your smart contract logic from inception to deployment with our expert guidance. This step also prepares your contract for audit, allowing the focus to be solely on security.",
       subText: "1-2 devs, including a lead protocol engineer",
       backgroundColor: "from-amber-900/30",
       textColor: "text-amber-300",
@@ -49,8 +49,8 @@ export default function SmartContracts() {
 
   return (
     <div>
-      <p className="custom-heading">Smart contracts</p>
-      <h2 className="mt-2 text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">
+      <h1 className="custom-heading pb-2">Smart contracts</h1>
+      <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">
         From design to audit
       </h2>
       <p className="my-6 text-lg max-w-[560px] mx-auto leading-8 text-gray-400">
@@ -93,14 +93,14 @@ export default function SmartContracts() {
       </div>
 
       <div className="mt-28 mb-12 max-w-[680px] mx-auto">
-        <p className="custom-heading">Top quality, lowest costs</p>
+        <h1 className="custom-heading pb-2">Top quality, lowest costs</h1>
         <h2 className="mt-2 text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">
           Impact-based pricing
         </h2>
         <div className="space-y-6 mt-10 text-left leading-7">
           <p>
             With our clear pricing structure you pay only based on the impact of
-            the suggested improvements and vulnerabilities found.
+            the suggested improvements and found vulnerabilities .
           </p>
           <div>
             <p>
@@ -117,7 +117,7 @@ export default function SmartContracts() {
           <div>
             <p>
               <b className="text-yellow-300 pb-1 font-bold">Fee cap</b> — Never
-              exceed the agreed cap, based on protocol TVL or SLOCs
+              exceed the agreed cap, based on SLOCs or protocol value at risk
             </p>
           </div>
         </div>

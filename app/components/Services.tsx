@@ -45,10 +45,10 @@ export default function Services() {
 
   return (
     <div>
-      <h2 className="custom-heading">Services</h2>
-      <p className="mt-2 text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">
+      <h1 className="custom-heading pb-2">Services</h1>
+      <h2 className="mt-2 text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">
         Not just devs, we&apos;re your partners
-      </p>
+      </h2>
       <p className="mt-6 text-lg leading-8 text-gray-400">
         We don&apos;t only get the job done, we set you up for success
       </p>
