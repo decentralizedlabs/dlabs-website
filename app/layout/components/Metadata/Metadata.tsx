@@ -27,7 +27,7 @@ export const baseMetadata: Metadata = {
     creator: twitterAccount
   },
   robots: {
-    index: false,
+    index: true,
     follow: true,
     nocache: true,
     googleBot: {
