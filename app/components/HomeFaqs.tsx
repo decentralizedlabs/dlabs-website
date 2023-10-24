@@ -7,7 +7,7 @@ import Link from "next/link"
 export default function HomeFaqs() {
   return (
     <div>
-      <h1>FAQs</h1>
+      <h3>FAQs</h3>
 
       <ul className="max-w-screen-sm pt-12 mx-auto space-y-6 text-left">
         <CollapsibleItem

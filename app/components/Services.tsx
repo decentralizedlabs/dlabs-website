@@ -45,15 +45,15 @@ export default function Services() {
 
   return (
     <div>
-      <h1 className="custom-heading pb-2">Services</h1>
-      <h2 className="mt-2 text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">
+      <p className="pb-2 custom-heading">Services</p>
+      <p className="mt-2 text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">
         Not just devs, we&apos;re your partners
-      </h2>
+      </p>
       <p className="mt-6 text-lg leading-8 text-gray-400">
         We don&apos;t only get the job done, we set you up for success
       </p>
 
-      <div className="grid grid-cols-1 mt-12 sm:mt-20 text-left gap-y-8 md:grid-cols-2 md:gap-x-12 md:gap-y-16">
+      <div className="grid grid-cols-1 mt-12 text-left sm:mt-20 gap-y-8 md:grid-cols-2 md:gap-x-12 md:gap-y-16">
         {features.map((feature) => (
           <div
             key={feature.name}
@@ -63,12 +63,12 @@ export default function Services() {
               <feature.icon className="w-8 h-8" aria-hidden="true" />
             </div>
             <div className="sm:min-w-0 sm:flex-1">
-              <p className="text-lg font-semibold leading-8 text-white">
+              <h2 className="text-lg font-semibold leading-8 text-white">
                 {feature.name}
-              </p>
-              <p className="mt-2 text-sm leading-7 text-gray-300">
+              </h2>
+              <h3 className="mt-2 text-sm leading-7 text-gray-300">
                 {feature.description}
-              </p>
+              </h3>
             </div>
           </div>
         ))}

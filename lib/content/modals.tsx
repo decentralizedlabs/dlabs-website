@@ -14,7 +14,7 @@ export const NETWORK_VIEW = () => {
   return (
     <>
       <div className="text-center">
-        <h1 className="text-2xl sm:text-3xl">Pick the right chain</h1>
+        <h2 className="text-2xl sm:text-3xl">Pick the right chain</h2>
         <div className="py-8">
           <p>
             Connect to{" "}
