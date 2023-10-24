@@ -9,10 +9,12 @@ export default function Hero() {
         <HeroBackground />
       </div>
       <div className="pb-10 sm:pb-12">
-        <h1>dlabs</h1>
-        <p className="text-xl font-bold text-gray-400 sm:text-2xl">
-          On-demand web3 development
-        </p>
+        <h1>
+          dlabs{" "}
+          <span className="block text-xl font-bold text-gray-400 sm:text-2xl">
+            On-demand web3 development
+          </span>
+        </h1>
       </div>
       <Button label="See plans" href="#pricing" external targetBlank={false} />
       <Link

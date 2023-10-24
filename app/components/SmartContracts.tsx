@@ -49,16 +49,16 @@ export default function SmartContracts() {
 
   return (
     <div>
-      <h1 className="custom-heading pb-2">Smart contracts</h1>
-      <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">
+      <h2 className="pb-2 custom-heading">Smart contracts</h2>
+      <p className="text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">
         From design to audit
-      </h2>
+      </p>
       <p className="my-6 text-lg max-w-[560px] mx-auto leading-8 text-gray-400">
         Three packages suitable for any development stage, carried out by
         experienced solidity developers
       </p>
 
-      <div className="mt-20 text-left max-w-screen-md mx-auto">
+      <div className="max-w-screen-md mx-auto mt-20 text-left">
         {features.map((feature, i) => (
           <>
             <div
@@ -69,9 +69,9 @@ export default function SmartContracts() {
                 <h2 className={`text-xl leading-8 ${feature.textColor}`}>
                   {i + 1 + ". " + feature.name}
                 </h2>
-                <p className="mt-3 leading-6 text-gray-300 text-sm sm:text-base sm:leading-7">
+                <h3 className="mt-3 text-sm leading-6 text-gray-300 sm:text-base sm:leading-7">
                   {feature.description}
-                </p>
+                </h3>
               </div>
               <p
                 className={`text-gray-400 text-sm absolute text-right top-[100%] ${
@@ -93,30 +93,30 @@ export default function SmartContracts() {
       </div>
 
       <div className="mt-28 mb-12 max-w-[680px] mx-auto">
-        <h1 className="custom-heading pb-2">Top quality, lowest costs</h1>
-        <h2 className="mt-2 text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">
+        <h4 className="pb-2 custom-heading">Top quality, lowest costs</h4>
+        <h5 className="mt-2 text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">
           Impact-based pricing
-        </h2>
-        <div className="space-y-6 mt-10 text-left leading-7">
+        </h5>
+        <div className="mt-10 space-y-6 leading-7 text-left">
           <p>
             With our clear pricing structure you pay only based on the impact of
             the suggested improvements and found vulnerabilities .
           </p>
           <div>
             <p>
-              <b className="text-yellow-300 pb-1 font-bold">Flat fee</b> —
+              <b className="pb-1 font-bold text-yellow-300">Flat fee</b> —
               Covers project overhead, based on SLOCs and complexity
             </p>
           </div>
           <div>
             <p>
-              <b className="text-yellow-300 pb-1 font-bold">Impact fee</b> —
+              <b className="pb-1 font-bold text-yellow-300">Impact fee</b> —
               Based on discovered improvements / vulnerabilities
             </p>
           </div>
           <div>
             <p>
-              <b className="text-yellow-300 pb-1 font-bold">Fee cap</b> — Never
+              <b className="pb-1 font-bold text-yellow-300">Fee cap</b> — Never
               exceed the agreed cap, based on SLOCs or protocol value at risk
             </p>
           </div>
@@ -131,9 +131,9 @@ export default function SmartContracts() {
         />
       </div>
 
-      <div className="my-20 max-w-screen-sm mx-auto">
-        <h2 className="custom-heading text-gray-400">Trusted by</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-4 mx-4 sm:mx-0 gap-x-12 gap-y-12 opacity-40 pt-10">
+      <div className="max-w-screen-sm mx-auto my-20">
+        <p className="text-gray-400 custom-heading">Trusted by</p>
+        <div className="grid grid-cols-2 pt-10 mx-4 sm:grid-cols-4 sm:mx-0 gap-x-12 gap-y-12 opacity-40">
           <div className="max-w-[140px] mx-auto mt-0.5">
             <Optimism />
           </div>

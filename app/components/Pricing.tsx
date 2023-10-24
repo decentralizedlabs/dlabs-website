@@ -45,10 +45,10 @@ export default function Pricing() {
       </div>
       <div className="pt-32 overflow-hidden pb-96 lg:pt-40">
         <div className="relative mx-auto text-center max-w-7xl">
-          <h1 className="custom-heading pb-2">Credit packages</h1>
-          <h2 className="mt-2 text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">
+          <p className="pb-2 custom-heading">Credit packages</p>
+          <h3 className="mt-2 text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">
             Development that scales with you
-          </h2>
+          </h3>
           <p className="mt-6 text-lg leading-8 opacity-60">
             Purchase packages to get credits, then spend them to get requests
             done
@@ -65,12 +65,12 @@ export default function Pricing() {
                   className="relative flex flex-col rounded-md shadow-xl bg-black/50 backdrop-blur-xl ring-1 ring-yellow-300/60"
                 >
                   <div className="flex flex-col h-full p-6 sm:p-10">
-                    <h3
+                    <p
                       className="text-lg font-bold leading-8 tracking-tight text-yellow-300"
                       id={tier.id}
                     >
                       {tier.name}
-                    </h3>
+                    </p>
                     <div className="relative">
                       <p className="mt-5 text-3xl font-bold sm:text-4xl">
                         $
