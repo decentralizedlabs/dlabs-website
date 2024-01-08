@@ -8,10 +8,10 @@ export default function Hero() {
       <div className="absolute top-0 -z-10 left-1/2 w-[1280px] -translate-x-1/2">
         <HeroBackground />
       </div>
-      <div className="pb-10 sm:pb-12">
+      <div className="pb-8 sm:pb-10">
         <h1>
           dlabs{" "}
-          <span className="block text-xl font-bold text-gray-400 sm:text-2xl">
+          <span className="block text-xl font-bold text-gray-400 sm:text-2xl pt-4 sm:pt-6">
             On-demand web3 development
           </span>
         </h1>

@@ -13,7 +13,7 @@ export default function Navbar() {
       <Container>
         <nav className="relative sm:px-6 h-[4.25rem] items-center mx-auto flex justify-between">
           <div className="flex items-center space-x-7 sm:space-x-10">
-            <Link href="/" className="w-6 h-6" aria-label={`${appName} logo`}>
+            <Link href="/" className="w-5 h-5" aria-label={`${appName} logo`}>
               <Logo />
             </Link>
           </div>
