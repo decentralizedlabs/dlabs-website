@@ -1,4 +1,5 @@
 import { Chain } from "wagmi"
+import { networkUrl } from "./alchemy"
 
 export const base = {
   id: 8453,
@@ -10,8 +11,8 @@ export const base = {
     symbol: "ETH"
   },
   rpcUrls: {
-    public: { http: [process.env.NEXT_PUBLIC_NETWORK_URL!] },
-    default: { http: [process.env.NEXT_PUBLIC_NETWORK_URL!] }
+    public: { http: [networkUrl()] },
+    default: { http: [networkUrl()] }
   },
   blockExplorers: {
     etherscan: { name: "BaseScan", url: "https://basescan.org/" },

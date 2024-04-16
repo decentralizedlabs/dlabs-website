@@ -8,9 +8,9 @@ import { publicProvider } from "wagmi/providers/public"
 import { createConfig, configureChains, WagmiConfig, mainnet } from "wagmi"
 import { goerli } from "viem/chains"
 import { base } from "@utils/chains"
+import { alchemyId } from "@utils/alchemy"
 
 const env = String(process.env.NEXT_PUBLIC_ENV)
-const alchemyId = String(process.env.NEXT_PUBLIC_ALCHEMY_ID)
 
 const customChains = [env === "goerli" ? goerli : base]
 const { chains, publicClient } = configureChains(customChains, [
