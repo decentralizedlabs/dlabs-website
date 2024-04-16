@@ -16,6 +16,7 @@ import { configureChains, createConfig, mainnet, readContracts } from "wagmi"
 import { alchemyProvider } from "wagmi/providers/alchemy"
 import { publicProvider } from "wagmi/providers/public"
 import { goerli } from "viem/chains"
+import { alchemyId } from "@utils/alchemy"
 
 export default async function handler(
   req: NextApiRequest,
@@ -26,7 +27,6 @@ export default async function handler(
       const { address, link, creditsForRequest } = JSON.parse(req.body)
 
       const env = String(process.env.NEXT_PUBLIC_ENV)
-      const alchemyId = String(process.env.NEXT_PUBLIC_ALCHEMY_ID)
 
       const customChains = [env === "goerli" ? goerli : mainnet]
       const { publicClient, webSocketPublicClient } = configureChains(
